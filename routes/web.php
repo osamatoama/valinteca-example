@@ -27,15 +27,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 use robertogallea\LaravelPython\Services\LaravelPython;
 
 Route::get('/', function () {
 
-
-
-
+    return "<h1>Hello Valinteca</h1>";
 });
 
 Route::get('/power-bi', function () {
@@ -50,9 +46,9 @@ Route::get('/python/{file}', function ($file) {
     $result = $service->run(base_path('python/glizer.py'));
 
     dd($result);
-//  php artisan python:run ./python/glizer.py  ""
-//    $parameters = array('par1', 'par2');
-//    $result = $service->run('/path/to/script.py', $parameters);
+    //  php artisan python:run ./python/glizer.py  ""
+    //    $parameters = array('par1', 'par2');
+    //    $result = $service->run('/path/to/script.py', $parameters);
 
 });
 
