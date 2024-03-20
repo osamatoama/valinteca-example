@@ -17,7 +17,7 @@ class CreateEmailsTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('password');
-
+            $table->dateTime('blocked_to')->nullable();
             $table->timestamps();
         });
     }

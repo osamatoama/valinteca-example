@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCodesTable extends Migration
+class CreatePlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('codes', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 120);
-            $table->boolean('redeemed')->default(false);
+            $table->string('player_id');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('codes');
+        Schema::dropIfExists('players');
     }
 }
