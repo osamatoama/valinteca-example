@@ -29,7 +29,7 @@ Route::any('abaya/rating/store', function (Request $request) {
 Route::get('code', function (Request $request) {
     $player = Player::inRandomOrder()->first();
     $code = Code::where('redeemed', 0)->inRandomOrder()->first();
-    $email = Email::inRandomOrder()->first();
+    $email = Email::where('blocked_to', '<', now())->inRandomOrder()->first();
 
     return response()->json([
         'player_id' => $player->player_id,
@@ -53,6 +53,9 @@ Route::post('redeem-code', function (Request $request) {
     if ($request->has('code')) {
         Code::where('code', $request->input('code'))->update([
             'redeemed' => 1,
+        ]);
+        Email::where('username', $request->input('email'))->update([
+            'blocked_to' => now()->addMinutes(30),
         ]);
     }
 

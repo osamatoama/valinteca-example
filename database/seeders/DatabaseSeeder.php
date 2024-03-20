@@ -249,8 +249,5 @@ class DatabaseSeeder extends Seeder
             'password' => 'Youcan12@',
         ]);
 
-
-
-
     }
 }
