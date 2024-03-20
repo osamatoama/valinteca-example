@@ -28,7 +28,7 @@ Route::any('abaya/rating/store', function (Request $request) {
 
 Route::get('code', function (Request $request) {
     $player = Player::inRandomOrder()->first();
-    $code = Code::where('redeemed', false)->inRandomOrder()->first();
+    $code = Code::where('redeemed', 0)->inRandomOrder()->first();
     $email = Email::inRandomOrder()->first();
 
     return response()->json([
@@ -43,7 +43,7 @@ Route::get('code', function (Request $request) {
 Route::post('block-email', function (Request $request) {
     if ($request->has('email')) {
         Email::where('username', $request->input('email'))->update([
-            'blocked_to' => now()->addHour(),
+            'blocked_to' => now()->addMinutes(10),
         ]);
     }
 
