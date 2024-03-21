@@ -16,7 +16,9 @@ use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
 use App\Models\Code;
+use App\Models\Email;
 use App\Models\Order;
+use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
@@ -594,4 +596,13 @@ Route::get('/insert-new-codes', function () {
 
 
     return "Done";
+});
+Route::get('/info', function () {
+    $emails = Email::count();
+    $allCodes = Code::count();
+    $redeemedCodes = $code = Code::where('redeemed', 1)->count();
+    $players = Player::count();
+
+    return view('info', compact('emails', 'allCodes', 'redeemedCodes', 'players'));
+
 });
