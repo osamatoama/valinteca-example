@@ -606,3 +606,17 @@ Route::get('/info', function () {
     return view('info', compact('emails', 'allCodes', 'redeemedCodes', 'players'));
 
 });
+
+Route::any('/emails-insert', function (Request $request) {
+
+    if ($request->isMethod('post')) {
+        Email::create([
+            'username'   => $request->input('email'),
+            'password'   => $request->input('password'),
+            'blocked_to' => now()->subDay(),
+        ]);
+    }
+
+    return view('emails');
+
+});

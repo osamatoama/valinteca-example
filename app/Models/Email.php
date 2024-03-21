@@ -11,5 +11,5 @@ class Email extends Model
     use HasFactory;
 
 
-    protected $fillable = ['username', 'password'];
+    protected $fillable = ['username', 'password','blocked_to'];
 }
