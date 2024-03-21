@@ -15,5 +15,10 @@
 <h1>redeemed Codes: {{$redeemedCodes}}</h1>
 <h1>emails: {{$emails}}</h1>
 
+<script>
+    setTimeout(function () {
+        window.location.reload()
+    }, 10000);
+</script>
 </body>
 </html>
