@@ -43,7 +43,7 @@ Route::get('code', function (Request $request) {
 Route::post('block-email', function (Request $request) {
     if ($request->has('email')) {
         Email::where('username', $request->input('email'))->update([
-            'blocked_to' => now()->addMinutes(55),
+            'blocked_to' => now()->addHour(),
         ]);
     }
 
@@ -55,7 +55,7 @@ Route::post('redeem-code', function (Request $request) {
             'redeemed' => 1,
         ]);
         Email::where('username', $request->input('email'))->update([
-            'blocked_to' => now()->addMinutes(30),
+            'blocked_to' => now()->addMinutes(15),
         ]);
     }
 

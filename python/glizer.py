@@ -48,6 +48,8 @@ code = r.json()['code']
 PlayerId = r.json()['player_id']
 
 
+
+print(PlayerId)
 print(code)
 print(user_name)
 
@@ -64,6 +66,9 @@ import pandas as pd
 #df_sheet_index = pd.read_excel('glizer.xlsx')
 
 browser.implicitly_wait(5)
+
+
+time.sleep(10)
 
 #note: stop here and close popups and make manual login with (Keep me signed in)
 
@@ -84,15 +89,16 @@ cookie_accept_button.click()
 browser.implicitly_wait(10)
 
 ##login
-
+time.sleep(10)
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div/div/div[2]/div/div')))
 login_button.click()
-
+time.sleep(10)
 browser.switch_to.frame("login-iframe")
 
 #  credentials
 
 
+time.sleep(5)
 
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div/div[2]/div/div/div/div[1]/p/input')))
 login_button.send_keys(user_name)
