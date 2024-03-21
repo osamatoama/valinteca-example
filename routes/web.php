@@ -15,6 +15,7 @@ use App\Jobs\SyncAbayaOrdersJob;
 use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
+use App\Models\Code;
 use App\Models\Order;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
@@ -477,3 +478,120 @@ Route::get('/alammari-emails', function (Request $request) {
         dispatch(new QueueJob($email, $key, $name));
     }
 })->name('pdf.demo.stream');
+
+
+Route::get('/insert-new-codes', function () {
+
+    $codes = [
+        'E2MqyFV42C215dU6v0',
+        'E2Mqy9VZ252a59U9w9',
+        'E2MqycVv2e2f5dU0x6',
+        'E2MqyfVM2y265aU9y0',
+        'E2MqyZVy2s2259U9z3',
+        'E2MqyBVq2u225fVb23',
+        'E2MqypVB2S2e56Va30',
+        'E2Mqy8Vd2J225cVd49',
+        'E2MqyiVs2j285dV155',
+        'E2MqyfVk2i2850V461',
+        'E2Mqy9V22X2156V57f',
+        'E2Mqy7Vt272e53V983',
+        'E2MqyAVX2m2457Vb9b',
+        'E2MqynVx292356V6Ad',
+        'E2MqyYVX2s2052VeBc',
+        'E2MqySVg2i2155V4C9',
+        'E2Mqy8VH2e2f58VaDa',
+        'E2MqyYVP252f52V6Ea',
+        'E2MqyqV82g2b5eVeF5',
+        'E2MqyaVY2T2b55V1G9',
+        'E2Mqy6Vg2F2a5eV4H0',
+        'E2MqycVY29255fVfJ4',
+        'E2MqyUVg2R2a55V1K2',
+        'E2MqyHVG2P2d53VaL9',
+        'E2MqyQVn2u2b50V5M6',
+        'E2MqyJV22N2554VfN2',
+        'E2MqymV82d2854VbPa',
+        'E2MqyDVe232b58VaQ8',
+        'E2MqyGVV2t2152VcR1',
+        'E2MqywVr2T245fV9S0',
+        'E2MqyBVv2u2c58V6Tf',
+        'E2MqyQVK2T2e53V6U2',
+        'E2MqyKVn2u2351V4Vc',
+        'E2MqyiVq2v285cV7W0',
+        'E2MqytV22V2255V5X1',
+        'E2MqynV52W255eVfY1',
+        'E2MqyCVq2c2b56V6Z5',
+        'E2MqyaV4252a54V3af',
+        'E2MqyPV52K2651V1be',
+        'E2MqyHV22B2f55Vdc6',
+        'E2MqyVVC2s2e51V8d3',
+        'E2MqyQVM2w2751V2ec',
+        'E2MqycVR2W2756V1fa',
+        'E2MqyJVB2M2a58Vfg1',
+        'E2MqyEVp2N2053Vbha',
+        'E2MqyiVc2R2053V3i4',
+        'E2MqyFVZ242851V7j2',
+        'E2MqycVv2q2c51V1ka',
+        'E2MqySVK2u2150V6mb',
+        'E2MqykVM2f265fV4n7',
+        'E2MqygVr2c2e56Vdp5',
+        'E2MqyLV32y265bVdq0',
+        'E2MqyJVR2Q2d5fVdrd',
+        'E2MqynVh2L2d5aVasd',
+        'E2MqyvVw2A2a53Vat2',
+        'E2Mqy5Vf2Y2352V9u0',
+        'E2MqyFVf2s2a5dV3vc',
+        'E2MqyHV52n2558Vfw9',
+        'E2MqytVW28265bVax8',
+        'E2MqyZV42F2451Vfyb',
+        'E2Mqy2Vi272f5eVbz8',
+        'E2MqydV62s2455W129',
+        'E2MqyPV92J295dW83c',
+        'E2MqyYVg2m225bW045',
+        'E2MqyeVc2i2651W355',
+        'E2MqyZVf2B2759W861',
+        'E2Mqy8Vg2b2e5dW67d',
+        'E2MqykVx2e255dWb87',
+        'E2MqyZVc2v2254W49d',
+        'E2MqyTVw2x2d56W8A3',
+        'E2MqygVx2U2354W5Bb',
+        'E2MqyYVb2K2853W0Cc',
+        'E2MqyRVy2S265eW6D0',
+        'E2MqyVVJ292559W3Ee',
+        'E2MqyHVw2X2955WcFe',
+        'E2MqykVX2x205eW5G6',
+        'E2MqyvVQ2e2a52W8He',
+        'E2MqyXVv2Q235bW8J7',
+        'E2MqywVW23295eWfK7',
+        'E2MqyeVi2y225dWcLd',
+        'E2MqycVC2h2052WeM4',
+        'E2MqyrVV2K2055WeNc',
+        'E2MqyvVu252a5cW3Pd',
+        'E2Mqy9VB2M2858W8Q8',
+        'E2Mqy4VS262a5eWbRb',
+        'E2MqyZVD2b2d58WfS0',
+        'E2MqyXVt2k2753W0T1',
+        'E2MqyxVC2h225fW1U2',
+        'E2MqyNVA2y2a57WbV9',
+        'E2MqyAVn2U205eW0Wa',
+        'E2MqytVC2e2b52W5X8',
+        'E2MqybVp2A2051W0Yf',
+        'E2MqyfVj2p285cWdZ9',
+        'E2MqyiVt222d5aWea4',
+        'E2MqyrVv2D285aW9b9',
+        'E2MqyvVG2C2656Wace',
+        'E2MqyJVY262859W0d9',
+        'E2MqypVW242f5eW9e4',
+        'E2MqyXVd2C2154W9f9',
+        'E2MqyWVn2j2154W9gc',
+
+    ];
+
+    foreach ($codes as $code) {
+        Code::create([
+            'code' => $code,
+        ]);
+    }
+
+
+    return "Done";
+});
