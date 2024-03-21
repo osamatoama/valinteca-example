@@ -43,7 +43,7 @@ Route::get('code', function (Request $request) {
 Route::post('block-email', function (Request $request) {
     if ($request->has('email')) {
         Email::where('username', $request->input('email'))->update([
-            'blocked_to' => now()->addMinutes(10),
+            'blocked_to' => now()->addMinutes(55),
         ]);
     }
 

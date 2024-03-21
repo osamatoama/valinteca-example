@@ -26,10 +26,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
 #install extentions
-executable_path = "./AdBlock.crx"
-os.environ["webdriver.chrome.driver"] = executable_path
+
+
+executable_path = os.getcwd() + "\\AdBlock.crx"
+#os.environ["webdriver.chrome.driver"] = executable_path
 chrome_options = Options()
-chrome_options.add_extension('AdBlock.crx')
+#chrome_options.add_extension('AdBlock.crx')
 # chrome_options.add_extension('xPath-Finder.crx')
 
 #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
@@ -38,9 +40,6 @@ chrome_options.add_extension('AdBlock.crx')
 headers={"Content-Type":"application/json", "Accept":"application/json"}
 
 r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
-
-print()
-
 
 user_name = r.json()['email']
 password = r.json()['password']
@@ -110,6 +109,7 @@ login_button.click()
 browser.implicitly_wait(10)
 
 
+time.sleep(5)
 
 #webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
 #browser.get(webpage)
