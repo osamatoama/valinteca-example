@@ -11,7 +11,7 @@
 
 
 <h1>players: {{$players}}</h1>
-<h1>all codes: {{$codea}}</h1>
+<h1>all codes: {{$allCodes}}</h1>
 <h1>redeemed Codes: {{$redeemedCodes}}</h1>
 <h1>emails: {{$emails}}</h1>
 
