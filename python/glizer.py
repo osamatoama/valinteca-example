@@ -37,10 +37,16 @@ chrome_options = Options()
 #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
 
 
-headers={"Content-Type":"application/json", "Accept":"application/json"}
+headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
 
-r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
+r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
 
+if(r.json()['success'] == False):
+    print(r.json())
+    exit()
+
+
+print(r.json())
 user_name = r.json()['email']
 password = r.json()['password']
 
@@ -49,9 +55,7 @@ PlayerId = r.json()['player_id']
 
 
 
-print(PlayerId)
-print(code)
-print(user_name)
+
 
 
 #chrome_options=chrome_options  for extentions
@@ -168,10 +172,10 @@ try:
     Redeem_successfuly_ok.click()
     # success
 
-    requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name}, headers=headers)
+    requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "status": "redeemed"}, headers=headers)
     print("Success")
 except TimeoutException:
-    requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
+    requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
 
     print("exception handled")
     # error
