@@ -12,7 +12,7 @@
     @csrf
 
     <input type="email" name="email" placeholder="email" required>
-    <input type="text" name="password" placeholder="password" required>
+    <input type="text" name="password" placeholder="password" required value="_lCU5V7L07,8w4X">
 
     <input type="submit">
 </form>
