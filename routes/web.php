@@ -620,3 +620,16 @@ Route::any('/emails-insert', function (Request $request) {
     return view('emails');
 
 });
+
+
+Route::any('/block-email/{email}', function ($email) {
+
+
+        Email::where('email', $email)->update([
+            'blocked_to' => now()->addHour(),
+        ]);
+
+    return "Done";
+
+});
+
