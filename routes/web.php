@@ -625,7 +625,7 @@ Route::any('/emails-insert', function (Request $request) {
 Route::any('/block-email/{email}', function ($email) {
 
 
-        Email::where('email', $email)->update([
+        Email::where('username', $email)->update([
             'blocked_to' => now()->addHour(),
         ]);
 
