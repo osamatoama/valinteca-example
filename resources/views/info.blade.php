@@ -10,6 +10,11 @@
         .container  {
             display: flex;
             justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 50px;
         }
     </style>
 </head>
