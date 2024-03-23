@@ -32,6 +32,7 @@ Route::get('code', function (Request $request) {
     $email = Email::where('blocked_to', '<', now())->inRandomOrder()->first();
 
     return response()->json([
+        'success' => true,
         'player_id' => $player->player_id,
         'code'      => $code->code,
         'email'     => $email->username,
