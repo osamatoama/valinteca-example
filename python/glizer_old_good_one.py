@@ -172,8 +172,8 @@ try:
     Redeem_successfuly_ok.click()
     # success
 
-    requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "status": "redeemed", "email": email}, headers=headers)
-    print("Success")
+    requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "status": "redeemed", "email": user_name}, headers=headers)
+    print("Success old")
 except TimeoutException:
     requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
 

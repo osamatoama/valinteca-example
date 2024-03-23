@@ -6,18 +6,26 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Info</title>
+    <style>
+        .container  {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
 </head>
 <body>
 
 
-<h1>players: {{$players}}</h1>
-<h1>all codes: {{$allCodes}}</h1>
-<h1>redeemed Codes: {{$redeemedCodes}}</h1>
-<h1>emails: {{$emails}}</h1>
+<div class="container">
+    <h1>emails: {{$emails}}</h1>
+    <h1>all codes: {{$allCodes}}</h1>
+    <h1>redeemed Codes By Bot: {{$redeemedCodes}}</h1>
+    <h1>income: {{$redeemedCodes / 2}} SAR</h1>
+</div>
 
 <script>
     setTimeout(function () {
-        window.location.reload()
+       window.location.reload()
     }, 10000);
 </script>
 </body>
