@@ -9,9 +9,9 @@
     <style>
         .container  {
             display: flex;
-            justify-content: space-around;
             align-items: center;
             height: 100vh;
+            flex-direction: column;
         }
         h1 {
             font-size: 50px;
