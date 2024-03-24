@@ -35,7 +35,9 @@ try:
     headers={"Content-Type":"application/json", "Accept":"application/json"}
 
     r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
-
+    if(r.json()['success'] == False):
+        print(r.json())
+        exit()
     user_name = r.json()['email']
     password = r.json()['password']
 
