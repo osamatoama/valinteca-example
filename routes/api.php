@@ -31,6 +31,12 @@ Route::get('code', function (Request $request) {
     $code = Code::where('redeemed', 0)->inRandomOrder()->first();
     $email = Email::where('blocked_to', '<', now())->inRandomOrder()->first();
 
+    if(blank($code)) {
+        return response()->json([
+            'success' => false,
+
+        ]);
+    }
     return response()->json([
         'success' => true,
         'player_id' => $player->player_id,
