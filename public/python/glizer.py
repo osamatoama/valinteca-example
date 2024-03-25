@@ -34,7 +34,7 @@ try:
 
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
 
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
+    r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
     if(r.json()['success'] == False):
         print(r.json())
         exit()
@@ -143,7 +143,7 @@ try:
     try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
-        requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+        requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
         print("Success New ")
     except:
         time.sleep(10)
@@ -160,7 +160,7 @@ try:
 except Exception as error:
     #requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
     print("An exception occurred:", error) # An exception occurred:
-    requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
+    # requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
 
     print("CODE HAS NOT REDEEMED")
 
