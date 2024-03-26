@@ -1,5 +1,5 @@
 
-#version glizer - Stable version V24.03.23.2
+#version glizer - Stable version V24.03.23.4
 #install these libs
 #pip install selenium==4.9.0 #
 #pip install webdriver-manager #
@@ -16,19 +16,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import TimeoutException
-
 import time
-
 import os
 from selenium.webdriver.chrome.options import Options
 import requests
 
-
-
-
 try:
     #install extentions
-
     #executable_path = os.getcwd() + "\\AdBlock.crx"
     #os.environ["webdriver.chrome.driver"] = executable_path
     chrome_options = Options()
@@ -38,10 +32,12 @@ try:
     #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
 
 
-    headers={"Content-Type":"application/json", "Accept":"application/json"}
+    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
 
     r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
-
+    if(r.json()['success'] == False):
+        print(r.json())
+        exit()
     user_name = r.json()['email']
     password = r.json()['password']
 
@@ -142,30 +138,44 @@ try:
 
     time.sleep(20)
 
+
+
     try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
+        requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+        print("Success New ")
     except:
-
         time.sleep(10)
-except:
+
+    try:
+        time.sleep(5)
+        Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[5]/div/div/div/div')))
+        if Redemption_code_submit.text == 'verify comfirm' :
+            requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
+            print("block-email")
+    except:
+        time.sleep(10)
+
+except Exception as error:
+    #requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
+    print("An exception occurred:", error) # An exception occurred:
+    # requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
+
     print("CODE HAS NOT REDEEMED")
-    requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
+
+######################################################
+
 try:
 
     Redeem_successfuly_ok = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[3]/div[3]/div/div[3]/div/div/div/div/div')))
-    Redeem_successfuly_ok.click()
-    # success
+    if Redeem_successfuly_ok.text == 'OK' :
+        print("Success ok")
 
-    requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name}, headers=headers)
-    print("Success")
-except:
-    requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
-    print("block-email")
+except Exception as error:
+    print("An exception occurred:", error) #
 
     # error
 
-
-
+time.sleep(5)
 browser.quit()
-
