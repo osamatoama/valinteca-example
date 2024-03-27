@@ -25,6 +25,7 @@ use App\Models\Rating;
 use App\Services\SallaWebhookService;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -38,15 +39,15 @@ Route::get('/', function () {
 });
 
 Route::get('migrate', function () {
-    \Illuminate\Support\Facades\Artisan::call('migrate');
+    Artisan::call('migrate');
 
-    return \Illuminate\Support\Facades\Artisan::output();
+    return Artisan::output();
 });
 
 Route::get('seed/{seeder}', function ($seeder) {
-    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--class' => $seeder]);
+    Artisan::call('db:seed', ['--class' => $seeder]);
 
-    return \Illuminate\Support\Facades\Artisan::output();
+    return Artisan::output();
 });
 
 Route::get('/power-bi', function () {
