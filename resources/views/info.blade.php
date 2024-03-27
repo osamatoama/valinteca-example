@@ -13,9 +13,7 @@
             height: 100vh;
             flex-direction: column;
         }
-        h1 {
-            font-size: 50px;
-        }
+
     </style>
 </head>
 <body>
