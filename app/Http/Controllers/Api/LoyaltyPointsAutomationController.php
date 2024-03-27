@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\LoyaltyPointsAutomation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 
 class LoyaltyPointsAutomationController extends Controller
@@ -27,7 +28,7 @@ class LoyaltyPointsAutomationController extends Controller
 
     public function update(Request $request)
     {
-        LoyaltyPointsAutomation::query()->where('day', $request->input('day'))->update([
+        LoyaltyPointsAutomation::query()->where('day', Carbon::parse($request->input('day')))->update([
             'page' => $request->input('page'),
             'is_done' => $request->boolean('is_done'),
         ]);
