@@ -73,4 +73,5 @@ Route::prefix('loyalty-points-automation')->group(function () {
     Route::get('/', [LoyaltyPointsAutomationController::class, 'index']);
     Route::put('/', [LoyaltyPointsAutomationController::class, 'update']);
     Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
+    Route::get('all', [LoyaltyPointsAutomationController::class, 'all']);
 });

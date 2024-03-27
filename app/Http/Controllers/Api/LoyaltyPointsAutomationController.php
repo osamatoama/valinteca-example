@@ -45,4 +45,9 @@ class LoyaltyPointsAutomationController extends Controller
             'message' => Artisan::output(),
         ]);
     }
+
+    public function all()
+    {
+        return LoyaltyPointsAutomation::query()->oldest('id')->get();
+    }
 }
