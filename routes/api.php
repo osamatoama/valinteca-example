@@ -76,7 +76,7 @@ Route::get('loyalty-points-automation', function () {
     if ($log !== null) {
         $day = $log->day->format('d-m-Y');
         $page = $log->page + 1;
-        $url = "https://s.salla.sa/customers?created_after={$day}&created_before={$day}?page={$page}";
+        $url = 'https://s.salla.sa/customers?' . http_build_query(['created_after' => $day, 'created_before' => $day, 'page' => $page]);
     }
 
     return response()->json([
