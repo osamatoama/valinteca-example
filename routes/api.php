@@ -1,9 +1,9 @@
 <?php
 
 
+use App\Http\Controllers\Api\LoyaltyPointsAutomationController;
 use App\Models\Code;
 use App\Models\Email;
-use App\Models\LoyaltyPointsAutomation;
 use App\Models\Player;
 use App\Models\Rating;
 use Illuminate\Http\Request;
@@ -69,27 +69,8 @@ Route::post('redeem-code', function (Request $request) {
 
 });
 
-Route::get('loyalty-points-automation', function () {
-    $log = LoyaltyPointsAutomation::query()->where('is_done', false)->oldest('id')->first();
-    $url = null;
-
-    if ($log !== null) {
-        $day = $log->day->format('d-m-Y');
-        $page = $log->page + 1;
-        $url = 'https://s.salla.sa/customers?' . http_build_query(['groups[]' => 83008794, 'created_after' => $day, 'created_before' => $day, 'page' => $page]);
-    }
-
-    return response()->json([
-        'url' => $url,
-    ]);
-});
-
-Route::post('loyalty-points-automation', function (Request $request) {
-    $isDone = $request->boolean('is_done');
-    LoyaltyPointsAutomation::query()->where('day', $request->input('day'))->update([
-        'page' => $isDone ? $request->input('page') : $request->input('page') + 1,
-        'is_done' => $isDone,
-    ]);
-
-    return response()->noContent();
+Route::prefix('')->group(function () {
+    Route::get('/', [LoyaltyPointsAutomationController::class, 'index']);
+    Route::put('/', [LoyaltyPointsAutomationController::class, 'update']);
+    Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
 });
