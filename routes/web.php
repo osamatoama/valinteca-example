@@ -25,6 +25,7 @@ use App\Models\Rating;
 use App\Services\SallaWebhookService;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,18 @@ use robertogallea\LaravelPython\Services\LaravelPython;
 Route::get('/', function () {
 
     return "<h1>Hello Valinteca</h1>";
+});
+
+Route::get('migrate', function () {
+    Artisan::call('migrate');
+
+    return Artisan::output();
+});
+
+Route::get('seed/{seeder}', function ($seeder) {
+    Artisan::call('db:seed', ['--class' => $seeder]);
+
+    return Artisan::output();
 });
 
 Route::get('/power-bi', function () {
@@ -59,28 +72,28 @@ Route::get('/python/{file}', function ($file) {
 Route::any('detect-theme', function (Request $request) {
     $sallaClassMap = [
         'salla-1298199463' => 'رائد',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
+        '' => '',
         'salla-2046553023' => 'عطاء',
-        'salla-246711701'  => 'بوتيك',
+        'salla-246711701' => 'بوتيك',
 
-        'salla-773200552'  => 'فخامة',
-        'salla-5541564'    => 'كليك',
-        'salla-213071771'  => 'يافا',
-        'salla-73130640'   => 'عالي',
-        'salla-349994915'  => 'وسام',
+        'salla-773200552' => 'فخامة',
+        'salla-5541564' => 'كليك',
+        'salla-213071771' => 'يافا',
+        'salla-73130640' => 'عالي',
+        'salla-349994915' => 'وسام',
         'salla-1130931637' => 'ملاك',
-        'salla-989286562'  => 'فريد',
+        'salla-989286562' => 'فريد',
 
-        'salla-632105401'  => 'سيليا',
-        'salla-880152961'  => 'اكاسيا',
-        'salla-388819608'  => 'الكترون',
+        'salla-632105401' => 'سيليا',
+        'salla-880152961' => 'اكاسيا',
+        'salla-388819608' => 'الكترون',
         'salla-1378987453' => 'زاهر',
     ];
     if ($request->isMethod('post')) {
@@ -214,7 +227,7 @@ Route::get('/abaya-show', function () {
         $createdOptions = [];
 
         foreach ($product->options as $option) {
-            if ( ! isset($createdOptions[$option['value']])) {
+            if (!isset($createdOptions[$option['value']])) {
                 $createdOptions[$option['value']] = $option['quantity'];
             } else {
                 $createdOptions[$option['value']] += $option['quantity'];
@@ -345,9 +358,9 @@ Route::get('/mailchimp', function () {
         }
 
         $data = [
-            'status'        => 'subscribed',
+            'status' => 'subscribed',
             'email_address' => $email,
-            "merge_fields"  => [
+            "merge_fields" => [
                 "FNAME" => $first_name,
                 "LNAME" => $last_name,
             ],
@@ -610,8 +623,8 @@ Route::any('/emails-insert', function (Request $request) {
 
     if ($request->isMethod('post')) {
         Email::create([
-            'username'   => $request->input('email'),
-            'password'   => $request->input('password'),
+            'username' => $request->input('email'),
+            'password' => $request->input('password'),
             'blocked_to' => now()->subDay(),
         ]);
     }

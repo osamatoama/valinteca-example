@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Api\LoyaltyPointsAutomationController;
 use App\Models\Code;
 use App\Models\Email;
 use App\Models\Player;
@@ -19,7 +20,7 @@ Route::any('abaya/rating/store', function (Request $request) {
     //    ]);
     //
     Rating::create([
-        'type'  => $request->input('rating_type'),
+        'type' => $request->input('rating_type'),
         'stars' => $request->stars,
     ]);
 
@@ -31,7 +32,7 @@ Route::get('code', function (Request $request) {
     $code = Code::where('redeemed', 0)->inRandomOrder()->first();
     $email = Email::where('blocked_to', '<', now())->inRandomOrder()->first();
 
-    if(blank($code)) {
+    if (blank($code)) {
         return response()->json([
             'success' => false,
 
@@ -40,9 +41,9 @@ Route::get('code', function (Request $request) {
     return response()->json([
         'success' => true,
         'player_id' => $player->player_id,
-        'code'      => $code->code,
-        'email'     => $email->username,
-        'password'  => $email->password,
+        'code' => $code->code,
+        'email' => $email->username,
+        'password' => $email->password,
     ]);
 });
 
@@ -66,4 +67,11 @@ Route::post('redeem-code', function (Request $request) {
         ]);
     }
 
+});
+
+Route::prefix('loyalty-points-automation')->group(function () {
+    Route::get('/', [LoyaltyPointsAutomationController::class, 'index']);
+    Route::put('/', [LoyaltyPointsAutomationController::class, 'update']);
+    Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
+    Route::get('all', [LoyaltyPointsAutomationController::class, 'all']);
 });
