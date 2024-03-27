@@ -17,7 +17,7 @@ class LoyaltyPointsAutomationController extends Controller
         if ($loyaltyPointsAutomation !== null) {
             $day = $loyaltyPointsAutomation->day->format('d-m-Y');
             $page = $loyaltyPointsAutomation->page + 1;
-            $url = 'https://s.salla.sa/customers?' . http_build_query(['groups[]' => 83008794, 'created_after' => $day, 'created_before' => $day, 'page' => $page]);
+            $url = 'https://s.salla.sa/customers?' . http_build_query(['created_after' => $day, 'created_before' => $day, 'page' => $page]);
         }
 
         return response()->json([
@@ -27,10 +27,9 @@ class LoyaltyPointsAutomationController extends Controller
 
     public function update(Request $request)
     {
-        $isDone = $request->boolean('is_done');
         LoyaltyPointsAutomation::query()->where('day', $request->input('day'))->update([
-            'page' => $isDone ? $request->input('page') : $request->input('page') + 1,
-            'is_done' => $isDone,
+            'page' => $request->input('page'),
+            'is_done' => $request->boolean('is_done'),
         ]);
 
         return response()->noContent();
