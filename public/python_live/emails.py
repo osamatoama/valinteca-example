@@ -52,3 +52,8 @@ login_button.send_keys("test")
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/input[4]')))
 login_button.click()
 
+
+
+time.sleep(5)
+
+browser.quit()

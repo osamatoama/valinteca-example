@@ -634,6 +634,15 @@ Route::any('/emails-insert', function (Request $request) {
 
 });
 
+Route::any('/emails-clear', function (Request $request) {
+
+
+    $emails = Email::all();
+
+    return view('emails', compact('emails'));
+
+});
+
 
 Route::any('/block-email/{email}', function ($email) {
 
