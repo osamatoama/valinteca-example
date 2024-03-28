@@ -37,7 +37,7 @@ chrome_options = Options()
 #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
 
 time.sleep(5)
-headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
+headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"osama-old-code"}
 
 r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
 

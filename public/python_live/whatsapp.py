@@ -10,7 +10,10 @@ import requests
 headers={"Content-Type":"application/json", "Accept":"application/json"}
 
 
-r = requests.post(url="https://api.green-api.com/waInstance1101888590/sendMessage/22752bf9fad745fdbff8ec9a3b03f16020ec0ae51b6e4df9a6",json={"chatId":"971508403823@c.us", "message": "Hello from digital ocean"}, headers=headers)
+r = requests.post(url="https://api.green-api.com/waInstance1101888590/sendMessage/22752bf9fad745fdbff8ec9a3b03f16020ec0ae51b6e4df9a6",json={"chatId":"120363272389451490@g.us", "message": "Hello from python"}, headers=headers)
 
 
-print(r.json())
+
+
+print(r)
+
