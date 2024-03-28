@@ -628,8 +628,9 @@ Route::any('/emails-insert', function (Request $request) {
             'blocked_to' => now()->subDay(),
         ]);
     }
+    $emails = Email::all();
 
-    return view('emails');
+    return view('emails', compact('emails'));
 
 });
 

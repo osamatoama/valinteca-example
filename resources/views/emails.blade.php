@@ -17,5 +17,9 @@
     <input type="submit">
 </form>
 
+@foreach($emails as $email)
+    <p>{{$email->username}}</p>
+@endforeach
+
 </body>
 </html>
