@@ -12,10 +12,12 @@ class LoyaltyPointsAutomation extends Model
         'day',
         'page',
         'is_done',
+        'should_pass',
     ];
 
     protected $casts = [
         'day' => 'date',
         'is_done' => 'boolean',
+        'should_pass' => 'boolean',
     ];
 }
