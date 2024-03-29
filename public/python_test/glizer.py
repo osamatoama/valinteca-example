@@ -31,8 +31,7 @@ try:
 
     #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
 
-
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK", "X-Device":"osama-new-code"}
+    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"osama-new-code"}
 
     r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
     if(r.json()['success'] == False):
@@ -62,12 +61,12 @@ try:
     webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     browser.get(webpage)
 
-    browser.implicitly_wait(5)
+    browser.implicitly_wait(1)
 
 
-    time.sleep(10)
+#     time.sleep(10)
 
-    wait = WebDriverWait(browser, 20)  # waits for 10 seconds max
+    wait = WebDriverWait(browser, 1)  # waits for 10 seconds max
 
     browser.refresh()
     #cookie_accept_button
@@ -75,19 +74,19 @@ try:
     cookie_accept_button.click()
 
 
-    browser.implicitly_wait(10)
+    browser.implicitly_wait(1)
 
     ##login
-    time.sleep(10)
+#     time.sleep(10)
     login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div/div/div[2]/div/div')))
     login_button.click()
-    time.sleep(10)
+    time.sleep(3)
     browser.switch_to.frame("login-iframe")
 
     #  credentials
 
 
-    time.sleep(5)
+#     time.sleep(5)
 
     login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div/div[2]/div/div/div/div[1]/p/input')))
     login_button.send_keys(user_name)
@@ -104,7 +103,7 @@ try:
     browser.implicitly_wait(10)
 
 
-    time.sleep(5)
+#     time.sleep(5)
 
     #webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     #browser.get(webpage)
@@ -136,23 +135,23 @@ try:
 
 
 
-    time.sleep(20)
+    time.sleep(1)
 
 
 
     try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
-        requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+#         requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
         print("Success New ")
     except:
         time.sleep(10)
 
     try:
-        time.sleep(5)
+#         time.sleep(5)
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[5]/div/div/div/div')))
         if Redemption_code_submit.text == 'verify comfirm' :
-            requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
+#             requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
             print("block-email")
     except:
         time.sleep(10)
@@ -160,7 +159,7 @@ try:
 except Exception as error:
     #requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
     print("An exception occurred:", error) # An exception occurred:
-    # requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
+#     requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
 
     print("CODE HAS NOT REDEEMED")
 
@@ -177,5 +176,5 @@ except Exception as error:
 
     # error
 
-time.sleep(5)
+# time.sleep(5)
 browser.quit()
