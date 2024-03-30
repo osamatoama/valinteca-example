@@ -35,6 +35,7 @@ try:
 
     #time.sleep(2)
 
+    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"yahya-h-new-code-2"}
     r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
     if(r.json()['success'] == False):
@@ -43,7 +44,7 @@ try:
     user_name = r.json()['email']
     password = r.json()['password']
 
-    code = "G6jDqVft2c234c81V0" #r.json()['code']
+    code = "G6jDqVft2c234c81V0"#r.json()['code']
     PlayerId = r.json()['player_id']
     '''
 
@@ -122,7 +123,7 @@ try:
     #browser.get(webpage)
 
     #Change_Player_ID
-    time.sleep(5)
+
     Change_Player_ID = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/span/i')))
     Change_Player_ID.click()
 
@@ -157,7 +158,7 @@ try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
         requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
-        print("Still")
+        print("Success New ")
     except:
         time.sleep(1)
 

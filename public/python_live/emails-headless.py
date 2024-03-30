@@ -55,7 +55,7 @@ chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocki
 #browser = webdriver.Chrome(service = ChromeService(ChromeDriverManager().install()))
 
 #chrome_options=chrome_options  for extentions
-browser = uc.Chrome(service = ChromeService(ChromeDriverManager().install()),chrome_options=chrome_options)
+browser = uc.Chrome(service = ChromeService(ChromeDriverManager().install()),options=chrome_options)
 
 browser.implicitly_wait(5)
 browser.get("https://example.valinteca.com/emails-insert")
