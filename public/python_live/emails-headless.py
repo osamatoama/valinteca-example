@@ -46,7 +46,7 @@ chrome_options.add_argument("--disable-gpu")
 #chrome_options.add_argument('--profile-directory=Default')
 #chrome_options.add_argument(r"--user-data-dir=C:\Users\yahya\AppData\Local\Google\Chrome\User Data\Default")
 #chrome_options.add_argument('--profile-directory=Profile 1')
-chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocking"])
+# chrome_options.add_experimental_option("excludeSwitches", ["disable-popup-blocking"])
 #chrome_options.add_argument('proxy-server=106.122.8.54:3128')
 #chrome_options.add_argument(r'--user-data-dir=C:\Users\yahya\AppData\Local\Google\Chrome\User Data\Default')
 
