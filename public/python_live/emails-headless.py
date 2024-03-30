@@ -67,7 +67,7 @@ wait = WebDriverWait(browser, 30)  # waits for 10 seconds max
 
 
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/input[2]')))
-login_button.send_keys("osama222@gmail.com")
+login_button.send_keys("kareem@gmail.com")
 
 
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/input[3]')))
@@ -78,3 +78,5 @@ login_button.send_keys("test")
 login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/form/input[4]')))
 login_button.click()
 
+
+print("OK DONE")
