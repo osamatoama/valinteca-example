@@ -114,9 +114,9 @@ try:
     login_button.click()
 
 
-    #browser.implicitly_wait(10)
-
-
+    browser.implicitly_wait(10)
+#
+#
     #time.sleep(2)
 
     #webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
@@ -158,7 +158,7 @@ try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
         requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
-        print("Success New ")
+        print("Still ")
     except:
         time.sleep(1)
 
