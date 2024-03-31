@@ -36,7 +36,7 @@ try:
     '''
 
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"new-code"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
+    r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
     if(r.json()['success'] == False):
         print(r.json())
         exit()
@@ -120,7 +120,7 @@ try:
         Redemption_code_submit.click()
         Redeem_successfuly_ok = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[3]/div[3]/div/div[3]/div/div/div/div/div')))
         if Redeem_successfuly_ok.text == 'OK' :
-            requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+            requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
             print("Success ok")
             time.sleep(2)
             browser.quit()
@@ -133,7 +133,7 @@ try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[1]/div/div')))
         if Redemption_code_submit.text == 'Redemption code is redeemed by someone else' or Redemption_code_submit.text == 'You have already redeemed':
             print("'Redemption code is redeemed by someone else'")
-            requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+            requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
 
         else:
             print("Skip ")
@@ -143,14 +143,14 @@ try:
     try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[5]/div/div/div/div')))
         if Redemption_code_submit.text == 'verify comfirm' :
-            requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
+            #requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
             print("block-email")
     except:
         time.sleep(1)
 
 except Exception as error:
     print("An exception occurred:", error) # An exception occurred:
-    requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
+    #requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "open_to_request"}, headers=headers)
     print("CODE HAS NOT REDEEMED")
 
 
