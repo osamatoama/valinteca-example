@@ -20,8 +20,17 @@ Route::any('abaya/rating/store', function (Request $request) {
     //    ]);
     //
     Rating::create([
-        'type' => $request->input('rating_type'),
+        'type'  => $request->input('rating_type'),
         'stars' => $request->stars,
+    ]);
+
+});
+
+
+Route::get('true', function (Request $request) {
+    return response()->json([
+        'success' => true,
+
     ]);
 
 });
@@ -38,12 +47,13 @@ Route::get('code', function (Request $request) {
 
         ]);
     }
+
     return response()->json([
-        'success' => true,
+        'success'   => true,
         'player_id' => $player->player_id,
-        'code' => $code->code,
-        'email' => $email->username,
-        'password' => $email->password,
+        'code'      => $code->code,
+        'email'     => $email->username,
+        'password'  => $email->password,
     ]);
 });
 
