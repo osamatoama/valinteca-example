@@ -655,3 +655,10 @@ Route::any('/block-email/{email}', function ($email) {
 
 });
 
+
+Route::any('/python-download', function () {
+
+
+    return view('python-download');
+
+});
