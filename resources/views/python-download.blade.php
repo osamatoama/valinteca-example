@@ -10,6 +10,7 @@
         a {
             display: block;
             font-size: 35px;
+            margin-bottom: 35px;
         }
     </style>
 </head>
