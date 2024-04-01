@@ -15,7 +15,7 @@ import time
 import os
 from selenium.webdriver.chrome.options import Options
 import requests
-
+import sys
 try:
 
     chrome_options = Options()
@@ -39,7 +39,13 @@ try:
     r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
     if(r.json()['success'] == False):
         print(r.json())
-        exit()
+        print("Hello")
+        sys.exit()
+        os.system(f"exit /s")
+        os.system("exit() /s")
+        os.system("quit() /s")
+        quit()
+        #exit()
     user_name = r.json()['email']
     password = r.json()['password']
 
