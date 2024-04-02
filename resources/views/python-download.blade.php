@@ -18,7 +18,8 @@
 
 <a href="/run_code/run_code.py" download>Run Code</a>
 <a href="/run_code/code_every_10.py" download>every 10 </a>
-<a href="/run_code/code_every_5.py" download>evert 5 </a>
+<a href="/run_code/code_every_5.py" download>every 5 </a>
 <a href="/run_code/glizer.py" download>Glizer</a>
+<a href="/run_code/update.py" download>update</a>
 </body>
 </html>
