@@ -143,7 +143,7 @@ try:
 
     except:
         if ('Invalid Game ID' in wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div[1]/div/div[2]/div[2]/p'))).text) :
-            osama to do   requests.post(url="https://sahwa.valantica.com/api/v1/convert-to-manual",json={"code":code, "note": "ID is wrong"}, headers=headers)
+            requests.post(url="https://sahwa.valantica.com/api/v1/convert-to-manual",json={"code":code, "note": "ID is wrong"}, headers=headers)
             print("id is wrong")
             time.sleep(2)
             browser.quit()
