@@ -50,7 +50,7 @@ Route::get('code', function (Request $request) {
 
     return response()->json([
         'success'   => true,
-        'player_id' => $player->player_id,
+        'player_id' => '533038203', //$player->player_id,
         'code'      => $code->code,
         'email'     => $email->username,
         'password'  => $email->password,
