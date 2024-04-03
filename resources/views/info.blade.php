@@ -22,7 +22,7 @@
 <div class="container">
     <h1>emails: {{$emails}}</h1>
     <h1>all codes: {{$allCodes}}</h1>
-    <h1>redeemed Codes By Bot: {{$redeemedCodes}}</h1>
+    <h1>Bot redeemed Codes: {{$redeemedCodes}}</h1>
     <h1>income: {{$redeemedCodes / 2}} SAR</h1>
 </div>
 
