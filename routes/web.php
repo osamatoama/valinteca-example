@@ -8,6 +8,7 @@ use App\Exports\SlimShClients;
 use App\Http\Controllers\TapPaymentController;
 use App\Jobs\AbayaJob;
 use App\Jobs\FirstLevel;
+use App\Jobs\PythonCommand;
 use App\Jobs\QueueJob;
 use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
@@ -559,6 +560,10 @@ Route::any('/block-email/{email}', function ($email) {
 
 Route::any('/python-download', function () {
 
+
+    foreach (range(1,10) as $i) {
+        PythonCommand::dispatch();
+    }
 
     return view('python-download');
 

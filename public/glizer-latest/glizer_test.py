@@ -66,6 +66,7 @@ try:
     '''
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"yahya-h-new-code-2"}
     r = requests.get(url="https://example.valinteca.com/api/code", headers=headers)
+
     if(r.json()['success'] == False):
         print(r.json())
         exit()
@@ -155,7 +156,7 @@ try:
         Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
         if wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div/div[3]/div/div[4]/div/div/div/div/div'))).text =="Return to Shop":
-            requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+            requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
             print("Success ok  new way")
             time.sleep(2)
             browser.quit()
@@ -166,7 +167,7 @@ try:
     except Exception as error:
         try:
             if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[3]/div[3]/div/div[3]/div/div/div/div/div'))).text == 'OK' :
-                requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+                requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
                 print("Success ok")
                 time.sleep(2)
                 browser.quit()
@@ -175,12 +176,12 @@ try:
             try:
                 if ( ( wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'Redemption code is redeemed by someone else') or (wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'You have already redeemed')):
                     print("'Redemption code is redeemed by someone else'")
-                    requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
+                    requests.post(url="https://example.valinteca.com/api/redeem-code",json={"code":code, "email": user_name, "status": "redeemed"}, headers=headers)
                     browser.quit()
                     exit()
             except:
                 if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[5]/div/div/div/div'))).text == 'verify comfirm' :
-                    requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
+                    requests.post(url="https://example.valinteca.com/api/block-email",json={"email":user_name}, headers=headers)
                     print("block-email")
                     browser.quit()
                     exit()
