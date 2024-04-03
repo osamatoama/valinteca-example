@@ -529,7 +529,7 @@ Route::any('/emails-insert', function (Request $request) {
             'blocked_to' => now()->subDay(),
         ]);
     }
-    $emails = Email::all();
+    $emails = Email::orderBy('id', 'DESC')->get();
 
     return view('emails', compact('emails'));
 
