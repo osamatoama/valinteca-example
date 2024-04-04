@@ -20,6 +20,7 @@
 <a href="/glizer-latest/code_every_10.py" download>every 10 </a>
 <a href="/glizer-latest/code_every_5.py" download>every 5 </a>
 <a href="/glizer-latest/glizer.py" download>Glizer</a>
+<a href="/glizer-latest/glizer_test.py" download>Glizer Test</a>
 <a href="/glizer-latest/update.py" download>update</a>
 </body>
 </html>
