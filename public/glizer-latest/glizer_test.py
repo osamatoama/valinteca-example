@@ -50,22 +50,8 @@ try:
     PlayerId = r.json()['player_id']
     '''
 
-
-
-    '''
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"yahya-1-new-code"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
-    if(r.json()['success'] == False):
-        print(r.json())
-        exit()
-    user_name = r.json()['email']
-    password = r.json()['password']
-
-    code = r.json()['code']
-    PlayerId = r.json()['player_id']
-    '''
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"osama-new-code-1"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/4840", headers=headers)
+    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/7144", headers=headers)
     print(r.json())
     if(r.json()['success'] == False):
         exit()
@@ -88,11 +74,11 @@ try:
     browser.execute_script(js_code)
 
     wait = WebDriverWait(browser, 20)
-    cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[7]/div[3]/div[1]/div/div')))
+    cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[8]/div[3]/div[1]/div/div')))
     cookie_accept_button.click()
 
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div/div/div[2]/div/div')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[1]/div/div[2]/div[5]')))
     login_button.click()
     time.sleep(1)
     browser.switch_to.frame("login-iframe")
@@ -128,12 +114,12 @@ try:
 
 
     try:
-        Redemption_code = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/input')))
+        Redemption_code = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[2]/div/div/div[2]/div[1]/div/div/div[1]/input')))
         Redemption_code.clear()
         Redemption_code.send_keys(code)
 
 
-        Redemption_code_ok = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div/div/div[2]/div[2]/div/div')))
+        Redemption_code_ok = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[2]/div/div/div[2]/div[2]/div/div')))
         Redemption_code_ok.click()
 
     except:
@@ -147,9 +133,9 @@ try:
 
 
     try:
-        Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
+        Redemption_code_submit = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[4]/div[2]/div[2]/div[4]/div/div/div/div')))
         Redemption_code_submit.click()
-        if wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div/div[3]/div/div[4]/div/div/div/div/div'))).text =="Return to Shop":
+        if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[3]/div/div[4]/div/div/div/div/div'))).text =="Return to Shop":
             requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code,"code_id": code_id, "email": user_name, "status": "redeemed"}, headers=headers)
             print("Success ok  new way")
             time.sleep(2)
@@ -160,7 +146,7 @@ try:
 
     except Exception as error:
         try:
-            if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[3]/div[3]/div/div[3]/div/div/div/div/div'))).text == 'OK' :
+            if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[3]/div[3]/div/div[3]/div/div/div/div/div'))).text == 'OK' :
                 requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code,"code_id": code_id, "email": user_name, "status": "redeemed"}, headers=headers)
                 print("Success ok")
                 time.sleep(2)
@@ -168,13 +154,18 @@ try:
                 exit()
         except:
             try:
-                if ( ( wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'Redemption code is redeemed by someone else') or (wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'You have already redeemed')):
-                    print("'Redemption code is redeemed by someone else'")
+                if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'Redemption code is redeemed by someone else':
+                    requests.post(url="https://sahwa.valantica.com/api/v1/convert-to-manual",json={"code":code,"code_id": code_id, "note": "Code is already redeemed"}, headers=headers)
+                    print("Code is already redeemed")
+                    browser.quit()
+                    exit()
+                elif wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[4]/div[2]/div[2]/div[1]/div/div'))).text == 'You have already redeemed':
+                    print("You have already redeemed")
                     requests.post(url="https://sahwa.valantica.com/api/v1/redeem",json={"code":code,"code_id": code_id, "email": user_name, "status": "redeemed"}, headers=headers)
                     browser.quit()
                     exit()
             except:
-                if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[4]/div[2]/div[2]/div[5]/div/div/div/div'))).text == 'verify comfirm' :
+                if wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[4]/div[2]/div[2]/div[5]/div/div/div/div'))).text == 'verify comfirm' :
                     requests.post(url="https://sahwa.valantica.com/api/v1/block",json={"email":user_name}, headers=headers)
                     print("block-email")
                     browser.quit()

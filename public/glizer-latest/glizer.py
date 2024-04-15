@@ -123,7 +123,7 @@ try:
         Redemption_code_ok.click()
 
     except:
-        if ('Invalid Game ID' in wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[2]/div[1]/div/div[2]/div[2]/p'))).text) :
+        if ('Invalid Game ID' in wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[5]/div[2]/div[1]/div/div[2]/div[2]/p'))).text) :
             requests.post(url="https://sahwa.valantica.com/api/v1/convert-to-manual",json={"code":code,"code_id": code_id, "note": "ID is wrong"}, headers=headers)
             print("id is wrong")
             time.sleep(2)
