@@ -98,13 +98,13 @@ Route::post('test-python', function (Request $request) {
     ]);
 });
 
-Route::post('top2cards-fetch-non-stc-order', function (Request $request) {
+Route::get('top2cards-fetch-non-stc-order', function (Request $request) {
     return response()->json([
         'success' => false,
     ]);
 });
 
-Route::post('top2cards-fetch-stc-order', function (Request $request) {
+Route::get('top2cards-fetch-stc-order', function (Request $request) {
     return response()->json([
         'success' => true,
     ]);
