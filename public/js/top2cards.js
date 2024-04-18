@@ -12,22 +12,23 @@ function generateRandomString(length) {
     return result;
 }
 
+
 if (window.location.href.includes('cart')) {
     console.log('cart page');
     var cartItems = document.querySelectorAll('.cart-item h3 a.text-base'),
         containsSawa = false;
-    window.localStorage.setItem('containsSawa', 0);
+    window.sessionStorage.setItem('containsSawa', 0);
 
     cartItems.forEach(function (item) {
         if (item.innerText.includes('شحن سوا')) {
-            window.localStorage.setItem('containsSawa', 1);
+            window.sessionStorage.setItem('containsSawa', 1);
         }
     });
 }
 
 if (window.location.href.includes('checkout')) {
     console.log('checkout page');
-    if (window.localStorage.getItem('containsSawa') == '1') {
+    if (window.sessionStorage.getItem('containsSawa') == '1') {
 
     }
 }
@@ -35,22 +36,40 @@ if (window.location.href.includes('checkout')) {
 
 if (window.location.href.includes('thankyou')) {
 
-    if (window.localStorage.getItem('containsSawa') == '1') {
-        var orderId = document.querySelector('salla-button.code-to-copy').dataset.content;
-        var randomString = generateRandomString(26);
+    if (window.sessionStorage.getItem('containsSawa') == '1') {
+        var orderId = document.querySelector('salla-button.code-to-copy').dataset.content,
+            randomString = generateRandomString(130);
 
-        window.location.href = ''// top2cards.valantica.com/randomString/orderId
+        if (orderId) {
+            window.location.href = ''// top2cards.valantica.com/randomString/orderId
+        }
     } else {
-        fetch('https://example.valinteca.com/api/top2cards-fetch-non-stc-order', {
+        fetch('https://example.valinteca.com/api/top2cards-fetch-stc-order', {
+            body: {
+                orderId: orderId
+            },
             headers: {
                 "Content-Type": "application/json",
             }
         }).then(function (data) {
-            console.log(data);
-        })
+            return data.json()
+        }).then(data => {
+            if (data.success == true) {
+                console.log("Redirect")
+                window.location.href = ''// top2cards.valantica.com/randomString/orderId
+            } else {
+                console.log("Nothing to Do ")
+            }
+        });
     }
 }
 
-
+// اسالة للعميل
 // هل الثيم راح يتغير
 // هل اسماء المنتجات تتغير
+// هل التاغ مانجر راح يتغير
+
+
+// tag manager page trigger
+
+// (cart|checkout|thankyou)
