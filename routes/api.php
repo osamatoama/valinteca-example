@@ -97,3 +97,15 @@ Route::post('test-python', function (Request $request) {
         'success' => true,
     ]);
 });
+
+Route::post('top2cards-fetch-non-stc-order', function (Request $request) {
+    return response()->json([
+        'success' => false,
+    ]);
+});
+
+Route::post('top2cards-fetch-stc-order', function (Request $request) {
+    return response()->json([
+        'success' => true,
+    ]);
+});
