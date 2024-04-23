@@ -1,19 +1,4 @@
 
-
-
-
-'''
-
-updates:
-
-    new sucessful has been handled
-    improvment in performance (using exceptions instead of trying each one)
-
-    id wornge handled better
-
-
-'''
-
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -36,21 +21,8 @@ try:
     chrome_options = Options()
 
 
-    '''
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"yahya-h-new-code-2"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
-    if(r.json()['success'] == False):
-        print(r.json())
-        exit()
-    user_name = r.json()['email']
-    password = r.json()['password']
 
-    code = r.json()['code']
-    PlayerId = r.json()['player_id']
-    '''
-
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"osama-new-code-1"}
+    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"hetzner-server-1-new-code-1"}
     r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
     print(r.json())
     if(r.json()['success'] == False):
