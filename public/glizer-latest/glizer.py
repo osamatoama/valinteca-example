@@ -70,30 +70,30 @@ try:
     webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     browser.get(webpage)
 
-    js_code = "document.querySelector('.activity-iframe-wrapper').style.display = 'none';"
+    js_code = "document.querySelector('.activity-iframe-wrapper').style.display = 'none'; document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF').style.display = 'none' "
     browser.execute_script(js_code)
 
     wait = WebDriverWait(browser, 20)
-    cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[8]/div[3]/div[1]/div/div')))
+    cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[9]/div[3]/div[1]/div/div/div/div')))
     cookie_accept_button.click()
 
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[1]/div/div[2]/div[5]')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[2]/div/div/div[2]/div/div/div/div')))
     login_button.click()
     time.sleep(1)
     browser.switch_to.frame("login-iframe")
 
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div/div[2]/div/div/div/div[1]/p/input')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div/div[3]/div/div[2]/div/div/div/div[1]/p/input ')))
     login_button.send_keys(user_name)
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div/div[3]/div')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div/div[3]/div/div[3]/div')))
     login_button.click()
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div[1]/div[2]/div[2]/div/input')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div/div[3]/div[1]/div[2]/div[2]/div/input')))
     login_button.send_keys(password)
 
-    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[1]/div/div[3]/div[2]')))
+    login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div[1]/div/div[3]/div[2]/div')))
     login_button.click()
 
 
