@@ -1,7 +1,7 @@
 
 '''
-version 3.0.1
-update js code 
+version 3.0.2
+remove Ads 
 '''
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -47,7 +47,7 @@ try:
     webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     browser.get(webpage)
 
-    js_code = "var s1 = document.querySelector('.activity-iframe-wrapper'), s2 = document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF'); if(s1) {s1.style.display = 'none'}  if(s2) { s2.style.display = 'none' };"
+    js_code = "setInterval(function () {var s1 = document.querySelector('.activity-iframe-wrapper'), s2 = document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF'); if(s1) {s1.style.display = 'none'}  if(s2) { s2.style.display = 'none' }; }, 300) "
     browser.execute_script(js_code)
 
     wait = WebDriverWait(browser, 20)
@@ -76,8 +76,10 @@ try:
 
     browser.implicitly_wait(10)
 
-
-
+    time.sleep(3)
+    RemoveAd = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[10]/div/div[2]')))
+    RemoveAd.click()
+    time.sleep(3)
 
     Change_Player_ID = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/span/i')))
     Change_Player_ID.click()
