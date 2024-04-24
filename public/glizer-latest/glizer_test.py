@@ -1,17 +1,6 @@
 
-
-
-
 '''
-
-updates:
-
-    new sucessful has been handled
-    improvment in performance (using exceptions instead of trying each one)
-
-    id wornge handled better
-
-
+version 3.0.0
 '''
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -36,22 +25,9 @@ try:
     chrome_options = Options()
 
 
-    '''
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK"}
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"yahya-h-new-code-2"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
-    if(r.json()['success'] == False):
-        print(r.json())
-        exit()
-    user_name = r.json()['email']
-    password = r.json()['password']
 
-    code = r.json()['code']
-    PlayerId = r.json()['player_id']
-    '''
-
-    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"osama-new-code-1"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/7144", headers=headers)
+    headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"hetzner-server-1-new-code-1"}
+    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/7892", headers=headers)
     print(r.json())
     if(r.json()['success'] == False):
         exit()
@@ -70,7 +46,7 @@ try:
     webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     browser.get(webpage)
 
-    js_code = "document.querySelector('.activity-iframe-wrapper').style.display = 'none'; document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF').style.display = 'none' "
+    js_code = "var s1 = document.querySelector('.activity-iframe-wrapper'), s2 = document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF'); if(s1) {s1.style.display = 'none'}  if(s2) { s2.style.display = 'none' };"
     browser.execute_script(js_code)
 
     wait = WebDriverWait(browser, 20)

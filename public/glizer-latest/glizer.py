@@ -1,6 +1,6 @@
 
 '''
-version 3.0.0 
+version 3.0.0
 '''
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -46,7 +46,7 @@ try:
     webpage = "https://www.midasbuy.com/midasbuy/my/redeem/pubgm"
     browser.get(webpage)
 
-    js_code = "document.querySelector('.activity-iframe-wrapper').style.display = 'none'; document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF').style.display = 'none' "
+    js_code = "var s1 = document.querySelector('.activity-iframe-wrapper'), s2 = document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF'); if(s1) {s1.style.display = 'none'}  if(s2) { s2.style.display = 'none' };"
     browser.execute_script(js_code)
 
     wait = WebDriverWait(browser, 20)
