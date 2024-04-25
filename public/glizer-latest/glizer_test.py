@@ -27,7 +27,7 @@ try:
 
 
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"hetzner-server-1-new-code-1"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/7892", headers=headers)
+    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/8341", headers=headers)
     print(r.json())
     if(r.json()['success'] == False):
         exit()

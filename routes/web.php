@@ -24,6 +24,7 @@ use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
 use App\Services\SallaWebhookService;
+use App\Services\Yuque\YuqueClient;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -566,5 +567,14 @@ Route::any('/python-download', function () {
     }
 
     return view('python-download');
+
+});
+
+
+Route::get('yuque', function () {
+
+    $y = new YuqueClient;
+
+   return $y->postHttpRequest(config('yuque.urls.merchant_account_info'));
 
 });
