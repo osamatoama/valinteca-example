@@ -1,10 +1,10 @@
 // cart Page
 
 function generateRandomString(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    var counter = 0;
     while (counter < length) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
         counter += 1;
@@ -41,7 +41,7 @@ if (window.location.href.includes('thankyou')) {
             randomString = generateRandomString(130);
 
         if (orderId) {
-            window.location.href = ''// top2cards.valantica.com/randomString/orderId
+            window.location.href = ''// top2cards.valantica.com/randomString/orderId/userId
         }
     } else {
         fetch('https://example.valinteca.com/api/top2cards-fetch-stc-order', {
@@ -53,7 +53,7 @@ if (window.location.href.includes('thankyou')) {
             }
         }).then(function (data) {
             return data.json()
-        }).then(data => {
+        }).then(function (data) {
             if (data.success == true) {
                 console.log("Redirect")
                 window.location.href = ''// top2cards.valantica.com/randomString/orderId

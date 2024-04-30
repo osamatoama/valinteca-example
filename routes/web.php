@@ -29,6 +29,7 @@ use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -571,10 +572,20 @@ Route::any('/python-download', function () {
 });
 
 
-Route::get('yuque', function () {
+Route::get('mintroute', function () {
 
-    $y = new YuqueClient;
+   $url = 'https://sandbox.mintroute.com/voucher/v2/api/';
 
-   return $y->postHttpRequest(config('yuque.urls.merchant_account_info'));
+    $response = Http::withHeaders([
+        'Accept'        => 'application/json',
+        'Content-Type'  => 'application/json',
+        'Secret-Id'     => $this->secretId,
+        //'Signature'     => $this->generateSignature($body),
+    ])
+        ->timeout($this->timeout)
+        ->post($url);
 
 });
+
+
+
