@@ -25,6 +25,7 @@ use App\Models\PricesProducts;
 use App\Models\Rating;
 use App\Services\SallaWebhookService;
 use App\Services\Yuque\YuqueClient;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -574,16 +575,17 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-   $url = 'https://sandbox.mintroute.com/voucher/v2/api/';
+   $url = 'https://sandbox.mintroute.com/vendor/api/get_current_balance';
+    $client = new Client();
+    $request = $client->get($url, [
+        'headers' => [
+            'Accept'        => 'application/json',
+            'Content-Type'  => 'application/json',
+        ]
+    ]);
 
-    $response = Http::withHeaders([
-        'Accept'        => 'application/json',
-        'Content-Type'  => 'application/json',
-        'Secret-Id'     => $this->secretId,
-        //'Signature'     => $this->generateSignature($body),
-    ])
-        ->timeout($this->timeout)
-        ->post($url);
+
+    return $request->getBody();
 
 });
 
