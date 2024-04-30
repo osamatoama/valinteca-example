@@ -24,13 +24,11 @@ use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
 use App\Services\SallaWebhookService;
-use App\Services\Yuque\YuqueClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
@@ -564,7 +562,7 @@ Route::any('/block-email/{email}', function ($email) {
 Route::any('/python-download', function () {
 
 
-    foreach (range(1,10) as $i) {
+    foreach (range(1, 10) as $i) {
         PythonCommand::dispatch();
     }
 
@@ -575,13 +573,28 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-   $url = 'https://sandbox.mintroute.com/vendor/api/get_current_balance';
+    $url = 'https://sandbox.mintroute.com/vendor/api/get_current_balance';
     $client = new Client();
+    $method = 'GET';
+
+    $timestamp = now()->format("Ymd\THi");
+    $params = [
+        'username' => 'sahwah.single',
+        'password' => 'nAgQzmXO',
+    ];
+
+    $stringToSing = $method . http_build_query($params) . $timestamp;
+
+
+    $signature = base64_encode(hash_hmac('sha256', $stringToSing, 'eb6b43219b5d5d9b3de645a3f932848e', true));
+
     $request = $client->get($url, [
         'headers' => [
             'Accept'        => 'application/json',
             'Content-Type'  => 'application/json',
-        ]
+            'Authorization' => 'algorithm="hmac-sha256”,credential="MwQAIwka/' . $timestamp . '”, signature="' . $signature . '"',
+            'X-Mint-Date'   => now()->format("Ymd\THis\Z"),
+        ],
     ]);
 
 
