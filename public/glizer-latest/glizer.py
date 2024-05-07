@@ -1,7 +1,7 @@
 
 '''
 version 3.0.3
-remove new popup loign
+remove new popup login
 '''
 
 from webdriver_manager.chrome import ChromeDriverManager
