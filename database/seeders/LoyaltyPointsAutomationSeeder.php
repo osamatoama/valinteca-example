@@ -13,7 +13,7 @@ class LoyaltyPointsAutomationSeeder extends Seeder
      */
     public function run(): void
     {
-        $period = CarbonPeriod::create('2023-12-21', '2024-03-26');
+        $period = CarbonPeriod::create('2024-03-26', '2024-05-07');
         foreach ($period as $date) {
             LoyaltyPointsAutomation::query()->firstOrCreate([
                 'day' => $date,

@@ -46,6 +46,15 @@ class LoyaltyPointsAutomationController extends Controller
         ]);
     }
 
+    public function seed()
+    {
+        Artisan::call('db:seed', ['--class' => 'LoyaltyPointsAutomationSeeder']);
+
+        return response()->json([
+            'message' => Artisan::output(),
+        ]);
+    }
+
     public function all()
     {
         return LoyaltyPointsAutomation::query()->oldest('id')->get();
