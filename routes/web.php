@@ -573,7 +573,7 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-    define('SANDBOX_API_URL','https://sandbox.mintroute.com/voucher/v2/api/voucher');
+    define('SANDBOX_API_URL','https://sandbox.mintroute.com/vendor/api/get_current_balance');
 
     define('MINT_ACCESS_KEY', 'MwQAIwka');
     define('MINT_SECRET_KEY', 'eb6b43219b5d5d9b3de645a3f932848e');
