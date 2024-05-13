@@ -24,7 +24,7 @@ use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
 use App\Services\SallaWebhookService;
-use GuzzleHttp\Client;
+use App\Services\Yuque\YuqueClient;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -573,9 +573,22 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-   return get_current_balance();
+    return get_current_balance();
 
 });
+
+Route::get('yuque', function () {
+
+    $yuqueClient = new YuqueClient;
+
+    return $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
+        'page'     => request('page', 1),
+        'per_page' => request('per_page', 10),
+    ]);
+
+});
+
+
 
 
 
