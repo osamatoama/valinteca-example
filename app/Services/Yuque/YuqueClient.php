@@ -4,15 +4,15 @@ namespace App\Services\Yuque;
 
 use Illuminate\Support\Facades\Http;
 
-class YuqueClient implements YuqueClientInterface
+class YuqueClient
 {
 
-    private string $secretId;
-    private string $secretKey;
+    private  $secretId;
+    private  $secretKey;
 
-    private string $timestamp;
+    private  $timestamp;
 
-    private int $timeout = 120;
+    private  $timeout = 120;
 
 
     public function __construct()
@@ -49,7 +49,7 @@ class YuqueClient implements YuqueClientInterface
 
 
     /**
-     * @return string
+     * @return
      */
     private function getSecretId(): string
     {
@@ -101,7 +101,7 @@ class YuqueClient implements YuqueClientInterface
      * @param array $body
      * @return mixed
      */
-    public function postHttpRequest(string $url, array $body = []): mixed
+    public function postHttpRequest(string $url, array $body = [])
     {
         $body['timestamp'] = $this->getTimestamp();
 
