@@ -573,7 +573,7 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-    get_current_balance();
+   return get_current_balance();
 
 });
 

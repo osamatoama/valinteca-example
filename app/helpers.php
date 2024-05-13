@@ -226,7 +226,7 @@ function get_current_balance()
 {
 
 
-    $request_json = '{"username":"'.config('mintroute.MINT_USERNAME').'","data":{"currency":"USD"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
+    $request_json = '{"username":"' . config('mintroute.MINT_USERNAME') . '","data":{"currency":"USD"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
 
     $pay_load = json_decode($request_json, true);
 
@@ -257,11 +257,15 @@ function get_current_balance()
     $response = substr($response, $header_size);
     if ( ! empty(curl_error($ch))) {
         echo curl_error($ch);
+
+        return 'error happened';
     }
     curl_close($ch);
 
+    $response = json_decode($response);
 
-    print_r($response);
+
+    return $response['data']['available_balance'] . ' ' . $response['data']['currency'];
 
 
 }
