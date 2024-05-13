@@ -212,7 +212,7 @@ function generate_header($signature, $date, $datestamp)
     $headers['Content-Type'] = 'application/json';
     $headers['X-Mint-Date'] = $date;
     $headers['Authorization'] = sprintf('algorithm="%s",credential="%s",signature="%s"', 'hmac-sha256',
-        env('MINT_ACCESS_KEY') . '/' . $datestamp, $signature);
+        config('mintroute.MINT_ACCESS_KEY') . '/' . $datestamp, $signature);
     $http_headers = [];
     foreach ($headers as $k => $v) {
         $http_headers[] = "$k: $v";
@@ -237,7 +237,7 @@ function get_current_balance()
 
     $str_to_sign = $request_method . $raw_pay_load . $timestamp_for_signing;
 
-    $signature = base64_encode(hash_hmac('sha256', $str_to_sign, env('MINT_SECRET_KEY'), true));
+    $signature = base64_encode(hash_hmac('sha256', $str_to_sign, config('mintroute.MINT_SECRET_KEY'), true));
     $headers = generate_header($signature, $date, $datestamp);
 
     //Curl Request
