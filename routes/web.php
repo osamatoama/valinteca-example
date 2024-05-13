@@ -570,14 +570,8 @@ Route::any('/python-download', function () {
 
 });
 
-
-Route::get('mintroute', function () {
-
-    return get_current_balance();
-
-});
-
 Route::get('yuque', function () {
+
 
     $yuqueClient = new YuqueClient;
 
@@ -585,6 +579,20 @@ Route::get('yuque', function () {
         'page'     => request('page', 1),
         'per_page' => request('per_page', 10),
     ]);
+
+});
+
+
+Route::get('mintroute/balance', function () {
+
+    return get_current_balance();
+
+});
+
+
+Route::get('mintroute/brand/{id}', function ($id) {
+
+    return get_brand($id);
 
 });
 

@@ -269,3 +269,53 @@ function get_current_balance()
 
 
 }
+
+
+function get_brand($id)
+{
+
+
+    $request_json = '{"username":"' . config('mintroute.MINT_USERNAME') . '","data":{"category_id":"' . $id . '"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
+
+    $pay_load = json_decode($request_json, true);
+
+    $request_method = 'POST';
+    $raw_pay_load = http_build_query($pay_load);
+    $date = gmdate('Ymd\THis\Z');
+    $timestamp_for_signing = substr($date, 0, 13);
+    $datestamp = substr($date, 0, 8);
+
+    $str_to_sign = $request_method . $raw_pay_load . $timestamp_for_signing;
+
+    $signature = base64_encode(hash_hmac('sha256', $str_to_sign, config('mintroute.MINT_SECRET_KEY'), true));
+    $headers = generate_header($signature, $date, $datestamp);
+
+    //Curl Request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    curl_setopt($ch, CURLOPT_URL, config('mintroute.urls.get_current_balance'));
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $response = substr($response, $header_size);
+    if ( ! empty(curl_error($ch))) {
+        echo curl_error($ch);
+
+        return 'error happened';
+    }
+    curl_close($ch);
+
+    $response = json_decode($response, true);
+
+
+    return $response;
+
+
+
+}
