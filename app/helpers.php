@@ -225,7 +225,8 @@ function generate_header($signature, $date, $datestamp)
 function get_current_balance()
 {
 
-    $request_json = '{"username":"sahwah.single","data":{"currency":"USD"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
+
+    $request_json = '{"username":"'.config('mintroute.MINT_USERNAME').'","data":{"currency":"USD"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
 
     $pay_load = json_decode($request_json, true);
 

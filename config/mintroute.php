@@ -3,7 +3,9 @@
 return [
     'MINT_ACCESS_KEY' => env('MINT_ACCESS_KEY', 'MwQAIwka'),
     'MINT_SECRET_KEY' => env('MINT_SECRET_KEY', 'eb6b43219b5d5d9b3de645a3f932848e'),
-    'urls'            => [
+    'MINT_USERNAME'   => env('MINT_USERNAME', 'sahwah.single'),
+
+    'urls' => [
         'get_current_balance' => 'https://sandbox.mintroute.com/vendor/api/get_current_balance',
         //        'user_order_create'     => env('YUQUE_API_BASE_URL', 'http://tkog.qr67.com:8080/api') . env('YUQUE_USER_ORDER_CREATE', '/user-order/create'),
         //        'user_order_details'    => env('YUQUE_API_BASE_URL', 'http://tkog.qr67.com:8080/api') . env('YUQUE_USER_ORDER_DETAILS', '/user-order/details'),
