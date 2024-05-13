@@ -575,7 +575,7 @@ Route::get('yuque', function () {
 
     $yuqueClient = new YuqueClient;
 
-    return $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
+    return $yuqueClient->postHttpRequest(config('yuque.urls.merchant_account_info'), [
         'page'     => request('page', 1),
         'per_page' => request('per_page', 10),
     ]);
