@@ -43,8 +43,7 @@ Route::get('/', function () {
 
 
 Route::get('test-an', function () {
-     $salla = new SallaWebhookService('ory_rt_2PMcl3nWv-O8v1g-E6SPTDhjspj6YPTukCSIojW9yr8.Sz74iu4j4AJWpNiJdWCOqGJmrdXx78zMayI7hOtBVE8');
-     dd($salla->getOrders());
+    return get_salla_merchant_info('ory_at_sffvweKGQe1wttLG2X_iZbS7mOhMNEKgmNytaXmCrLQ.woiRhqGHq-tQ5INmugKyKIgGbQ-ClCAsbgj_Mx1QNcU');
 
 });
 

@@ -2,6 +2,8 @@
 
 
 use App\Models\PricesProducts;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
 
 function getArabicPdf()
@@ -318,4 +320,25 @@ function get_brand($id)
 
 
 
+}
+
+
+
+if (!function_exists('get_salla_merchant_info')) {
+    function get_salla_merchant_info($token)
+    {
+        try {
+            $client = new Client();
+            $response = $client->get('https://accounts.salla.sa/oauth2/user/info', [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $token,
+                ],
+            ]);
+
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (GuzzleException $e) {
+            return $e;
+        }
+
+    }
 }

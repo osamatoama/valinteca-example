@@ -7,9 +7,9 @@
         "Marketing",
         "Analytics"
     ],
-    "access_token": "ory_at_9yJN9d2U7N28WKbHqqP68d8urBTdxDyVMXWzHqQOYjU.iyU7J289xF75vVUO6meJglSlSFYMqQcZiI50YdFQkT8",
-    "expires": 1716808674,
-    "refresh_token": "ory_rt_2PMcl3nWv-O8v1g-E6SPTDhjspj6YPTukCSIojW9yr8.Sz74iu4j4AJWpNiJdWCOqGJmrdXx78zMayI7hOtBVE8",
+    "access_token": "ory_at_sffvweKGQe1wttLG2X_iZbS7mOhMNEKgmNytaXmCrLQ.woiRhqGHq-tQ5INmugKyKIgGbQ-ClCAsbgj_Mx1QNcU",
+    "expires": 1716807211,
+    "refresh_token": "ory_rt_jWfD_ZviApfX5Bt_LsTqErLFYRIjrTbvuCTSJ9WGNN0.7ZvuyGQKEfAOAqUxix8-PTEWgCAsy1VtUfHhYYT8tdo",
     "scope": "settings.read orders.read carts.read categories.read products.read webhooks.read_write offline_access",
     "token_type": "bearer"
 }
