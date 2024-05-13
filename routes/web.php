@@ -43,8 +43,8 @@ Route::get('/', function () {
 
 
 Route::get('test-an', function () {
-    return get_salla_merchant_info('ory_at_sffvweKGQe1wttLG2X_iZbS7mOhMNEKgmNytaXmCrLQ.woiRhqGHq-tQ5INmugKyKIgGbQ-ClCAsbgj_Mx1QNcU');
-
+    dump(get_salla_merchant_info('ory_at_sffvweKGQe1wttLG2X_iZbS7mOhMNEKgmNytaXmCrLQ.woiRhqGHq-tQ5INmugKyKIgGbQ-ClCAsbgj_Mx1QNcU'));
+    dump(get_salla_merchant_info('ory_at_Hx7N76_QxJjC0HHX8xV0jNG-WCeCuk9MMZkmxt4U-nM.N1vD-HqxSlPy07GHdzwf3xDiLR2dN09gOinYqfw5-JA'));
 });
 
 Route::get('migrate', function () {
