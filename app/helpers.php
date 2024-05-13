@@ -275,7 +275,7 @@ function get_brand($id)
 {
 
 
-    $request_json = '{"username":"' . config('mintroute.MINT_USERNAME') . '","data":{"category_id":"' . $id . '"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
+    $request_json = '{"username":"' . config('mintroute.MINT_USERNAME') . '","data":{"currency":"USD", "category_id": "2"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
 
     $pay_load = json_decode($request_json, true);
 
