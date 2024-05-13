@@ -573,32 +573,52 @@ Route::any('/python-download', function () {
 
 Route::get('mintroute', function () {
 
-    $url = 'https://sandbox.mintroute.com/vendor/api/get_current_balance';
-    $client = new Client();
-    $method = 'GET';
+    define('SANDBOX_API_URL','https://sandbox.mintroute.com/voucher/v2/api/voucher');
 
-    $timestamp = now()->format("Ymd\THi");
-    $params = [
-        'username' => 'sahwah.single',
-        'password' => 'nAgQzmXO',
-    ];
-
-    $stringToSing = $method . http_build_query($params) . $timestamp;
+    define('MINT_ACCESS_KEY', 'MwQAIwka');
+    define('MINT_SECRET_KEY', 'eb6b43219b5d5d9b3de645a3f932848e');
 
 
-    $signature = base64_encode(hash_hmac('sha256', $stringToSing, 'eb6b43219b5d5d9b3de645a3f932848e', true));
+    $request_json = '{"username":"sahwah.single","data":{"currency":"USD"}}'; //'{ "username": "sahwah.single" "data":{"ean":"PRODUCT EAN HERE","terminal_id":"Server001","request_type":"purchase", "response_type": "short"}}';
 
-    $request = $client->get($url, [
-        'headers' => [
-            'Accept'        => 'application/json',
-            'Content-Type'  => 'application/json',
-            'Authorization' => 'algorithm="hmac-sha256”,credential="MwQAIwka/' . $timestamp . '”, signature="' . $signature . '"',
-            'X-Mint-Date'   => now()->format("Ymd\THis\Z"),
-        ],
-    ]);
+    $pay_load = json_decode($request_json,true);
+
+    $request_method = 'POST';
+    $raw_pay_load   = http_build_query($pay_load);
+    $date = gmdate('Ymd\THis\Z');
+    $timestamp_for_signing = substr($date, 0, 13);
+    $datestamp = substr($date, 0, 8);
+
+    $str_to_sign =  $request_method . $raw_pay_load . $timestamp_for_signing;
+
+    $signature = base64_encode(hash_hmac('sha256', $str_to_sign, MINT_SECRET_KEY,true));
+    $headers = generate_header($signature,$date,$datestamp);
+
+    //Curl Request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_HEADER, true);
+    curl_setopt($ch, CURLOPT_URL, SANDBOX_API_URL);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+    $response = substr($response, $header_size);
+    if (!empty(curl_error($ch))) {
+        echo curl_error($ch);
+    }
+    curl_close($ch);
 
 
-    return $request->getBody();
+    print_r($response);
+
+
+
+
 
 });
 

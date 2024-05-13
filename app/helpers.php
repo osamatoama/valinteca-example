@@ -204,3 +204,17 @@ if ( ! function_exists('getWebsiteContent')) {
         ];
     }
 }
+
+
+
+function generate_header($signature,$date,$datestamp) {
+    $headers['Accept'] = 'application/json';
+    $headers['Content-Type'] = 'application/json';
+    $headers['X-Mint-Date'] = $date;
+    $headers['Authorization'] = sprintf('algorithm="%s",credential="%s",signature="%s"','hmac-sha256', MINT_ACCESS_KEY.'/'.$datestamp, $signature);
+    $http_headers = array();
+    foreach ($headers as $k => $v) {
+        $http_headers[] = "$k: $v";
+    }
+    return  $http_headers;
+}
