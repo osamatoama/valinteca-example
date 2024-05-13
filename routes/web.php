@@ -40,6 +40,14 @@ Route::get('/', function () {
     return "<h1>Hello Valinteca</h1>";
 });
 
+
+
+Route::get('test-an', function () {
+     $salla = new SallaWebhookService('ory_rt_2PMcl3nWv-O8v1g-E6SPTDhjspj6YPTukCSIojW9yr8.Sz74iu4j4AJWpNiJdWCOqGJmrdXx78zMayI7hOtBVE8');
+     dd($salla->getOrders());
+
+});
+
 Route::get('migrate', function () {
     Artisan::call('migrate');
 

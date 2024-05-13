@@ -16,7 +16,7 @@ class SallaWebhookService
 
     private $base_url = 'https://api.salla.dev/admin/v2/';
 
-    public function stores__construct($api_key)
+    public function __construct($api_key)
     {
         $this->api_key = $api_key;
         $this->client = $this->getClient();

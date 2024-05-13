@@ -1,0 +1,15 @@
+{
+    "id": 1732252037,
+    "app_name": "analyzer",
+    "app_description": "Our application collects and analyzes your data very efficiently, enabling you to generate accurate reports and interactive control panels that help in making informed strategic decisions.",
+    "app_type": "app",
+    "categories": [
+        "Marketing",
+        "Analytics"
+    ],
+    "access_token": "ory_at_9yJN9d2U7N28WKbHqqP68d8urBTdxDyVMXWzHqQOYjU.iyU7J289xF75vVUO6meJglSlSFYMqQcZiI50YdFQkT8",
+    "expires": 1716808674,
+    "refresh_token": "ory_rt_2PMcl3nWv-O8v1g-E6SPTDhjspj6YPTukCSIojW9yr8.Sz74iu4j4AJWpNiJdWCOqGJmrdXx78zMayI7hOtBVE8",
+    "scope": "settings.read orders.read carts.read categories.read products.read webhooks.read_write offline_access",
+    "token_type": "bearer"
+}
