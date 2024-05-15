@@ -85,6 +85,12 @@ Route::prefix('loyalty-points-automation')->group(function () {
     Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
     Route::get('seed', [LoyaltyPointsAutomationController::class, 'seed']);
     Route::get('all', [LoyaltyPointsAutomationController::class, 'all']);
+    Route::get('fix', function () {
+        \App\Models\LoyaltyPointsAutomation::find(98)->update([
+            'page' => 0,
+            'is_done' => false,
+        ]);
+    });
 });
 
 Route::post('test-python', function (Request $request) {
