@@ -9,7 +9,7 @@ import requests
 def main() -> None:
     # implement data recieving API here instead of hardcoding
     headers={"Content-Type":"application/json", "Accept":"application/json","X-Authorization": "HnweAEO5T7SArZCiy5SjzOx9cZ96qGEejaiIkvyZLZW1PrBZX64ofs5lO6s6UCmK","X-Device":"hetzner-server-1-new-code-1"}
-    r = requests.get(url="https://sahwa.valantica.com/api/v1/retry/11543", headers=headers)
+    r = requests.get(url="https://sahwa.valantica.com/api/v1/bot", headers=headers)
     print(r.json())
     if(r.json()['success'] == False):
         exit()
