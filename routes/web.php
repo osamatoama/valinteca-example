@@ -37,7 +37,7 @@ use robertogallea\LaravelPython\Services\LaravelPython;
 
 Route::get('/', function () {
 
-   clean('‏uecFt5Xq2j293d3eZ6');
+    return removeSpecialCharacters('‏uecFt5Xq2j293d3eZ6');
 });
 
 
