@@ -37,7 +37,7 @@ use robertogallea\LaravelPython\Services\LaravelPython;
 
 Route::get('/', function () {
 
-    return "<h1>Hello Valinteca</h1>";
+   clean('‏uecFt5Xq2j293d3eZ6');
 });
 
 

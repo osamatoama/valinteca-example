@@ -20,7 +20,7 @@ Route::any('abaya/rating/store', function (Request $request) {
     //    ]);
     //
     Rating::create([
-        'type' => $request->input('rating_type'),
+        'type'  => $request->input('rating_type'),
         'stars' => $request->stars,
     ]);
 
@@ -49,11 +49,12 @@ Route::get('code', function (Request $request) {
     }
 
     return response()->json([
-        'success' => true,
+        'success'   => true,
         'player_id' => '533038203', //$player->player_id,
-        'code' => $code->code,
-        'email' => $email->username,
-        'password' => $email->password,
+        'code'      => $code->code,
+        'email'     => $email->username,
+        'password'  => $email->password,
+        'code_id'   => 0,
     ]);
 });
 
@@ -89,8 +90,8 @@ Route::prefix('loyalty-points-automation')->group(function () {
 
 Route::post('test-python', function (Request $request) {
     Email::create([
-        'username' => $request->input('email'),
-        'password' => $request->input('password'),
+        'username'   => $request->input('email'),
+        'password'   => $request->input('password'),
         'blocked_to' => now()->subDay(),
     ]);
 

@@ -16,8 +16,8 @@ def main() -> None:
 
     email_address=r.json()['email']
     password=r.json()['password']
-    player_id=533038203 #r.json()['player_id']
-    redeem_code='qYNuUEZt2e2454e5a2'#r.json()['code']
+    player_id=r.json()['player_id']
+    redeem_code=r.json()['code']
     code_id = r.json()['code_id']
 
     start_time = time.ctime()

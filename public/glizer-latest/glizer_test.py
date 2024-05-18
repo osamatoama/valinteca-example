@@ -24,6 +24,7 @@ import requests
 try:
 
     chrome_options = Options()
+    chrome_options.page_load_strategy = 'none'
 
 
 
@@ -47,19 +48,9 @@ try:
 
     js_code = "setInterval(function () {var s1 = document.querySelector('.activity-iframe-wrapper'), s2 = document.querySelector('.PatFacePopWrapper_visa-card-pat-face-pop__PTPdF'); if(s1) {s1.style.display = 'none'}  if(s2) { s2.style.display = 'none' }; }, 300) "
     browser.execute_script(js_code)
+    wait = WebDriverWait(browser, 20)
 
-    try:
-        wait = WebDriverWait(browser, 20)
-        cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[13]/div[5]/i')))
-        cookie_accept_button.click()
-        time.sleep(5)
 
-        cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[10]/div[3]/div[1]/div/div/div/div')))
-        cookie_accept_button.click()
-    except:
-        wait = WebDriverWait(browser, 20)
-        cookie_accept_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div/div[9]/div[3]/div[1]/div/div/div/div')))
-        cookie_accept_button.click()
 
     login_button = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div/div[6]/div[2]/div/div/div[2]/div/div/div/div')))
     login_button.click()
