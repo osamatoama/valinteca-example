@@ -86,26 +86,6 @@ Route::prefix('loyalty-points-automation')->group(function () {
     Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
     Route::get('seed', [LoyaltyPointsAutomationController::class, 'seed']);
     Route::get('all', [LoyaltyPointsAutomationController::class, 'all']);
-    Route::get('test', function () {
-        $dates = [
-            '2024-01-28',
-            '2024-01-25',
-            '2024-01-10',
-            '2024-01-29',
-            '2024-02-01',
-            '2023-12-27',
-            '2024-02-27',
-            '2024-01-02',
-            '2024-01-24',
-            '2024-02-29',
-        ];
-
-        \App\Models\LoyaltyPointsAutomation::whereIn('day', $dates)->update([
-            'should_pass' => false,
-        ]);
-
-        dump('Done');
-    });
 });
 
 Route::post('test-python', function (Request $request) {
