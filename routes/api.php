@@ -100,7 +100,7 @@ Route::prefix('loyalty-points-automation')->group(function () {
             '2024-02-29',
         ];
 
-        dump(\App\Models\LoyaltyPointsAutomation::whereIn('date', $dates)->get());
+        dump(\App\Models\LoyaltyPointsAutomation::whereIn('day', $dates)->get());
     });
 });
 
