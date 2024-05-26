@@ -113,7 +113,7 @@ Route::get('top2cards-fetch-stc-order', function (Request $request) {
 });
 
 
-Route::get('any', function (Request $request) {
+Route::any('any', function (Request $request) {
 
     \Log::error($request->all());
 });
