@@ -59,4 +59,16 @@ class LoyaltyPointsAutomationController extends Controller
     {
         return LoyaltyPointsAutomation::query()->oldest('id')->get();
     }
+
+    public function reset()
+    {
+        LoyaltyPointsAutomation::query()->where('should_pass', false)->update([
+            'page' => 0,
+            'is_done' => false,
+        ]);
+
+        return response()->json([
+            'message' => 'Done',
+        ]);
+    }
 }

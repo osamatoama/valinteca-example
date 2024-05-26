@@ -86,6 +86,7 @@ Route::prefix('loyalty-points-automation')->group(function () {
     Route::get('fresh', [LoyaltyPointsAutomationController::class, 'fresh']);
     Route::get('seed', [LoyaltyPointsAutomationController::class, 'seed']);
     Route::get('all', [LoyaltyPointsAutomationController::class, 'all']);
+    Route::get('reset', [LoyaltyPointsAutomationController::class, 'reset']);
 });
 
 Route::post('test-python', function (Request $request) {
@@ -120,5 +121,5 @@ Route::any('any', function (Request $request) {
     return response()->json([
         'success' => false,
     ]);
-    
+
 });
