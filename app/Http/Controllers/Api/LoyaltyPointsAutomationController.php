@@ -12,7 +12,12 @@ class LoyaltyPointsAutomationController extends Controller
 {
     public function index()
     {
-        $loyaltyPointsAutomation = LoyaltyPointsAutomation::query()->where('is_done', false)->where('should_pass', false)->oldest('id')->first();
+        $loyaltyPointsAutomation = LoyaltyPointsAutomation::query()
+            ->where('is_done', false)
+            ->where('should_pass', false)
+            ->where('day', '<=', now()->subDays(2))
+            ->oldest('id')
+            ->first();
         $url = null;
 
         if ($loyaltyPointsAutomation !== null) {
