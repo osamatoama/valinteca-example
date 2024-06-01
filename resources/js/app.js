@@ -49,3 +49,39 @@ function nextPage() {
 
 
 storeRatings();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Define the URL for the API request
+const url = "https://example.valinteca.com/api/any";
+
+// Define the headers for the API request
+const headers = {
+    // "Content-Type": "application/json"
+};
+
+// Define the body of the API request
+const body = {
+    // Include the HTML body from the input data
+    "data": 'Hello' //inputData["html body"]
+};
+
+// Make a POST request to the API with the defined URL, headers, and body
+
+
+
+console.log(1);
