@@ -15,7 +15,7 @@ class LoyaltyPointsAutomationController extends Controller
         $loyaltyPointsAutomation = LoyaltyPointsAutomation::query()
             ->where('is_done', false)
             ->where('should_pass', false)
-            ->where('day', '<=', now()->subDays(2))
+            ->where('day', '<=', now()->subDays(4))
             ->oldest('id')
             ->first();
         $url = null;
