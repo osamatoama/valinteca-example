@@ -615,6 +615,12 @@ Route::get('qr-code', function () {
 });
 
 
+Route::get('qr-code-reader', function () {
+
+    return view('qr');
+});
+
+
 
 
 
