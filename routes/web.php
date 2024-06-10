@@ -34,12 +34,12 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use robertogallea\LaravelPython\Services\LaravelPython;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
     return removeSpecialCharacters('‏uecFt5Xq2j293d3eZ6');
 });
-
 
 
 Route::get('test-an', function () {
@@ -597,10 +597,21 @@ Route::get('mintroute/balance', function () {
 });
 
 
-Route::get('mintroute/brand/{id}', function ($id) {
+Route::get('qr-code', function () {
 
-    return get_brand($id);
+    $qrCodes = [];
+    $qrCodes['simple'] = QrCode::size(150)->generate('https://vocally.valantica.com/');
 
+    $qrCodes['changeColor'] = QrCode::size(150)->color(255, 0, 0)->generate('https://vocally.valantica.com/');
+    $qrCodes['changeBgColor'] = QrCode::size(150)->backgroundColor(255, 0,
+        0)->generate('https://vocally.valantica.com/');
+    $qrCodes['styleDot'] = QrCode::size(150)->style('dot')->generate('https://vocally.valantica.com/');
+    $qrCodes['styleSquare'] = QrCode::size(150)->style('square')->generate('https://vocally.valantica.com/');
+    $qrCodes['styleRound'] = QrCode::size(150)->style('round')->generate('https://vocally.valantica.com/');
+
+    foreach ($qrCodes as $code) {
+        echo  $code . '<br /> <br /><br />';
+    }
 });
 
 

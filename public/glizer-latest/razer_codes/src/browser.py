@@ -38,8 +38,8 @@ class Browser:
 
     def navigate_to_account_page(self):
         time.sleep(10)
-        popup = self.driver.find_element(By.XPATH, '/html/body/div[4]/div[1]/div/div/div/button[2]')
-        popup.click()
+        #popup = self.driver.find_element(By.XPATH, '/html/body/div[4]/div[1]/div/div/div/button[2]')
+        #popup.click()
 
 
         WebDriverWait(self.driver, 15).until(

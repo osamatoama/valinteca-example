@@ -18,10 +18,10 @@ import time
 
 def main():
     # initial data from api
-    razer_email = '10DonAbdullah@gmail.com'
-    razer_password = 'ASDFasdf12'
+    razer_email = 'osamatoama96@gmail.com'
+    razer_password = 'Rc2SaU.vb9jC4Xr'
 
-    active_backup_code = '81881219'
+    active_backup_code = '10256104'
 
     try:
         time.sleep(5)

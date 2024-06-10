@@ -9,16 +9,11 @@ def main() -> None:
     # implement data recieving API here instead of hardcoding
     email_address = 'jnsyb81629@onymi.com'
     password = 'Ss102030'
-    player_id = 13004212210
-    razer_email = '10DonAbdullah@gmail.com'
-    razer_password = 'ASDFasdf12'
-    bacupcode = '99561028'
-    product = '5000'
-    #server_group = '언던 서버'
-    #server_name = '잃어버린 도시'
-    server_group = 'Eurasia Undawn Servers'
-    server_name = 'The Clowns'
-
+    player_id = "#82RLCVCC"
+    razer_email = 'osamatoama96@gmail.com'
+    razer_password = 'Rc2SaU.vb9jC4Xr'
+    bacupcode = '51103851'
+    product = '6500'
 
     start_time = time.ctime()
 
@@ -30,9 +25,7 @@ def main() -> None:
             razer_email=razer_email,
             razer_password=razer_password,
             backup_code=bacupcode,
-            product=product,
-            server_group=server_group,
-            server_name=server_name
+            product=product
         )
         print("SUCCESS: ", result)
         api.handle_success(success_message=result)
