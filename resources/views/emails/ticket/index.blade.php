@@ -221,14 +221,10 @@
                 <td colspan="2" >
                     <div class="invoice-info-wrapper text-center">
                         <p class="fw-bold text-sm-size text-center">فاتورة الطلب</p>
-                        <p class="order-id dir-ltr fw-bold text-sm-size text-center">#{{$data['reference_id']}}</p>
-                        <p class="order-date dir-ltr fw-bold text-sm-size text-center">{{Carbon\Carbon::parse($data['date']['date'])->format('Y-m-d H:i:s')}}</p>
-                        <p class="order-date dir-ltr fw-bold text-sm-size text-center">طريقة الدفع: {{ $data['payment_method'] }}</p>
+                        <p class="order-id dir-ltr fw-bold text-sm-size text-center"># </p>
+                        <p class="order-date dir-ltr fw-bold text-sm-size text-center"></p>
+                        <p class="order-date dir-ltr fw-bold text-sm-size text-center">طريقة الدفع: </p>
                         <div class="tax-num text-center">
-                            @php
-
-                                echo  Str::replace('<?xml version="1.0" standalone="no"?>', '', DNS1D::getBarcodeSVG($data['reference_id'], 'C39',2,50,'black', true))
-                            @endphp
                         </div>
                     </div>
                 </td>
@@ -254,30 +250,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @if(isset($data['items']) && is_array($data['items']) && count($items = $data['items']))
-                        @foreach($items as $key => $item)
-                            <tr>
-                                <td>
-                            <span class="product-pic-wrapper">
-                                        <img class="product-pic" src="{{$item['product']['thumbnail']}}"
-                                             alt="product" width="100" height="100">
-                                    </span>
-                                </td>
-                                <td class="product-pic-and-name">
-
-                                    <span class="product-name text-sm-size">{{$item['name']}}</span>
-                                    <br />
-                                    @foreach($item['options'] as $option)
-                                        {{$option['name']}}: {{$option['value']['name']}}
-                                    @endforeach
-                                </td>
-                                <td class="store-num text-sm-size">{{$item['sku']}}</td>
-                                <td class="quantity text-sm-size">{{$item['quantity']}}</td>
-                                <td class="price text-sm-size">  {{ round(($item['product']['price']['amount'] ?? 0), 2) }}</td>
-                                <td class="total-price text-sm-size"> {{ round(($item['amounts']['total']['amount'] ?? 0), 2) }}  </td>
-                            </tr>
-                        @endforeach
-                    @endif
 
                     </tbody>
                 </table>
