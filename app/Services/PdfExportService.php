@@ -3,25 +3,28 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
-use MPDF;
 
 class PdfExportService
 {
+
     private $data;
+
     private $view;
+
     private $filename;
+
     private $height;
+
     private $width;
 
-    public function __construct($data,$view,$filename,$height,$width)
+    public function __construct($data, $view, $filename, $height, $width)
     {
-        $this->data     = $data;
-        $this->view     = $view;
+        $this->data = $data;
+        $this->view = $view;
         $this->filename = $filename;
-        $this->height   = $height;
-        $this->width    = $width;
+        $this->height = $height;
+        $this->width = $width;
     }
-
 
     /**
      * Export PDF
@@ -29,10 +32,13 @@ class PdfExportService
     public function export()
     {
         $pdf = MPDF::loadView($this->view, $this->data, [], [
-            'format'       => 'A4',//[$this->width, $this->height],
+            'format'       => 'A3',//[$this->width, $this->height],
             'display_mode' => 'real',
+            'title'        => 'Laravel mPDF',
+            'mode'         => 'utf-8',
         ]);
-        return $pdf->save(Storage::path('public/attachments/'.$this->filename.'.pdf'));
+
+        return $pdf->save(Storage::path('public/attachments/' . $this->filename . '.pdf'));
     }
 
     public function download()
@@ -41,6 +47,7 @@ class PdfExportService
             'format'       => [$this->width, $this->height],
             'display_mode' => 'real',
         ]);
-        return $pdf->download($this->filename.'.pdf');
+
+        return $pdf->download($this->filename . '.pdf');
     }
 }
