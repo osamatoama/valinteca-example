@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
-
+use Mpdf;
 class PdfExportService
 {
 
