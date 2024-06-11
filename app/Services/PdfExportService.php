@@ -33,7 +33,7 @@ class PdfExportService
     {
         $pdf = MPDF::loadView($this->view, $this->data, [], [
             'format'       => [$this->width, $this->height],
-            'display_mode' => 'fullpage',
+            'display_mode' => 'real',
             'title'        => 'Laravel mPDF',
             'mode'         => 'utf-8',
         ]);
