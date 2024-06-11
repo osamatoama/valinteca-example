@@ -616,8 +616,7 @@ Route::get('qr-code', function () {
 });
 
 
-Route::get('pdf-export', function () {
-
+Route::get('pdf-example-1', function () {
 
     app(PdfExportService::class, [
         'data' => [
@@ -629,8 +628,20 @@ Route::get('pdf-export', function () {
         'width' => 240,
     ])->export();
 
+});
 
 
+Route::get('pdf-example-2', function () {
+
+    app(PdfExportService::class, [
+        'data' => [
+            'data' => [],
+        ],
+        'view' => "emails.test",
+        'filename' => 'home',
+        'height' => 420,
+        'width' => 240,
+    ])->export();
 
 });
 
