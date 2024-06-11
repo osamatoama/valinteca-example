@@ -1,370 +1,292 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Valinteca - ticket</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-        href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap"
-        rel="stylesheet"
-    />
-    <style>
+<html lang="ar" dir="ltr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media print {
+            .wrapper {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
         @page {
             margin: 0 7px;
             padding: 0;
         }
-        
         * {
-            box-sizing: border-box;
             padding: 0;
             margin: 0;
+            direction: rtl;
+            /*font-family:   'Airal', 'Dastnevis', 'Helvetica Neue', 'Helvetica', 'Airal', Helvetica, Arial, sans-serif;*/
+            /*font-family: 'Dastnevis';*/
+            text-align: center !important;
         }
 
         body {
             font-family: 'Dastnevis', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1e1e1e;
-            padding: 0 15px;
+            direction: rtl;
+            text-align: center !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .dir-ltr {
+            direction: ltr !important;
+        }
+
+        .under-line {
+            text-decoration: underline;
+        }
+
+        .fw-light {
+            font-weight: 300;
+        }
+
+        .fw-medium {
+            font-weight: 500;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .text-sm-size {
+            font-size: 18px;
+        }
+
+        .text-md-size {
+            font-size: 20px;
+        }
+
+        .text-lg-size {
+            font-size: 22px;
+        }
+
+        .m-b-10 {
+            margin-bottom: 10px;
+        }
+
+        .m-b-15 {
+            margin-bottom: 15px;
+        }
+
+        .text-end {
+            text-align: end;
+        }
+
+        .bg-gray {
+            background-color: #e3e3e3;
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         .wrapper {
-            width: 860px;
-            height: 280px;
-            display: flex;
-            overflow: hidden;
-            position: relative;
+            width: 100%;
+            margin: 0 auto;
         }
 
-        .ellipse {
-            background-color: #1e1e1e;
-            border-radius: 50%;
+        table {
+            width: 100%;
+            border-spacing: 0;
+            text-align: right;
         }
 
-        .ellipse-lg {
-            width: 40px;
-            height: 40px;
-            position: absolute;
+        table thead {
+            background-color: #f0f0f0;
         }
 
-        .ellipse-sm {
-            width: 30px;
-            height: 30px;
+        table td {
+            padding: 10px;
         }
 
-        .left-ellipses {
-            position: absolute;
-            height: 90%;
-            top: 5%;
-            left: -15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        header .wrapper {
+            padding: 5px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
         }
 
-        .part-1 .ellipse-lg {
-            top: 50%;
-            transform: translateY(-50%);
-            right: -20px;
-            background-color: #1e1e1e;
+        .website-info-wrapper {
+            vertical-align: bottom;
         }
 
-        .part-1 {
-            width: 60px;
-            background-color: #222222;
-            color: #fff;
-            position: relative;
-            display: flex;
-            align-items: center;
+        .website-name {
+            font-size: 25px;
+            margin-bottom: 20px;
         }
 
-        .part-1 span {
-            position: absolute;
-            rotate: 90deg;
-            white-space: nowrap;
-            transform: translateY(-50%);
-            height: 20px;
-            right: 10px;
+        header table p {
+            padding: 5px 0;
         }
 
-        .part-1 span:first-of-type {
-            top: 25%;
+        .invoice-info-wrapper p,
+        .invoice-info-wrapper .tax-num {
+            text-align: left;
         }
 
-        .part-1 span:nth-of-type(2) {
-            top: 75%;
+        .cod {
+            width: fit-content;
+            margin-right: auto;
+            margin-bottom: 15px;
+            padding: 10px 15px 5px;
+            border: 2px solid #f3f3f3;
         }
 
-        .part-2 {
-            flex: 1;
-            display: flex;
-            gap: 1.25rem;
-            background-color: #fff;
-            color: #000;
-            border-left: 2px dashed #000;
-            padding: 20px;
+        .tax-num img {
+            width: 250px;
+            height: 60px;
         }
 
-        .part-2 .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin: 20px 0;
+        .client-info {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
         }
 
-        .part-2 h1 {
-            font-size: 50px;
-            line-height: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .order-info {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
         }
 
-        .part-2 .main-content .date {
-            padding: 12px 32px;
-            background-color: #f5f0ea;
-            font-weight: 700;
+        .order-details {
+            border: 2px solid #eee;
+            border-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .tables-wrapper {
+            margin-bottom: 20px;
+            border: 2px solid #eee;
+        }
+
+        .product-pic-wrapper {
+            vertical-align: middle;
+        }
+
+        .product-pic-wrapper .product-pic {
+            width: 80px;
+            height: 80px;
+        }
+
+        .product-name {
+            padding-right: 10px;
+        }
+
+        .bar-code {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin-right: auto;
+        }
+
+        .order-summary {
+            width: 50%;
+            margin-right: auto;
+        }
+
+        .order-summary-row .summary-value {
+            text-align: left;
+        }
+
+        footer {
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            background-color: #f0f0f0;
             text-align: center;
-            word-spacing: 4px;
-        }
-
-        .info-items-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem 5rem;
-            height: fit-content;
-            margin-top: 50px;
-        }
-
-        .info-item:nth-child(3) {
-            grid-column: span 2;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            color: #323232;
-        }
-
-        .info-item span:first-child {
-            font-weight: 700;
-            color: #000;
-        }
-
-        .info-item small {
-            font-weight: 600;
-            white-space: nowrap;
-            font-size: 12px;
-            color: #323232;
-        }
-
-        .part-2 .actions {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-shrink: 0;
-        }
-
-        .actions img {
-            max-height: 90px;
-            max-width: 80px;
-            object-fit: contain;
-        }
-
-        /*  #################################################### */
-        .wrapper .part-3 {
-            width: 165px;
-            background-color: #f5f0ea;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .part-3 p {
-            font-weight: 700;
-            font-size: 24px;
-            rotate: 90deg;
-            margin-left: 25px;
-        }
-
-        .serial-code {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
-            margin-right: 35px;
-        }
-
-        .serial-code img {
-            width: 50px;
-            height: 55px;
-        }
-
-        .top-ellipse {
-            top: -20px;
-            right: -20px;
-        }
-
-        .bottom-ellipse {
-            bottom: -20px;
-            right: -20px;
-        }
-
-        @media (max-width: 768px) {
-            .wrapper {
-                width: 95%;
-                height: unset;
-                flex-direction: column;
-                margin: 0 auto;
-            }
-
-            .wrapper .ellipse {
-                display: none;
-            }
-
-            .wrapper .part-1 {
-                width: unset;
-                flex-direction: row-reverse;
-                justify-content: center;
-                gap: 1.25rem;
-                padding: 12px;
-            }
-
-            .part-1 span {
-                rotate: unset;
-                position: unset;
-                transform: unset;
-            }
-
-            .part-2 {
-                flex-direction: column;
-                text-align: center;
-                border: unset;
-            }
-
-            .part-2 .main-content {
-                margin: unset;
-            }
-
-            .part-2 .info-items-wrapper {
-                margin-top: unset;
-            }
-
-            .part-2 .actions {
-                flex-direction: row;
-            }
-
-            .wrapper .part-3 {
-                width: unset;
-                flex-direction: column;
-                justify-content: center;
-                padding: 20px;
-            }
-
-            .wrapper .part-3 > div:nth-child(3) {
-                display: none;
-            }
-
-            .wrapper .part-3 .serial-code {
-                flex-direction: row;
-                gap: 2px;
-                margin: unset;
-            }
-
-            .wrapper .part-3 .serial-code img {
-                rotate: 90deg;
-            }
-
-            .part-3 p {
-                rotate: unset;
-                margin: unset;
-            }
+            padding: 10px;
         }
 
     </style>
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="part-1">
-        <div class="ellipse ellipse-lg"></div>
-        <span>01000000</span>
-        <span>رقم التذكرة:</span>
+<header>
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td class="website-info-wrapper text-center" colspan="2">
+                    <div class="website-info text-center">
+                        <img src="https://autowats.com/pdf/invoice-pdf/eitara-logo.png" width="200" height="200"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" >
+                    <div class="invoice-info-wrapper text-center">
+                        <p class="fw-bold text-sm-size text-center">فاتورة الطلب</p>
+                        <p class="order-id dir-ltr fw-bold text-sm-size text-center">#{{$data['reference_id']}}</p>
+                        <p class="order-date dir-ltr fw-bold text-sm-size text-center">{{Carbon\Carbon::parse($data['date']['date'])->format('Y-m-d H:i:s')}}</p>
+                        <p class="order-date dir-ltr fw-bold text-sm-size text-center">طريقة الدفع: {{ $data['payment_method'] }}</p>
+                        <div class="tax-num text-center">
+                            @php
+
+                                echo  Str::replace('<?xml version="1.0" standalone="no"?>', '', DNS1D::getBarcodeSVG($data['reference_id'], 'C39',2,50,'black', true))
+                            @endphp
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
+</header>
 
-    <div class="part-2">
-        <div class="main-content">
-            <h1>
-                حفلة العام<br/>
-                المميزة
-            </h1>
-            <div class="date">14 اكتوبر, 2025</div>
-        </div>
+<main>
 
-        <div class="info-items-wrapper">
-            <div class="info-item">
-                <span>الوقت:</span>
-                <small>4:00 مساءاً</small>
+    <div class="wrapper text-center">
+        <div class="order-details text-center">
+            <div class="tables-wrapper text-center">
+                <table class="products-table text-center">
+                    <thead>
+                    <tr>
+                        <td class="fw-bold text-sm-size text-center ">الصورة</td>
+                        <td class="fw-bold text-sm-size text-center ">المنتج</td>
+                        <td class="fw-bold text-sm-size text-center ">الرقم المخزني</td>
+                        <td class="fw-bold text-sm-size text-center ">الكمية</td>
+                        <td class="fw-bold text-sm-size text-center ">السعر</td>
+                        <td class="fw-bold text-sm-size text-center ">المجموع</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if(isset($data['items']) && is_array($data['items']) && count($items = $data['items']))
+                        @foreach($items as $key => $item)
+                            <tr>
+                                <td>
+                            <span class="product-pic-wrapper">
+                                        <img class="product-pic" src="{{$item['product']['thumbnail']}}"
+                                             alt="product" width="100" height="100">
+                                    </span>
+                                </td>
+                                <td class="product-pic-and-name">
+
+                                    <span class="product-name text-sm-size">{{$item['name']}}</span>
+                                    <br />
+                                    @foreach($item['options'] as $option)
+                                        {{$option['name']}}: {{$option['value']['name']}}
+                                    @endforeach
+                                </td>
+                                <td class="store-num text-sm-size">{{$item['sku']}}</td>
+                                <td class="quantity text-sm-size">{{$item['quantity']}}</td>
+                                <td class="price text-sm-size">  {{ round(($item['product']['price']['amount'] ?? 0), 2) }}</td>
+                                <td class="total-price text-sm-size"> {{ round(($item['amounts']['total']['amount'] ?? 0), 2) }}  </td>
+                            </tr>
+                        @endforeach
+                    @endif
+
+                    </tbody>
+                </table>
             </div>
-            <div class="info-item">
-                <span>السعر:</span>
-                <small>7000 $</small>
-            </div>
-            <div class="info-item">
-                <span>العنوان:</span>
-                <small
-                >ستوديو اّدم,<br/>
-                    شارع المدينة , جدة , السعودية</small
-                >
-            </div>
-        </div>
 
-        <div class="actions">
-            <img
-                src="./images/logo.png"
-                width="100%"
-                height="100%"
-                alt="valinteca-logo"
-            />
-
-            <img
-                src="./images/qr-code.png"
-                width="100%"
-                height="100%"
-                alt="qr-code"
-            />
         </div>
     </div>
+</main>
 
-    <div class="part-3">
-        <div class="serial-code">
-            <img src="./images/serial-code.png" alt="serial-code"/>
-            <img src="./images/serial-code.png" alt="serial-code"/>
-            <img src="./images/serial-code.png" alt="serial-code"/>
-            <img src="./images/serial-code.png" alt="serial-code"/>
-        </div>
-        <p>مميز</p>
-        <div>
-            <div class="ellipse top-ellipse ellipse-lg"></div>
-            <div class="ellipse bottom-ellipse ellipse-lg"></div>
-        </div>
-    </div>
-
-    <div class="left-ellipses">
-        <div class="ellipse ellipse-sm"></div>
-        <div class="ellipse ellipse-sm"></div>
-        <div class="ellipse ellipse-sm"></div>
-        <div class="ellipse ellipse-sm"></div>
-        <div class="ellipse ellipse-sm"></div>
-    </div>
-</div>
 </body>
+
 </html>
