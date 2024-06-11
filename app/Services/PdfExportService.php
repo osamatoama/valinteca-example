@@ -32,8 +32,8 @@ class PdfExportService
     public function export()
     {
         $pdf = MPDF::loadView($this->view, $this->data, [], [
-            'format'       => 'A3',//[$this->width, $this->height],
-            'display_mode' => 'real',
+            'format'       => [$this->width, $this->height],
+            'display_mode' => 'fullpage',
             'title'        => 'Laravel mPDF',
             'mode'         => 'utf-8',
         ]);
