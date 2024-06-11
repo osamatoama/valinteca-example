@@ -11,6 +11,12 @@
         rel="stylesheet"
     />
     <style>
+
+        @page {
+            margin: 0 7px;
+            padding: 0;
+        }
+        
         * {
             box-sizing: border-box;
             padding: 0;
