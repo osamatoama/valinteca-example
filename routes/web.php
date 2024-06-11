@@ -23,6 +23,7 @@ use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
+use App\Services\PdfExportService;
 use App\Services\SallaWebhookService;
 use App\Services\Yuque\YuqueClient;
 use GuzzleHttp\Exception\BadResponseException;
@@ -615,9 +616,22 @@ Route::get('qr-code', function () {
 });
 
 
-Route::get('qr-code-reader', function () {
+Route::get('pdf-export', function () {
 
-    return view('qr');
+
+    app(PdfExportService::class, [
+        'data' => [
+            'data' => [],
+        ],
+        'view' => "emails.ticket.index",
+        'filename' => 'home',
+        'height' => 420,
+        'width' => 240,
+    ])->export();
+
+
+
+
 });
 
 
