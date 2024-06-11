@@ -38,7 +38,8 @@ class PdfExportService
             'mode'         => 'utf-8',
         ]);
 
-        return $pdf->save(Storage::path('public/attachments/' . $this->filename . '.pdf'));
+//        return $pdf->save(Storage::path('public/attachments/' . $this->filename . '.pdf'));
+        return $pdf->stream();
     }
 
     public function download()
