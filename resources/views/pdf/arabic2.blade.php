@@ -47,6 +47,8 @@
       .head-row {
         background-color: #222222;
         text-align: center;
+        padding: 6px;
+        border-radius: 4px;
       }
       .part-1 .ellipse-lg {
         top: 50%;
