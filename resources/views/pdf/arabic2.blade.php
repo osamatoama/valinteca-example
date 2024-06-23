@@ -11,7 +11,7 @@
         box-sizing: border-box;
       }
       body {
-        background-color: red;
+        background-color: #1e1e1e;
         padding: 0 15px;
         text-align: center;
         min-height: 100vh;
@@ -61,31 +61,11 @@
         right: -20px;
         background-color: #1e1e1e;
       }
-      .part-1 span {
-        display: block;
-        margin: 10px 0;
-        rotate: 90deg;
-        white-space: nowrap;
-        margin: 100px 0;
-      }
       .part-2 {
         background-color: #fff;
         border-left: 2px dashed #000;
         padding: 20px;
         width: 100%;
-      }
-      .main-title {
-        font-size: 38px;
-        line-height: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      .date {
-        padding: 12px 32px;
-        background-color: #f5f0ea;
-        font-weight: 700;
-        text-align: center;
-        word-spacing: 4px;
       }
       .info-item {
         margin-bottom: 10px;
@@ -94,39 +74,16 @@
         font-weight: 700;
         display: block;
       }
-      .info-item small {
-        font-weight: 600;
-        font-size: 12px;
-        display: block;
-      }
+
       .part-3 {
         background-color: #f5f0ea;
         max-width: 150px;
         text-align: center;
         padding: 0 25px;
-      }
-      .part-3 span {
-        font-weight: 700;
-        font-size: 24px;
-        rotate: 90deg;
-        margin-top: 20px;
-      }
-      .serial-code img {
-        width: 50px;
-        height: 55px;
-        display: block;
+        padding: 20px;
       }
       .part-4 {
         background-color: #f5f0ea;
-      }
-      .left-ellipses {
-        position: absolute;
-        height: 90%;
-        top: 5%;
-        left: -15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
       }
     </style>
   </head>
@@ -134,9 +91,36 @@
     <table class="wrapper" role="presentation">
       <tr>
         <td class="part-1">
-          <div class="ellipse ellipse-lg"></div>
-          <span>01000000</span>
-          <span>رقم التذكرة:</span>
+          <div
+            style="
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -20px;
+              background-color: #1e1e1e;
+            "
+            class="ellipse ellipse-lg"
+          ></div>
+          <span
+            style="
+              display: block;
+              margin: 10px 0;
+              transform: rotate(90deg);
+              white-space: nowrap;
+              margin: 100px 0;
+            "
+            >01000000</span
+          >
+          <span
+            style="
+              display: block;
+              margin: 10px 0;
+              transform: rotate(90deg);
+              white-space: nowrap;
+              margin: 100px 0;
+            "
+            >رقم التذكرة:</span
+          >
         </td>
         <td class="part-2">
           <table cellspacing="0" cellpadding="0" role="presentation">
@@ -147,7 +131,15 @@
 
             <tr>
               <td>
-                <span class="main-title">حفلة العام<br />المميزة</span>
+                <span
+                  style="
+                    font-size: 38px;
+                    line-height: 2.5rem;
+                    font-weight: 700;
+                    margin-bottom: 1.5rem;
+                  "
+                  >حفلة العام<br />المميزة</span
+                >
               </td>
               <td>
                 <img
@@ -160,7 +152,17 @@
 
             <tr>
               <td>
-                <span class="date">14 اكتوبر, 2025</span>
+                <span
+                  style="
+                    display: block;
+                    padding: 12px 32px;
+                    background-color: #f5f0ea;
+                    font-weight: 700;
+                    text-align: center;
+                    word-spacing: 4px;
+                  "
+                  >14 اكتوبر, 2025</span
+                >
               </td>
             </tr>
 
@@ -172,17 +174,36 @@
                   <tr>
                     <td class="info-item">
                       <span>الوقت:</span>
-                      <small>4:00 مساءاً</small>
+                      <small
+                        style="
+                          font-weight: 600;
+                          font-size: 12px;
+                          display: block;
+                        "
+                        >4:00 مساءاً</small
+                      >
                     </td>
                     <td class="info-item">
                       <span>السعر:</span>
-                      <small>7000 $</small>
+                      <small
+                        style="
+                          font-weight: 600;
+                          font-size: 12px;
+                          display: block;
+                        "
+                        >7000 $</small
+                      >
                     </td>
                   </tr>
                   <tr>
                     <td class="info-item" colspan="2">
                       <span>العنوان:</span>
                       <small
+                        style="
+                          font-weight: 600;
+                          font-size: 12px;
+                          display: block;
+                        "
                         >ستوديو اّدم,<br />شارع المدينة , جدة , السعودية</small
                       >
                     </td>
@@ -209,26 +230,59 @@
 
             <tr>
               <td class="serial-code">
-                <img src="./ticket/images/serial-code.png" alt="serial-code" />
-                <img src="./ticket/images/serial-code.png" alt="serial-code" />
-                <img src="./ticket/images/serial-code.png" alt="serial-code" />
-                <img src="./ticket/images/serial-code.png" alt="serial-code" />
+                <img
+                  src="./ticket/images/serial-code.png"
+                  alt="serial-code"
+                  style="width: 50px; height: 55px; display: block"
+                />
+                <img
+                  src="./ticket/images/serial-code.png"
+                  alt="serial-code"
+                  style="width: 50px; height: 55px; display: block"
+                />
+                <img
+                  src="./ticket/images/serial-code.png"
+                  alt="serial-code"
+                  style="width: 50px; height: 55px; display: block"
+                />
+                <img
+                  src="./ticket/images/serial-code.png"
+                  alt="serial-code"
+                  style="width: 50px; height: 55px; display: block"
+                />
               </td>
-              <td>
-                <span>مميز</span>
+              <td
+                style="
+                  font-weight: 700;
+                  font-size: 24px;
+                  transform: rotate(90deg);
+                  margin-top: 20px;
+                "
+              >
+                مميز
               </td>
             </tr>
           </table>
         </td>
 
         <td class="part-4">
-          <div class="left-ellipses">
+          <span
+            style="
+              position: absolute;
+              height: 90%;
+              top: 5%;
+              left: -15px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            "
+          >
             <span class="ellipse ellipse-sm"></span>
             <span class="ellipse ellipse-sm"></span>
             <span class="ellipse ellipse-sm"></span>
             <span class="ellipse ellipse-sm"></span>
             <span class="ellipse ellipse-sm"></span>
-          </div>
+          </span>
         </td>
       </tr>
     </table>
