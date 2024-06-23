@@ -19,7 +19,7 @@
               <td>
                 <span class="main-content" style="font-size: 38px; line-height: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">
                   <span style="font-size: 2em; font-weight: bold;">حفلة العام<br />المميزة</span>
-                  <span class="date" style="padding: 12px 32px; background-color: #f5f0ea; font-weight: 700; text-align: center; word-spacing: 4px;">14 اكتوبر, 2025</span>
+                  <span class="date" style="display: block; padding: 12px 32px; background-color: #f5f0ea; font-weight: 700; text-align: center; word-spacing: 4px;">14 اكتوبر, 2025</span>
                 </span>
               </td>
               <td rowspan="2" width="80">
@@ -42,17 +42,17 @@
                 <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
                   <tr>
                     <td class="info-item" style="margin-bottom: 10px;">
-                      <span style="font-weight: 700; display: block;">الوقت:</span>
+                      <span style="display: block; font-weight: 700; display: block;">الوقت:</span>
                       <small style="font-weight: 600; font-size: 12px; display: block;">4:00 مساءاً</small>
                     </td>
                     <td class="info-item" style="margin-bottom: 10px;">
-                      <span style="font-weight: 700; display: block;">السعر:</span>
+                      <span style="display: block; font-weight: 700; display: block;">السعر:</span>
                       <small style="font-weight: 600; font-size: 12px; display: block;">7000 $</small>
                     </td>
                   </tr>
                   <tr>
                     <td class="info-item" colspan="2" style="margin-bottom: 10px;">
-                      <span style="font-weight: 700; display: block;">العنوان:</span>
+                      <span style="display: block; font-weight: 700; display: block;">العنوان:</span>
                       <small style="font-weight: 600; font-size: 12px; display: block;">ستوديو اّدم,<br />شارع المدينة , جدة , السعودية</small>
                     </td>
                   </tr>
