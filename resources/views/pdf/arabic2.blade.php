@@ -176,12 +176,12 @@
                 >
                   <tr>
                     <td>
-                      <img src="./images/logo.png" alt="valinteca-logo" />
+                      <img src="./ticket/images/logo.png" alt="valinteca-logo" />
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <img src="./images/qr-code.png" alt="qr-code" />
+                      <img src="./ticket/images/qr-code.png" alt="qr-code" />
                     </td>
                   </tr>
                 </table>
@@ -248,12 +248,6 @@
         </td>
       </tr>
     </table>
-
-
-{{--<img src="./ticket/images/logo.png" width="100" height="100" alt="valinteca-logo">--}}
-{{----}}
-{{--<img src="./ticket/images/qr-code.png" width="100" height="100" alt="qr-code">--}}
-{{--<img src="./ticket/images/barcode.jpg" width="100" height="100" alt="qr-code">--}}
 </body>
 
 </html>
