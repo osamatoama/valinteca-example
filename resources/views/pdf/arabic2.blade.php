@@ -15,7 +15,7 @@
       }
       body {
         font-family: 'El Messiri', sans-serif;
-        background-color: red;
+        background-color: #1e1e1e;
         padding: 0 15px;
         text-align: center;
         min-height: 100vh;
@@ -145,44 +145,115 @@
 
 <body>
 
-<img src="{{$base64}}"/>
-<h4 class="ticket-text">رقم التذكرة:</h4>
-<h4 class="ticket-number">123456789123</h4>
+    <table class="wrapper" role="presentation">
+      <tr>
+        <td class="part-1">
+          <div class="ellipse ellipse-lg"></div>
+          <span>01000000</span>
+          <span>رقم التذكرة:</span>
+        </td>
+        <td class="part-2">
+          <table
+            width="100%"
+            cellspacing="0"
+            cellpadding="0"
+            role="presentation"
+          >
+            <tr>
+              <td>
+                <div class="main-content">
+                  <h1>حفلة العام<br />المميزة</h1>
+                  <div class="date">14 اكتوبر, 2025</div>
+                </div>
+              </td>
+              <td rowspan="2" width="80">
+                <table
+                  class="actions"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  role="presentation"
+                >
+                  <tr>
+                    <td>
+                      <img src="./images/logo.png" alt="valinteca-logo" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="./images/qr-code.png" alt="qr-code" />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  role="presentation"
+                >
+                  <tr>
+                    <td class="info-item">
+                      <span>الوقت:</span>
+                      <small>4:00 مساءاً</small>
+                    </td>
+                    <td class="info-item">
+                      <span>السعر:</span>
+                      <small>7000 $</small>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="info-item" colspan="2">
+                      <span>العنوان:</span>
+                      <small
+                        >ستوديو اّدم,<br />شارع المدينة , جدة , السعودية</small
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="part-3">
+          <table
+            width="100%"
+            cellspacing="0"
+            cellpadding="0"
+            role="presentation"
+          >
+            <tr>
+              <td class="serial-code">
+                <img src="./ticket/images/serial-code.png" alt="serial-code" />
+                <img src="./ticket/images/serial-code.png" alt="serial-code" />
+                <img src="./ticket/images/serial-code.png" alt="serial-code" />
+                <img src="./ticket/images/serial-code.png" alt="serial-code" />
+              </td>
+              <td>
+                <p>مميز</p>
+              </td>
+            </tr>
+          </table>
 
-<h1 class="event-title">
-    حفلة العام
-    المميزة
-</h1>
-
-<h2 class="event-date">
-    14 اكتوبر, 2025
-</h2>
-
-<div class="event-time">
-    <p>الوقت:</p>
-    <p>4:00 مساءاً</p>
-</div>
-
-<div class="ticket-price">
-    <p>السعر:</p>
-    <p>7000 $</p>
-</div>
-
-<div class="info-item">
-    <span>العنوان:</span>
-    <small>ستوديو اّدم,<br>
-        شارع المدينة , جدة , السعودية</small>
-</div>
+          <div class="left-ellipses">
+            <div class="ellipse ellipse-sm"></div>
+            <div class="ellipse ellipse-sm"></div>
+            <div class="ellipse ellipse-sm"></div>
+            <div class="ellipse ellipse-sm"></div>
+            <div class="ellipse ellipse-sm"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
 
 
 {{--<img src="./ticket/images/logo.png" width="100" height="100" alt="valinteca-logo">--}}
 {{----}}
 {{--<img src="./ticket/images/qr-code.png" width="100" height="100" alt="qr-code">--}}
 {{--<img src="./ticket/images/barcode.jpg" width="100" height="100" alt="qr-code">--}}
-
-<h3 class="ticket-type">
-    مميز
-</h3>
 </body>
 
 </html>
