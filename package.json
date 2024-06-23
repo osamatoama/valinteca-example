@@ -1,18 +1,220 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+    "id": 970601166,
+    "bank": {
+        "id": 739632419,
+        "status": "active",
+        "bank_id": 1473353380,
+        "bank_name": "البنك الأهلي التجاري",
+        "iban_number": "SA2380000382608010130308",
+        "account_name": "Demo Account",
+        "account_number": "000000608010167519",
+        "sbc_certificate": null,
+        "certificate_type": "iban",
+        "iban_certificate": null
     },
-    "devDependencies": {
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
-    }
+    "date": {
+        "date": "2024-06-12 00:13:38.000000",
+        "timezone": "Asia/Riyadh",
+        "timezone_type": 3
+    },
+    "read": true,
+    "tags": [],
+    "urls": {
+        "admin": "https://s.salla.sa/orders/order/klRqD3PJ4yzYaB0xlNLM0NALj58ZVQgK",
+        "customer": "https://salla.sa/dev-5fvszplkddnbmcog/order/klRqD3PJ4yzYaB0xlNLM0NALj58ZVQgK"
+    },
+    "draft": false,
+    "items": [
+        {
+            "id": 1552857710,
+            "sku": null,
+            "name": "حفلة موسيقية رقم 1",
+            "codes": [],
+            "files": [],
+            "notes": null,
+            "images": [],
+            "weight": 0.30000000000000004,
+            "amounts": {
+                "tax": {
+                    "amount": {
+                        "amount": 0,
+                        "currency": "SAR"
+                    },
+                    "percent": "0.00"
+                },
+                "total": {
+                    "amount": 300,
+                    "currency": "SAR"
+                },
+                "total_discount": {
+                    "amount": 0,
+                    "currency": "SAR"
+                },
+                "price_without_tax": {
+                    "amount": 100,
+                    "currency": "SAR"
+                }
+            },
+            "options": [],
+            "product": {
+                "id": 711931007,
+                "mpn": null,
+                "sku": null,
+                "url": "https://salla.sa/dev-5fvszplkddnbmcog/حفلة-موسيقية-رقم-1/p711931007",
+                "gtin": null,
+                "name": "حفلة موسيقية رقم 1",
+                "type": "product",
+                "price": {
+                    "amount": 100,
+                    "currency": "SAR"
+                },
+                "status": "sale",
+                "calories": null,
+                "currency": "SAR",
+                "favorite": null,
+                "features": {
+                    "show_rating": true,
+                    "availability_notify": null
+                },
+                "quantity": 6,
+                "promotion": {
+                    "title": null,
+                    "sub_title": null
+                },
+                "thumbnail": "https://cdn.salla.sa/DGOdnv/e269f302-292e-42b3-a26d-1f5491678d75-500x500-6nRhZEDzKphfaOh7hdgBRAi9FtdMywabSUtKbPID.jpg",
+                "sale_price": {
+                    "amount": 0,
+                    "currency": "SAR"
+                },
+                "description": null,
+                "is_available": true,
+                "regular_price": {
+                    "amount": 100,
+                    "currency": "SAR"
+                },
+                "has_special_price": false
+            },
+            "currency": "SAR",
+            "quantity": 3,
+            "reservations": null,
+            "weight_label": "٠ كجم",
+            "product_reservations": []
+        }
+    ],
+    "store": {
+        "id": 526071710,
+        "name": {
+            "ar": "متجر تجريبي",
+            "en": null
+        },
+        "avatar": "https://salla-dev.s3.eu-central-1.amazonaws.com/logo/logo-fashion.jpg",
+        "user_id": 2146453115,
+        "store_id": 526071710,
+        "username": "dev-5fvszplkddnbmcog",
+        "user_email": "5fvszplkddnbmcog@email.partners"
+    },
+    "source": "dashboard",
+    "status": {
+        "id": 566146469,
+        "name": "بإنتظار المراجعة",
+        "slug": "under_review",
+        "customized": {
+            "id": 1485867682,
+            "name": "بإنتظار المراجعة"
+        }
+    },
+    "amounts": {
+        "tax": {
+            "amount": {
+                "amount": 0,
+                "currency": "SAR"
+            },
+            "percent": "0.00"
+        },
+        "total": {
+            "amount": 300,
+            "currency": "SAR"
+        },
+        "discounts": [],
+        "sub_total": {
+            "amount": 300,
+            "currency": "SAR"
+        },
+        "shipping_cost": {
+            "amount": 0,
+            "currency": "SAR"
+        },
+        "cash_on_delivery": {
+            "amount": 0,
+            "currency": "SAR"
+        }
+    },
+    "currency": "SAR",
+    "customer": {
+        "id": 1347010531,
+        "city": null,
+        "urls": {
+            "admin": "https://s.salla.sa/customers/Kr96mwBy58xDMgKmQJjME3o7ZdLJjpVX",
+            "customer": "https://salla.sa/dev-5fvszplkddnbmcog/profile"
+        },
+        "email": "aymanfordev@gmail.com",
+        "avatar": "https://cdn.assets.salla.network/prod/admin/cp/assets/images/avatar_male.png",
+        "gender": "male",
+        "groups": [],
+        "mobile": 5342327659,
+        "country": "تركيا",
+        "birthday": {
+            "date": "1993-03-20 00:00:00.000000",
+            "timezone": "Asia/Riyadh",
+            "timezone_type": 3
+        },
+        "currency": "SAR",
+        "location": null,
+        "last_name": "khaled",
+        "first_name": "ayman",
+        "updated_at": {
+            "date": "2024-06-09 02:40:23.000000",
+            "timezone": "Asia/Riyadh",
+            "timezone_type": 3
+        },
+        "mobile_code": "+90",
+        "country_code": "TR"
+    },
+    "shipping": null,
+    "shipments": null,
+    "can_cancel": false,
+    "updated_at": {
+        "date": "2024-06-12 00:13:38.588039",
+        "timezone": "Asia/Riyadh",
+        "timezone_type": 3
+    },
+    "can_reorder": false,
+    "rating_link": null,
+    "show_weight": false,
+    "reference_id": 123419243,
+    "total_weight": "٠٫٣ كجم",
+    "receipt_image": "https://cdn.salla.sa/DGOdnv/0faf4b8e-8321-417e-b489-d0f8292c32aa-500x500-as2l88FeTdaTB7dqVQocGIGu5oOy8MSUO4O36ztK.jpg",
+    "source_device": "desktop",
+    "is_price_quote": false,
+    "payment_method": "bank",
+    "source_details": {
+        "ip": null,
+        "type": "dashboard",
+        "value": null,
+        "device": "desktop",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    },
+    "shipment_branch": [
+        {
+            "id": 1122011945,
+            "name": "الفرع الرئيسي",
+            "type": [],
+            "status": "active",
+            "is_default": true
+        }
+    ],
+    "cart_reference_id": null,
+    "is_pending_payment": false,
+    "has_suspicious_alert": false,
+    "pending_payment_ends_at": 172799
 }

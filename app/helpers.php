@@ -14,14 +14,19 @@ function getArabicPdf()
             __DIR__ . '/../public/css',
         ]),
         'fontdata'             => [
-            'dastnevis' => [
-                'R'          => 'dastnevis.ttf',
-                'useOTL'     => 0xFF,
+            'tajawal' => [
+                'R' => "Tajawal-Regular.ttf",
+                'L' => "Tajawal-Light.ttf",
+                'B' => "Tajawal-Bold.ttf",
+                'useOTL' => 0xFF,
                 'useKashida' => 75,
-
             ],
         ],
-        'default_font'         => 'dastnevis',
+
+        'autoScriptToLang' => true,
+        'ignore_invalid_utf8' => true,
+
+        'default_font'         => 'Tajawal',
         'autoArabic'           => true,
         'cacheCleanupInterval' => 1,
     ]);

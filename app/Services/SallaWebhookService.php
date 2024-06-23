@@ -39,7 +39,11 @@ class SallaWebhookService
 
     public function getOrder($order_id)
     {
-        $response = $this->client->get($this->base_url . 'orders/' . $order_id);
+        $response = $this->client->get($this->base_url . 'orders/' . $order_id, [
+            'json' => [
+                'expanded' => true
+            ]
+        ]);
 
         return json_decode($response->getBody()->getContents(), true);
 

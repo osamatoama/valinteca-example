@@ -17,6 +17,7 @@ use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
 use App\Models\Code;
+use App\Models\Data;
 use App\Models\Email;
 use App\Models\Order;
 use App\Models\Player;
@@ -611,7 +612,7 @@ Route::get('qr-code', function () {
     $qrCodes['styleRound'] = QrCode::size(150)->style('round')->generate('https://vocally.valantica.com/');
 
     foreach ($qrCodes as $code) {
-        echo  $code . '<br /> <br /><br />';
+        echo $code . '<br /> <br /><br />';
     }
 });
 
@@ -619,13 +620,13 @@ Route::get('qr-code', function () {
 Route::get('pdf-example-1', function () {
 
     app(PdfExportService::class, [
-        'data' => [
+        'data'     => [
             'data' => [],
         ],
-        'view' => "emails.ticket.index",
+        'view'     => "emails.ticket.index",
         'filename' => 'home',
-        'height' => 420,
-        'width' => 240,
+        'height'   => 420,
+        'width'    => 240,
     ])->export();
 
 });
@@ -634,18 +635,60 @@ Route::get('pdf-example-1', function () {
 Route::get('pdf-example-2', function () {
 
     app(PdfExportService::class, [
-        'data' => [
+        'data'     => [
             'data' => [],
         ],
-        'view' => "emails.test",
+        'view'     => "emails.test",
         'filename' => 'home',
-        'height' => 420,
-        'width' => 240,
+        'height'   => 420,
+        'width'    => 240,
     ])->export();
 
 });
 
 
+Route::any('/pdf-example-3', function (Request $request) {
+
+    ini_set("pcre.backtrack_limit", "5000000");
+    $mpdf = getArabicPdf();
+    $view = 'arabic2';
 
 
+    $mpdf->useAdobeCJK = true;
+
+
+    $mpdf->autoScriptToLang = true;
+    $mpdf->autoLangToFont = true;
+    $mpdf->SetDirectionality('rtl');
+    $mpdf->charset_in = 'UTF-8';
+
+    $path = public_path('images/arabic.png');
+    $type = pathinfo($path, PATHINFO_EXTENSION);
+    $data = file_get_contents($path);
+    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+    $mpdf->WriteHTML(view('pdf.' . $view, compact('base64'))->render());
+    $mpdf->Output('pdf/ticket.pdf', 'I');
+
+
+    //    return view('training', compact('success'));
+});
+
+
+Route::any('/salla-orders', function () {
+    $orders = Order::where('matches', 1)->get();
+
+
+    $salla = new SallaWebhookService('ory_at_094uGTesKS1G9UGvU1Yi2kjYqpfkX3EymYI_IfCD_IU.Yb0xj-ccbl5lnce0wd6W5DK8ZGuJT-5ytdEoE5s4CUE');
+
+    foreach ($orders as $order) {
+        foreach ($salla->getOrder($order->salla_id)['data']['items'] as $item) {
+            foreach ($item['options']  as $option) {
+                Data::create([
+                   'data' => $option['name']
+                ]);
+            }
+        }
+    }
+});
 

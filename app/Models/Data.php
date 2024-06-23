@@ -12,7 +12,4 @@ class Data extends Model
 
     protected $fillable = ['data'];
 
-    protected $casts = [
-        'data' => 'json'
-    ];
 }
