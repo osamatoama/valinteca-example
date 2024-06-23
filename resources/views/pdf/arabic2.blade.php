@@ -11,6 +11,13 @@
       margin: 0;
       box-sizing: border-box;
     }
+    img {
+        width: 50px;
+        height: 55px;
+        max-width: 50px;
+        max-height: 55px;
+        display: block;
+      }
     body {
       font-family: 'El Messiri', sans-serif;
       background-color: #1e1e1e;
