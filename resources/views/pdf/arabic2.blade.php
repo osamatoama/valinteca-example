@@ -99,11 +99,6 @@
       font-size: 12px;
       display: block;
     }
-    table.actions td img {
-      max-height: 90px;
-      max-width: 80px;
-      object-fit: contain;
-    }
     .actions tr {
       height: 150px; /* Adding space between rows */
     }
@@ -174,12 +169,12 @@
                 >
                   <tr>
                     <td>
-                      <img src="./ticket/images/logo.png" alt="valinteca-logo" />
+                      <img src="./ticket/images/logo.png" alt="valinteca-logo" style="max-height: 90px; max-width: 80px; object-fit: contain;" />
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <img src="./ticket/images/qr-code.png" alt="qr-code" />
+                      <img src="./ticket/images/qr-code.png" alt="qr-code" style="max-height: 90px; max-width: 80px; object-fit: contain;"/>
                     </td>
                   </tr>
                 </table>
