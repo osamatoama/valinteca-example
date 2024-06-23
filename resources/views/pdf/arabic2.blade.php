@@ -16,6 +16,22 @@
         text-align: center;
         min-height: 100vh;
       }
+        .ticket-text {
+            position: fixed;
+            top: 240px;
+            right: 25px;
+            rotate: 90;
+            text-align: center;
+            color: white;
+        }
+        .ticket-number {
+            position: fixed;
+            top: 40px;
+            right: 25px;
+            rotate: 90;
+            text-align: center;
+            color: white;
+        }
       span {
         display: block;
       }
@@ -100,23 +116,11 @@
             class="ellipse ellipse-lg"
           ></div>
           <span
-            style="
-              display: block;
-              margin: 10px 0;
-              transform: rotate(90deg);
-              white-space: nowrap;
-              margin: 100px 0;
-            "
+            class="ticket-number"
             >01000000</span
           >
           <span
-            style="
-              display: block;
-              margin: 10px 0;
-              transform: rotate(90deg);
-              white-space: nowrap;
-              margin: 100px 0;
-            "
+            class="ticket-text"
             >رقم التذكرة:</span
           >
         </td>
