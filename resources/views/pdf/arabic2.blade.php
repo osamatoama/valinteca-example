@@ -86,7 +86,7 @@
     </style>
   </head>
   <body>
-    <table style="width: 700px" class="wrapper" role="presentation">
+    <table style="width: 600px" class="wrapper" role="presentation">
       <tr>
         <td class="part-1">
           <div
@@ -120,6 +120,7 @@
             >رقم التذكرة:</span
           >
         </td>
+        
         <td class="part-2">
           <table cellspacing="0" cellpadding="0" role="presentation">
             <colgroup>
