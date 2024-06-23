@@ -146,7 +146,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -215,7 +215,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -234,22 +234,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
@@ -350,7 +350,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -419,7 +419,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -438,22 +438,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
@@ -554,7 +554,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -623,7 +623,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -642,22 +642,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
@@ -758,7 +758,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -827,7 +827,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -846,22 +846,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
@@ -962,7 +962,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -1031,7 +1031,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -1050,22 +1050,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
@@ -1166,7 +1166,7 @@
               </td>
               <td>
                 <img
-                  src="./images/logo.png"
+                  src="./ticket/images/logo.png"
                   alt="valinteca-logo"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -1235,7 +1235,7 @@
               </td>
               <td>
                 <img
-                  src="./images/qr-code.png"
+                  src="./ticket/images/qr-code.png"
                   alt="qr-code"
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
@@ -1254,22 +1254,22 @@
             <tr>
               <td class="serial-code">
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
                 <img
-                  src="./images/serial-code.png"
+                  src="./ticket/images/serial-code.png"
                   alt="serial-code"
                   style="width: 50px; height: 55px; display: block"
                 />
