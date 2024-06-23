@@ -25,8 +25,6 @@
         width: 100%;
       }
       .wrapper {
-        width: 100%;
-        max-width: 768px;
         overflow: hidden;
         position: absolute;
         top: 50%;
@@ -88,7 +86,7 @@
     </style>
   </head>
   <body>
-    <table class="wrapper" role="presentation">
+    <table style="width: 700px" class="wrapper" role="presentation">
       <tr>
         <td class="part-1">
           <div
