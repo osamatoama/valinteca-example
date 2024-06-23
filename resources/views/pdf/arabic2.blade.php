@@ -11,13 +11,6 @@
       margin: 0;
       box-sizing: border-box;
     }
-    img {
-        width: 50px;
-        height: 55px;
-        max-width: 50px;
-        max-height: 55px;
-        display: block;
-      }
     body {
       font-family: 'El Messiri', sans-serif;
       background-color: #1e1e1e;
@@ -106,7 +99,7 @@
       font-size: 12px;
       display: block;
     }
-    .actions img {
+    table.actions td img {
       max-height: 90px;
       max-width: 80px;
       object-fit: contain;
@@ -121,22 +114,23 @@
       text-align: center;
       padding-right: 20px;
     }
-    .part-3 p {
+    table.part-3 tr td span {
+        display: block;
       font-weight: 700;
       font-size: 24px;
       transform: rotate(90deg);
       margin-left: 25px;
       margin-top: 20px;
     }
-    .serial-code img {
+    table.part-3 .serial-code img {
       width: 50px;
       height: 55px;
       display: block;
     }
-    .actions tr {
+    table.part-3 .actions tr {
       height: 150px;
     }
-    .left-ellipses {
+    table.part-3  .left-ellipses {
       position: absolute;
       height: 90%;
       top: 5%;
