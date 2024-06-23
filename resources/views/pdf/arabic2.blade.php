@@ -11,7 +11,7 @@
         box-sizing: border-box;
       }
       body {
-        background-color: #1e1e1e;
+        background-color: red;
         padding: 0 15px;
         text-align: center;
         min-height: 100vh;
@@ -64,7 +64,7 @@
       .part-1 span {
         display: block;
         margin: 10px 0;
-        transform: rotate(90deg);
+        rotate: 90deg;
         white-space: nowrap;
         margin: 100px 0;
       }
@@ -108,7 +108,7 @@
       .part-3 span {
         font-weight: 700;
         font-size: 24px;
-        transform: rotate(90deg);
+        rotate: 90deg;
         margin-top: 20px;
       }
       .serial-code img {
