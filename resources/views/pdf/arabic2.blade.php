@@ -16,6 +16,9 @@
         text-align: center;
         min-height: 100vh;
       }
+      span {
+        display: block;
+      }
       table {
         border-collapse: collapse;
         margin: auto;
@@ -96,23 +99,13 @@
         font-size: 12px;
         display: block;
       }
-      .actions img {
-        max-height: 90px;
-        max-width: 80px;
-        object-fit: contain;
-      }
-      .actions tr {
-        height: 150px; /* Adding space between rows */
-      }
       .part-3 {
         background-color: #f5f0ea;
-        position: relative;
-        width: 165px;
-        max-width: 165px;
+        max-width: 150px;
         text-align: center;
         padding: 0 25px;
       }
-      .part-3 p {
+      .part-3 span {
         font-weight: 700;
         font-size: 24px;
         transform: rotate(90deg);
@@ -123,8 +116,8 @@
         height: 55px;
         display: block;
       }
-      .actions tr {
-        height: 150px;
+      .part-4 {
+        background-color: #f5f0ea;
       }
       .left-ellipses {
         position: absolute;
@@ -151,9 +144,10 @@
               <col />
               <col style="width: 100px" />
             </colgroup>
+
             <tr>
               <td>
-                <h1 class="main-title">حفلة العام<br />المميزة</h1>
+                <span class="main-title">حفلة العام<br />المميزة</span>
               </td>
               <td>
                 <img
@@ -166,13 +160,15 @@
 
             <tr>
               <td>
-                <div class="date">14 اكتوبر, 2025</div>
+                <span class="date">14 اكتوبر, 2025</span>
               </td>
             </tr>
 
+            <tr style="height: 25px"></tr>
+
             <tr>
               <td>
-                <table cellspacing="0" cellpadding="0" role="presentation">
+                <table>
                   <tr>
                     <td class="info-item">
                       <span>الوقت:</span>
@@ -200,26 +196,17 @@
                   style="max-height: 90px; max-width: 80px; object-fit: contain"
                 />
               </td>
-              <td>
-                <table
-                  class="actions"
-                  cellspacing="0"
-                  cellpadding="0"
-                  role="presentation"
-                >
-                  <tr></tr>
-                </table>
-              </td>
             </tr>
           </table>
         </td>
+
         <td class="part-3">
-          <table
-            width="100%"
-            cellspacing="0"
-            cellpadding="0"
-            role="presentation"
-          >
+          <table>
+            <colgroup>
+              <col style="width: 60px" />
+              <col />
+            </colgroup>
+
             <tr>
               <td class="serial-code">
                 <img src="./ticket/images/serial-code.png" alt="serial-code" />
@@ -228,18 +215,20 @@
                 <img src="./ticket/images/serial-code.png" alt="serial-code" />
               </td>
               <td>
-                <p>مميز</p>
+                <span>مميز</span>
               </td>
             </tr>
           </table>
         </td>
 
-        <td class="left-ellipses">
-          <div class="ellipse ellipse-sm"></div>
-          <div class="ellipse ellipse-sm"></div>
-          <div class="ellipse ellipse-sm"></div>
-          <div class="ellipse ellipse-sm"></div>
-          <div class="ellipse ellipse-sm"></div>
+        <td class="part-4">
+          <div class="left-ellipses">
+            <span class="ellipse ellipse-sm"></span>
+            <span class="ellipse ellipse-sm"></span>
+            <span class="ellipse ellipse-sm"></span>
+            <span class="ellipse ellipse-sm"></span>
+            <span class="ellipse ellipse-sm"></span>
+          </div>
         </td>
       </tr>
     </table>
