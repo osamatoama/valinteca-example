@@ -110,24 +110,25 @@
                 </colgroup>
 
                 <tr style="height: 30px;" class="head-row">
-                    <td colspan="2" style="padding: 8px; border-radius: 6px;">
+                    <td style="padding: 8px; border-radius: 6px;">
                         <span style="color: #fff; margin: 0 5px">رقم التذكرة: </span>
+                    </td>
+                    <td style="padding: 8px; border-radius: 6px;">
                         <span style="color: #fff; margin: 0 5px"> 01000000</span>
                     </td>
                 </tr>
 
-                <tr style="height: 20px"></tr>
+                <tr style="height: 25px"></tr>
 
                 <tr class="main-row">
                     <td>
                 <span
                     style="
-                    font-size: 38px;
-                    line-height: 2.5rem;
+                    font-size: 36px;
                     font-weight: 700;
                     margin-bottom: 1.5rem;
                   "
-                >حفلة العام<br/>المميزة</span
+                >حفلة العام المميزة</span
                 >
                     </td>
                     <td>
