@@ -638,7 +638,7 @@ Route::get('pdf-example-2', function () {
         'data'     => [
             'data' => [],
         ],
-        'view'     => "emails.test",
+        'view'     => "pdf.arabic2",
         'filename' => 'home',
         'height'   => 420,
         'width'    => 240,

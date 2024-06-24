@@ -35,7 +35,7 @@ class PdfExportService
             'format'       => [$this->width, $this->height],
             'display_mode' => 'real',
             'title'        => 'Laravel mPDF',
-            'mode'         => 'utf-8',
+            //'mode'         => 'utf-8',
         ]);
 
 //        return $pdf->save(Storage::path('public/attachments/' . $this->filename . '.pdf'));
