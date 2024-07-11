@@ -40,7 +40,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
-    return removeSpecialCharacters('‏uecFt5Xq2j293d3eZ6');
+    return bcrypt(123456);
 });
 
 
@@ -83,17 +83,8 @@ Route::get('/python/{file}', function ($file) {
 Route::any('detect-theme', function (Request $request) {
     $sallaClassMap = [
         'salla-1298199463' => 'رائد',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
-        ''                 => '',
         'salla-2046553023' => 'عطاء',
         'salla-246711701'  => 'بوتيك',
-
         'salla-773200552'  => 'فخامة',
         'salla-5541564'    => 'كليك',
         'salla-213071771'  => 'يافا',
@@ -101,7 +92,6 @@ Route::any('detect-theme', function (Request $request) {
         'salla-349994915'  => 'وسام',
         'salla-1130931637' => 'ملاك',
         'salla-989286562'  => 'فريد',
-
         'salla-632105401'  => 'سيليا',
         'salla-880152961'  => 'اكاسيا',
         'salla-388819608'  => 'الكترون',
