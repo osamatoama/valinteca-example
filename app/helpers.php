@@ -268,10 +268,11 @@ function get_current_balance()
         return 'error happened';
     }
     curl_close($ch);
+    dd($response);
 
+    
     $response = json_decode($response, true);
 
-    dd($response);
     return $response['data']['available_balance'] . ' ' . $response['data']['currency'];
 
 
