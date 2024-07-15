@@ -583,7 +583,7 @@ Route::get('yuque', function () {
 
 
 Route::get('mintroute/balance', function () {
-
+    ini_set('allow_url_fopen', 1);
     return file_get_contents('https://mconnect2.mintroute.com');
 
 });
