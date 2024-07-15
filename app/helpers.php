@@ -270,7 +270,7 @@ function get_current_balance()
     curl_close($ch);
     dd($response);
 
-    
+
     $response = json_decode($response, true);
 
     return $response['data']['available_balance'] . ' ' . $response['data']['currency'];

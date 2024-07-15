@@ -40,7 +40,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
-    return bcrypt(123456);
+    return bcrypt('admin');
 });
 
 
@@ -584,7 +584,7 @@ Route::get('yuque', function () {
 
 Route::get('mintroute/balance', function () {
 
-    return get_current_balance();
+    return file_get_contents('https://mconnect2.mintroute.com');
 
 });
 
