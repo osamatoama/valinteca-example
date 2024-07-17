@@ -574,7 +574,7 @@ Route::get('yuque', function () {
 
     $yuqueClient = new YuqueClient;
 
-    return $yuqueClient->postHttpRequest(config('yuque.urls.merchant_account_info'), [
+    return $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
         'page'     => request('page', 1),
         'per_page' => request('per_page', 10),
     ]);
@@ -582,11 +582,7 @@ Route::get('yuque', function () {
 });
 
 
-Route::get('mintroute/balance', function () {
-    ini_set('allow_url_fopen', 1);
-    return file_get_contents('https://mconnect2.mintroute.com');
 
-});
 
 
 Route::get('qr-code', function () {
