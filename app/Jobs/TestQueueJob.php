@@ -36,7 +36,7 @@ class TestQueueJob implements ShouldQueue
             'https://api.green-api.com/waInstance1101888590/sendMessage/22752bf9fad745fdbff8ec9a3b03f16020ec0ae51b6e4df9a6',
             [
                 'chatId' => '201551747425@c.us',
-                'message' => $this->message,
+                'message' => "Message: {$this->message}",
             ],
         );
 
