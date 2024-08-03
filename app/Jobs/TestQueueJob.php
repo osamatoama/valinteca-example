@@ -32,11 +32,19 @@ class TestQueueJob implements ShouldQueue
      */
     public function handle()
     {
-        Http::post(
+        $response = Http::post(
             'https://api.green-api.com/waInstance1101888590/sendMessage/22752bf9fad745fdbff8ec9a3b03f16020ec0ae51b6e4df9a6',
             [
                 'chatId' => '201551747425@c.us',
                 'message' => $this->message,
+            ],
+        );
+
+        logger()->error(
+            'Test queue',
+            [
+                'whatsapp_message' => $this->message,
+                'response' => $response->json(),
             ],
         );
     }
