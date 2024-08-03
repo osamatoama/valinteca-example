@@ -84,17 +84,17 @@ Route::any('detect-theme', function (Request $request) {
     $sallaClassMap = [
         'salla-1298199463' => 'رائد',
         'salla-2046553023' => 'عطاء',
-        'salla-246711701'  => 'بوتيك',
-        'salla-773200552'  => 'فخامة',
-        'salla-5541564'    => 'كليك',
-        'salla-213071771'  => 'يافا',
-        'salla-73130640'   => 'عالي',
-        'salla-349994915'  => 'وسام',
+        'salla-246711701' => 'بوتيك',
+        'salla-773200552' => 'فخامة',
+        'salla-5541564' => 'كليك',
+        'salla-213071771' => 'يافا',
+        'salla-73130640' => 'عالي',
+        'salla-349994915' => 'وسام',
         'salla-1130931637' => 'ملاك',
-        'salla-989286562'  => 'فريد',
-        'salla-632105401'  => 'سيليا',
-        'salla-880152961'  => 'اكاسيا',
-        'salla-388819608'  => 'الكترون',
+        'salla-989286562' => 'فريد',
+        'salla-632105401' => 'سيليا',
+        'salla-880152961' => 'اكاسيا',
+        'salla-388819608' => 'الكترون',
         'salla-1378987453' => 'زاهر',
     ];
     if ($request->isMethod('post')) {
@@ -228,7 +228,7 @@ Route::get('/abaya-show', function () {
         $createdOptions = [];
 
         foreach ($product->options as $option) {
-            if ( ! isset($createdOptions[$option['value']])) {
+            if (!isset($createdOptions[$option['value']])) {
                 $createdOptions[$option['value']] = $option['quantity'];
             } else {
                 $createdOptions[$option['value']] += $option['quantity'];
@@ -359,9 +359,9 @@ Route::get('/mailchimp', function () {
         }
 
         $data = [
-            'status'        => 'subscribed',
+            'status' => 'subscribed',
             'email_address' => $email,
-            "merge_fields"  => [
+            "merge_fields" => [
                 "FNAME" => $first_name,
                 "LNAME" => $last_name,
             ],
@@ -525,8 +525,8 @@ Route::any('/emails-insert', function (Request $request) {
 
     if ($request->isMethod('post')) {
         Email::create([
-            'username'   => $request->input('email'),
-            'password'   => $request->input('password'),
+            'username' => $request->input('email'),
+            'password' => $request->input('password'),
             'blocked_to' => now()->subDay(),
         ]);
     }
@@ -575,14 +575,11 @@ Route::get('yuque', function () {
     $yuqueClient = new YuqueClient;
 
     return $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
-        'page'     => request('page', 1),
+        'page' => request('page', 1),
         'per_page' => request('per_page', 10),
     ]);
 
 });
-
-
-
 
 
 Route::get('qr-code', function () {
@@ -606,13 +603,13 @@ Route::get('qr-code', function () {
 Route::get('pdf-example-1', function () {
 
     app(PdfExportService::class, [
-        'data'     => [
+        'data' => [
             'data' => [],
         ],
-        'view'     => "emails.ticket.index",
+        'view' => "emails.ticket.index",
         'filename' => 'home',
-        'height'   => 420,
-        'width'    => 240,
+        'height' => 420,
+        'width' => 240,
     ])->export();
 
 });
@@ -621,13 +618,13 @@ Route::get('pdf-example-1', function () {
 Route::get('pdf-example-2', function () {
 
     app(PdfExportService::class, [
-        'data'     => [
+        'data' => [
             'data' => [],
         ],
-        'view'     => "pdf.arabic2",
+        'view' => "pdf.arabic2",
         'filename' => 'home',
-        'height'   => 420,
-        'width'    => 240,
+        'height' => 420,
+        'width' => 240,
     ])->export();
 
 });
@@ -669,12 +666,17 @@ Route::any('/salla-orders', function () {
 
     foreach ($orders as $order) {
         foreach ($salla->getOrder($order->salla_id)['data']['items'] as $item) {
-            foreach ($item['options']  as $option) {
+            foreach ($item['options'] as $option) {
                 Data::create([
-                   'data' => $option['name']
+                    'data' => $option['name']
                 ]);
             }
         }
     }
 });
 
+Route::get('test-queue', function () {
+    for ($i = 1; $i <= 20; $i++) {
+        \App\Jobs\TestQueueJob::dispatch($i);
+    }
+});
