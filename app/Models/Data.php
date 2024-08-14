@@ -10,6 +10,6 @@ class Data extends Model
 
     use HasFactory;
 
-    protected $fillable = ['id', 'data'];
+    protected $fillable = ['salla_id', 'data'];
 
 }
