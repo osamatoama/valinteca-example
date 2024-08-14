@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CORS
+class CorsHeadersMiddleware
 {
     /**
      * Handle an incoming request.

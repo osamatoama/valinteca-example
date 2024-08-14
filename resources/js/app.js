@@ -86,7 +86,7 @@ const body = {
 
 document.querySelectorAll('img').forEach(function (item) {
 
-    fetch('https://example.valinteca.com/pull-nava-images',
+    fetch('https://example.valinteca.com/api/pull-nava-images',
         {
             method: "POST",
             headers: {
