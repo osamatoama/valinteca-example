@@ -130,7 +130,7 @@ Route::any('/pull-nava-images', function () {
     \Log::error(\request()->all());
 
     Data::create([
-        'id' => \request()->input('id'),
+        'salla_id' => \request()->input('id'),
         'data'     => \request()->input('url'),
     ]);
 });
