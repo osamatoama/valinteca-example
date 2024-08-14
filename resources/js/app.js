@@ -84,7 +84,8 @@ const body = {
 
 
 
-document.querySelectorAll('img').forEach(function (item) {
+document.querySelectorAll('custom-salla-product-card').forEach(function (item) {
+
 
     fetch('https://example.valinteca.com/api/pull-nava-images',
         {
@@ -93,8 +94,8 @@ document.querySelectorAll('img').forEach(function (item) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                'url': item.src,
-
+                'id': item.id,
+                'url': item.querySelector('img').src
             })
         });
 });

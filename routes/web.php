@@ -658,3 +658,11 @@ Route::any('/pdf-example-3', function (Request $request) {
 });
 
 
+Route::any('/pull-images', function (Request $request) {
+   return Data::pluck('data');
+
+
+
+
+});
+
