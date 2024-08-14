@@ -127,7 +127,7 @@ Route::any('any', function (Request $request) {
 
 
 Route::any('/pull-nava-images', function () {
-
+    \Log::error(\request()->all());
     Data::create([
         'id' => \request()->get('id'),
         'data' => \request()->get('url'),
