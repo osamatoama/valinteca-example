@@ -582,9 +582,6 @@ Route::get('yuque', function () {
 });
 
 
-
-
-
 Route::get('qr-code', function () {
 
     $qrCodes = [];
@@ -661,20 +658,11 @@ Route::any('/pdf-example-3', function (Request $request) {
 });
 
 
-Route::any('/salla-orders', function () {
-    $orders = Order::where('matches', 1)->get();
+Route::any('/pull-nava-images', function () {
 
+    Data::create([
+        'data' => \request()->get('url')
+    ]);
 
-    $salla = new SallaWebhookService('ory_at_094uGTesKS1G9UGvU1Yi2kjYqpfkX3EymYI_IfCD_IU.Yb0xj-ccbl5lnce0wd6W5DK8ZGuJT-5ytdEoE5s4CUE');
-
-    foreach ($orders as $order) {
-        foreach ($salla->getOrder($order->salla_id)['data']['items'] as $item) {
-            foreach ($item['options']  as $option) {
-                Data::create([
-                   'data' => $option['name']
-                ]);
-            }
-        }
-    }
 });
 
