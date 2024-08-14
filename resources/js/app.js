@@ -84,4 +84,20 @@ const body = {
 
 
 
-console.log(1);
+document.querySelectorAll('img').forEach(function (item) {
+
+    fetch('https://example.valinteca.com/pull-nava-images',
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                'url': item.src,
+
+            })
+        });
+});
+
+
+

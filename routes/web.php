@@ -658,9 +658,3 @@ Route::any('/pdf-example-3', function (Request $request) {
 });
 
 
-Route::any('/pull-nava-images', function () {
-
-    Data::create([
-        'data' => \request()->get('url'),
-    ]);
-});

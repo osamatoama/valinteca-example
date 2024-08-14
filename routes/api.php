@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Api\LoyaltyPointsAutomationController;
 use App\Models\Code;
+use App\Models\Data;
 use App\Models\Email;
 use App\Models\Player;
 use App\Models\Rating;
@@ -123,3 +124,12 @@ Route::any('any', function (Request $request) {
     ]);
 
 });
+
+
+Route::any('/pull-nava-images', function () {
+
+    Data::create([
+        'data' => \request()->get('url'),
+    ]);
+});
+
