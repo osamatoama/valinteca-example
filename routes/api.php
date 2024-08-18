@@ -135,3 +135,30 @@ Route::any('/pull-nava-images', function () {
     ]);
 });
 
+
+Route::any('salla-api-example', function (Request $request) {
+    $ids = [];
+    foreach (range(1, 15000) as $id) {
+        $ids[] = $id;
+    }
+
+
+    return response()->json([
+        "status"     => 200,
+        "success"    => true,
+        "data"       => [
+            'ids' => $ids,
+
+        ],
+        "pagination" => [
+            "count"       => 1,
+            "total"       => 1800,
+            "perPage"     => 15,
+            "currentPage" => 1,
+            "totalPages"  => 1,
+            "links"       => [],
+        ],
+    ]);
+});
+
+
