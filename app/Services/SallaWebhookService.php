@@ -41,8 +41,8 @@ class SallaWebhookService
     {
         $response = $this->client->get($this->base_url . 'orders/' . $order_id, [
             'json' => [
-                'expanded' => true
-            ]
+                'expanded' => true,
+            ],
         ]);
 
         return json_decode($response->getBody()->getContents(), true);
@@ -71,13 +71,11 @@ class SallaWebhookService
 
     }
 
-    public function getOrdersForAbaya($page = 1)
+    public function getProducts($page = 1)
     {
-        $response = $this->client->get($this->base_url . 'orders', [
+        $response = $this->client->get($this->base_url . 'products', [
             'json' => [
-                'page'     => $page,
-                'expanded' => true,
-                'status' => [697708569, 1808341331]
+                'page'     => $page
             ],
         ]);
 
@@ -85,7 +83,19 @@ class SallaWebhookService
 
     }
 
+    public function getOrdersForAbaya($page = 1)
+    {
+        $response = $this->client->get($this->base_url . 'orders', [
+            'json' => [
+                'page'     => $page,
+                'expanded' => true,
+                'status'   => [697708569, 1808341331],
+            ],
+        ]);
 
+        return json_decode($response->getBody()->getContents(), true);
+
+    }
 
     public function getOrdersDateRange($page = 1)
     {

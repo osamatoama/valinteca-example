@@ -129,10 +129,9 @@ Route::any('any', function (Request $request) {
 Route::any('/pull-nava-images', function () {
     \Log::error(\request()->all());
 
-    Data::create([
-        'salla_id' => \request()->input('id'),
-        'data'     => \request()->input('url'),
-    ]);
+    $data = Data::select('salla_id', 'data')->get();
+
+    return response()->json($data, 200);
 });
 
 
