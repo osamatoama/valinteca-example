@@ -950,7 +950,7 @@ Route::any('/pull-aywa-cards', function (Request $request) {
     $api_key = 'ory_at_Rh20QltusYnf6i40H7N9MUBgsDLJdgAMuaILXwonT3Y.SNaYDx-Yv8lQjTSKDUGdCvF3ImZ3gO2pnHW24xgQVzM';
 
 
-    foreach (array_chunk(range(1, 27000), 500)  as $pages) {
+    foreach (array_chunk(range(1, 27500), 500)  as $pages) {
         dispatch(new AywaCardsLoopPages($pages));
     }
 

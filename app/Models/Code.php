@@ -17,5 +17,6 @@ class Code extends Model
         'product_name',
         'status',
         'order_date',
+        'source'
     ];
 }

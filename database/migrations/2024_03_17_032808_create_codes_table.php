@@ -21,6 +21,7 @@ class CreateCodesTable extends Migration
             $table->string('product_name', 300);
             $table->string('code', 120);
             $table->string('status');
+            $table->string('source');
             $table->dateTime('order_date');
 
             $table->timestamps();

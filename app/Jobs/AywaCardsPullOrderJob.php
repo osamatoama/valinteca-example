@@ -49,6 +49,7 @@ class AywaCardsPullOrderJob implements ShouldQueue
                     'product_name' => $item['name'],
                     'status'       => $code['status'],
                     'order_date'   => Carbon::parse($order['data']['date']['date']),
+                    'source'       => $order['data']['source'],
                 ]);
 
 
