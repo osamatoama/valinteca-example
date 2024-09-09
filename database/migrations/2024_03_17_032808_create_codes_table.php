@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateCodesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -15,8 +16,13 @@ class CreateCodesTable extends Migration
     {
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
+            $table->string('salla_id', 120);
+            $table->string('order_id', 120);
+            $table->string('product_name', 300);
             $table->string('code', 120);
-            $table->boolean('redeemed')->default(false);
+            $table->string('status');
+            $table->dateTime('order_date');
+
             $table->timestamps();
         });
     }

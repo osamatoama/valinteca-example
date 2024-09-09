@@ -8,6 +8,8 @@ use App\Exports\SlimShClients;
 use App\Http\Controllers\TapPaymentController;
 use App\Jobs\AbayaJob;
 use App\Jobs\AutoGoldMailJob;
+use App\Jobs\AywaCardsCheckPage;
+use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\FirstLevel;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
@@ -16,7 +18,6 @@ use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
 use App\Jobs\SyncAbayaOrdersJob;
 use App\Jobs\ZadlyOrders;
-use App\Mail\AutoGoldEmail;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
 use App\Models\Code;
@@ -924,7 +925,7 @@ Route::any('/send-auto-gold-emails', function (Request $request) {
         'a.maher@navajewellery.sa',
 
     ];
-    foreach ($emails as $email)  {
+    foreach ($emails as $email) {
         dispatch(new AutoGoldMailJob($email));
     }
 
@@ -938,12 +939,25 @@ Route::any('/pull-nava-images', function (Request $request) {
     $products = $salla->getProducts();
 
 
-
     foreach (range(1, $products['pagination']['totalPages']) as $page) {
         dispatch(new PullNavaImagesJob($api_key, $page));
     }
 
 });
+
+Route::any('/pull-aywa-cards', function (Request $request) {
+
+    $api_key = 'ory_at_Rh20QltusYnf6i40H7N9MUBgsDLJdgAMuaILXwonT3Y.SNaYDx-Yv8lQjTSKDUGdCvF3ImZ3gO2pnHW24xgQVzM';
+
+
+    foreach (array_chunk(range(1, 27000), 500)  as $pages) {
+        dispatch(new AywaCardsLoopPages($pages));
+    }
+
+
+});
+
+
 
 
 

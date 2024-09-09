@@ -62,8 +62,9 @@ class SallaWebhookService
     {
         $response = $this->client->get($this->base_url . 'orders', [
             'json' => [
-                'page'     => $page,
-                'expanded' => true,
+                'page'    => $page,
+                'sort_by' => 'id-asc',
+
             ],
         ]);
 
@@ -75,7 +76,7 @@ class SallaWebhookService
     {
         $response = $this->client->get($this->base_url . 'products', [
             'json' => [
-                'page'     => $page
+                'page' => $page,
             ],
         ]);
 

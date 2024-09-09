@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Code extends Model
 {
+
     use HasFactory;
 
-    protected $fillable = ['code'];
+    protected $fillable = [
+        'salla_id',
+        'order_id',
+        'code',
+        'product_name',
+        'status',
+        'order_date',
+    ];
 }
