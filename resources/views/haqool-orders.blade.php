@@ -17,7 +17,7 @@
         setTimeout(function () {
             window.location.reload();
         }, 5000);
-        document.title = "Info  {{$orders}}"
+        document.title = "total:  {{$orders}}"
     </script>
 
 </body>
