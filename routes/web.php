@@ -987,7 +987,8 @@ Route::get('/haqool-export-orders', function () {
 
 
 Route::any('/view-haqool-orders', function (Request $request) {
+    $date = HaqoolOrder::orderBy('id', 'DESC')->first()->order_date;
     $orders = HaqoolOrder::count();
 
-    return view('haqool-orders', compact('orders'));
+    return view('haqool-orders', compact('orders', 'date'));
 });

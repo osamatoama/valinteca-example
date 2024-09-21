@@ -35,4 +35,6 @@ class HaqoolOrder extends Model
         'payload' => 'json'
     ];
 
+    protected $dates  = ['order_date'];
+
 }

@@ -10,7 +10,9 @@
 <body>
 
     <h1>
-        Orders: {{$orders}}
+        date: {{$date->format('Y-m-d')}} <br />
+        Orders: {{$orders}} <br />
+
     </h1>
 
     <script>
