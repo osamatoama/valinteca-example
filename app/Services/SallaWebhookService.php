@@ -64,12 +64,32 @@ class SallaWebhookService
             'json' => [
                 'page'    => $page,
                 'sort_by' => 'id-asc',
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getOrderInvoice($order_id)
+    {
+        $response = $this->client->get($this->base_url . 'orders/invoices?order_id=' . $order_id, [
+            'json' => [
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getOrdersLatest($page = 1)
+    {
+        $response = $this->client->get($this->base_url . 'orders', [
+            'json' => [
+                'page' => $page,
 
             ],
         ]);
 
         return json_decode($response->getBody()->getContents(), true);
-
     }
 
     public function getProducts($page = 1)

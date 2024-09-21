@@ -2,15 +2,18 @@
 
 use App\Exports\AbayaExport;
 use App\Exports\DataExport;
+use App\Exports\HaqoolOrders;
 use App\Exports\OrdersExport;
 use App\Exports\RatingsExport;
 use App\Exports\SlimShClients;
 use App\Http\Controllers\TapPaymentController;
 use App\Jobs\AbayaJob;
 use App\Jobs\AutoGoldMailJob;
-use App\Jobs\AywaCardsCheckPage;
 use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\FirstLevel;
+use App\Jobs\HaqoolLoopPages;
+use App\Jobs\HaqoolPullOrderInvoiceJob;
+use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
 use App\Jobs\QueueJob;
@@ -950,7 +953,7 @@ Route::any('/pull-aywa-cards', function (Request $request) {
     $api_key = 'ory_at_Rh20QltusYnf6i40H7N9MUBgsDLJdgAMuaILXwonT3Y.SNaYDx-Yv8lQjTSKDUGdCvF3ImZ3gO2pnHW24xgQVzM';
 
 
-    foreach (array_chunk(range(1, 27500), 500)  as $pages) {
+    foreach (array_chunk(range(1, 27500), 500) as $pages) {
         dispatch(new AywaCardsLoopPages($pages));
     }
 
@@ -958,8 +961,30 @@ Route::any('/pull-aywa-cards', function (Request $request) {
 });
 
 
+Route::any('/pull-haqool-products', function (Request $request) {
+    $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
+    $salla = new SallaWebhookService($api_key);
+
+
+
+    foreach (range(1, 213) as $page) {
+        dispatch(new HaqoolPullProductsJob($page));
+    }
+});
+
+
+Route::any('/pull-haqool-orders', function (Request $request) {
+    $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
+
+    foreach (array_chunk(range(1, 1400), 200) as $pages) {
+         dispatch(new HaqoolLoopPages($pages));
+    }
+});
 
 
 
 
 
+Route::get('/haqool-export-orders', function () {
+    return Excel::download(new HaqoolOrders(), 'haqool.xlsx');
+});

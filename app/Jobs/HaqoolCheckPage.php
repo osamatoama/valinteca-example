@@ -9,7 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class AywaCardsCheckPage implements ShouldQueue
+class HaqoolCheckPage implements ShouldQueue
 {
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -33,12 +33,12 @@ class AywaCardsCheckPage implements ShouldQueue
      */
     public function handle()
     {
-        $api_key = 'ory_at_Rh20QltusYnf6i40H7N9MUBgsDLJdgAMuaILXwonT3Y.SNaYDx-Yv8lQjTSKDUGdCvF3ImZ3gO2pnHW24xgQVzM';
+        $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
         $salla = new SallaWebhookService($api_key);
-        $orders = $salla->getOrders($this->page);
+        $orders = $salla->getOrdersLatest($this->page);
 
         foreach ($orders['data']  as $order) {
-            dispatch(new HaqoolPullProductsJob($order['id']))->onQueue('pull-order');
+            dispatch(new HaqoolPullOrderJob($order['id']))->onQueue('pull-order');
         }
 
     }
