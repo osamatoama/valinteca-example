@@ -967,7 +967,7 @@ Route::any('/pull-haqool-products', function (Request $request) {
 
 
 
-    foreach (range(1, 213) as $page) {
+    foreach (range(1, 214) as $page) {
         dispatch(new HaqoolPullProductsJob($page));
     }
 });
@@ -976,7 +976,7 @@ Route::any('/pull-haqool-products', function (Request $request) {
 Route::any('/pull-haqool-orders', function (Request $request) {
     $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
 
-    foreach (array_chunk(range(1, 1400), 200) as $pages) {
+    foreach (array_chunk(range(1, 1420), 200) as $pages) {
          dispatch(new HaqoolLoopPages($pages));
     }
 });
