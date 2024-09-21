@@ -17,7 +17,7 @@
         setTimeout(function () {
             window.location.reload();
         }, 5000);
-        
+        document.title = "Info  {{$orders}}"
     </script>
 
 </body>
