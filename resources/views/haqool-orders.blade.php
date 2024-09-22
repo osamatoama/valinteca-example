@@ -10,13 +10,13 @@
 <body>
 
     <h1>
-        First Date: {{$firstDate->format('Y-m-d   H')}} <br />
-        Last Date: {{$lastDate->format('Y-m-d   H')}} <br />
-        Orders: {{$orders}} <br />
-        Order Items: {{$orderItems}} <br />
-        Empty Invoices: {{$emptyInvoices}} <br />
-         Jobs: {{$jobs}} <br />
-        Failed Jobs: {{$failed_jobs}} <br />
+        First Date: {{$firstDate->format('Y-m-d   H')}} <br /> <hr />
+        Last Date: {{$lastDate->format('Y-m-d   H')}} <br /> <hr />
+        Orders: {{$orders}} <br /> <hr />
+        Order Items: {{$orderItems}} <br /> <hr />
+        Empty Invoices: {{$emptyInvoices}} <br /> <hr />
+         Jobs: {{$jobs}} <br /> <hr />
+        Failed Jobs: {{$failed_jobs}} <br /> <hr />
 
     </h1>
 
