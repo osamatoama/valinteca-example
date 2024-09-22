@@ -10,7 +10,8 @@
 <body>
 
     <h1>
-        date: {{$date->format('Y-m-d   H')}} <br />
+        First Date: {{$firstDate->format('Y-m-d   H')}} <br />
+        Last Date: {{$lastDate->format('Y-m-d   H')}} <br />
         Orders: {{$orders}} <br />
         Order Items: {{$orderItems}} <br />
         Empty Invoices: {{$emptyInvoices}} <br />
