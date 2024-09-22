@@ -21,7 +21,7 @@
         setTimeout(function () {
             window.location.reload();
         }, 5000);
-        document.title = "total:  {{$orders}}"
+        document.title = "total:  {{$jobs}}"
     </script>
 
 </body>
