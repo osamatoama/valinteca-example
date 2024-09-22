@@ -15,7 +15,8 @@
         Orders: {{$orders}} <br /> <hr />
         Order Items: {{$orderItems}} <br /> <hr />
         Empty Invoices: {{$emptyInvoices}} <br /> <hr />
-         Jobs: {{$jobs}} <br /> <hr />
+        Default Jobs: {{$defaultJobs}} <br /> <hr />
+        Pull Order Jobs: {{$pullOrderJobs}} <br /> <hr />
         Failed Jobs: {{$failed_jobs}} <br /> <hr />
 
     </h1>

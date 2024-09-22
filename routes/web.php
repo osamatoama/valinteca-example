@@ -992,8 +992,9 @@ Route::any('/view-haqool-orders', function (Request $request) {
     $orderItems = HaqoolOrder::count();
     $orders = HaqoolOrder::distinct('order_number')->count();
     $emptyInvoices = HaqoolOrder::whereNull('invoice_number')->count();
-    $jobs = DB::table('jobs')->count();
+    $defaultJobs = DB::table('jobs')->where('queue', '=', 'default')->count();
+    $pullOrderJobs = DB::table('jobs')->where('queue', '=', 'pull-order')->count();
     $failed_jobs = DB::table('failed_jobs')->count();
 
-    return view('haqool-orders', compact('orders','orderItems', 'firstDate','lastDate','failed_jobs', 'jobs', 'emptyInvoices'));
+    return view('haqool-orders', compact('orders','orderItems', 'firstDate','lastDate','failed_jobs', 'defaultJobs','pullOrderJobs', 'emptyInvoices'));
 });
