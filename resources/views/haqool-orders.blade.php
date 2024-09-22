@@ -13,7 +13,7 @@
         date: {{$date->format('Y-m-d   H')}} <br />
         Orders: {{$orders}} <br />
         Order Items: {{$orderItems}} <br />
-
+        Empty Invoices: {{$emptyInvoices}} <br />
          Jobs: {{$jobs}} <br />
         Failed Jobs: {{$failed_jobs}} <br />
 
