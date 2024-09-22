@@ -12,6 +12,7 @@
     <h1>
         date: {{$date->format('Y-m-d')}} <br />
         Orders: {{$orders}} <br />
+         Jobs: {{$jobs}} <br />
         Failed Jobs: {{$failed_jobs}} <br />
 
     </h1>
