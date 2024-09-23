@@ -3,12 +3,14 @@
 namespace App\Exports;
 
 use App\Models\HaqoolOrder;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
-class HaqoolOrders implements FromCollection, ShouldAutoSize, WithHeadings
+class HaqoolOrders implements FromCollection, ShouldAutoSize, WithHeadings, WithMapping
 {
 
     use Exportable;
@@ -27,7 +29,7 @@ class HaqoolOrders implements FromCollection, ShouldAutoSize, WithHeadings
 
     }
 
-    /*
+
         public function map($order): array
         {
             return [
@@ -38,7 +40,7 @@ class HaqoolOrders implements FromCollection, ShouldAutoSize, WithHeadings
                 $order['quantity'],
                 $order['total'],
                 $order['order_number'],
-                $order['order_date'],
+                Carbon::parse($order['order_date'])->format('Y-m-d H:i:s'),
                 $order['order_status'],
                 $order['client_name'],
                 $order['client_email'],
@@ -48,7 +50,7 @@ class HaqoolOrders implements FromCollection, ShouldAutoSize, WithHeadings
                 $order['invoice_number'],
 
             ];
-        }*/
+        }
 
     public function headings(): array
     {
