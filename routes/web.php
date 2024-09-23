@@ -12,6 +12,7 @@ use App\Jobs\AutoGoldMailJob;
 use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\FirstLevel;
 use App\Jobs\HaqoolLoopPages;
+use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
@@ -996,5 +997,21 @@ Route::any('/view-haqool-orders', function (Request $request) {
     $pullOrderJobs = DB::table('jobs')->where('queue', '=', 'pull-order')->count();
     $failed_jobs = DB::table('failed_jobs')->count();
 
-    return view('haqool-orders', compact('orders','orderItems', 'firstDate','lastDate','failed_jobs', 'defaultJobs','pullOrderJobs', 'emptyInvoices'));
+    return view('haqool-orders',
+        compact('orders', 'orderItems', 'firstDate', 'lastDate', 'failed_jobs', 'defaultJobs', 'pullOrderJobs',
+            'emptyInvoices'));
 });
+
+Route::any('/retry-empty-haqool-invoices', function (Request $request) {
+
+    $invoices = HaqoolOrder::whereNull('invoice_number')->get();
+
+    foreach ($invoices as $invoice) {
+        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id))->onQueue('pull-order');
+
+    }
+
+
+});
+
+
