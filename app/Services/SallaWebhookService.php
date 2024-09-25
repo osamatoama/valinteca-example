@@ -41,7 +41,7 @@ class SallaWebhookService
     {
         $response = $this->client->get($this->base_url . 'orders/' . $order_id, [
             'json' => [
-                'expanded' => true,
+                'format' => 'light',
             ],
         ]);
 
@@ -73,7 +73,17 @@ class SallaWebhookService
     public function getOrderInvoice($order_id)
     {
         $response = $this->client->get($this->base_url . 'orders/invoices?order_id=' . $order_id, [
+            'json' => [],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getOrderShipments($order_id)
+    {
+        $response = $this->client->get($this->base_url . 'orders/shipments?order_id=' . $order_id, [
             'json' => [
+                'format' => 'light',
             ],
         ]);
 
@@ -84,7 +94,23 @@ class SallaWebhookService
     {
         $response = $this->client->get($this->base_url . 'orders', [
             'json' => [
-                'page' => $page,
+                'page'     => $page,
+                'expanded' => true,
+
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
+    }
+
+    public function getOrdersByCoupon($page = 1, $coupon)
+    {
+        $response = $this->client->get($this->base_url . 'orders', [
+            'json' => [
+                'page'     => $page,
+                'coupon'   => $coupon,
+                'expanded' => true,
+
 
             ],
         ]);

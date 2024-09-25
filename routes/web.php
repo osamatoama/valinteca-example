@@ -1,6 +1,7 @@
 <?php
 
 use App\Exports\AbayaExport;
+use App\Exports\BestShieldOrders;
 use App\Exports\DataExport;
 use App\Exports\HaqoolOrders;
 use App\Exports\OrdersExport;
@@ -10,7 +11,9 @@ use App\Http\Controllers\TapPaymentController;
 use App\Jobs\AbayaJob;
 use App\Jobs\AutoGoldMailJob;
 use App\Jobs\AywaCardsLoopPages;
+use App\Jobs\BestShieldCheckPage;
 use App\Jobs\FirstLevel;
+use App\Jobs\HaqoolCheckPage;
 use App\Jobs\HaqoolLoopPages;
 use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Jobs\HaqoolPullProductsJob;
@@ -982,6 +985,22 @@ Route::any('/pull-haqool-orders', function (Request $request) {
 });
 
 
+Route::any('/pull-best-shield-orders', function (Request $request) {
+    $api_key = 'ory_at_udjzu3ce7VmRiWo6j92GxE5VjlQYFYKPI2RTdKalR-M.Xb-LGi1gYNoNSrC0nRluosRXUDnjVWEBvt8XNkl3C-0';
+
+
+        foreach (range(1,50) as $page) {
+            dispatch(new BestShieldCheckPage($page));
+    }
+});
+
+
+Route::get('/best-shield-export-orders', function () {
+    return Excel::download(new BestShieldOrders(), 'best-shield.xlsx');
+});
+
+
+
 Route::get('/haqool-export-orders', function () {
     return Excel::download(new HaqoolOrders(), 'haqool.xlsx');
 });
@@ -1010,8 +1029,6 @@ Route::any('/retry-empty-haqool-invoices', function (Request $request) {
         dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id))->onQueue('pull-order');
 
     }
-
-
 });
 
 

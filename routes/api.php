@@ -37,22 +37,13 @@ Route::get('true', function (Request $request) {
 });
 
 
-Route::get('code', function (Request $request) {
-    $player = Player::inRandomOrder()->first();
-    $code = Code::where('redeemed', 0)->inRandomOrder()->first();
-    $email = Email::where('blocked_to', '<', now())->inRandomOrder()->first();
+Route::get('emails/{email}', function (Request $request, Email $email) {
 
-    if (blank($code)) {
-        return response()->json([
-            'success' => false,
-
-        ]);
-    }
 
     return response()->json([
         'success'   => true,
         'player_id' => '533038203', // $player->player_id,
-        'code'      => removeSpecialCharacters($code->code),
+        'code'      => 'qYNuUEZL2L295be3Ud',
         'email'     => $email->username,
         'password'  => $email->password,
         'code_id'   => 0,
