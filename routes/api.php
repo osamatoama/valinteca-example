@@ -44,7 +44,7 @@ Route::get('emails/{email}', function (Request $request, Email $email) {
         'success'   => true,
         'player_id' => '533038203', // $player->player_id,
         'code'      => 'qYNuUEZL2L295be3Ud',
-        'email'     => $email->username,
+        'email'     => $email->email,
         'password'  => $email->password,
         'code_id'   => 0,
     ]);
