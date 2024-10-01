@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         })->everyTenMinutes();
 
         $schedule->call(function () {
-          Log::error('123');
+          Log::error('hello from Log ');
         })->everyMinute();
 
     }
