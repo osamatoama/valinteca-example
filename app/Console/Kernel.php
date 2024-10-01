@@ -31,19 +31,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
-            $filepath = base_path('counter.txt');
-            $i = file_get_contents($filepath);
-            $i = (int)$i;
-            $i++;
-            file_put_contents($filepath, $i);
-            // kareem1alnouman@gmail.com
-            // Youcan12@
-            // 533038203
-
-            shell_exec('python ./python/glizer.py');
-
-
-        })->everyMinute();
+            pullHaqoolOrders(10);
+        })->everyTenMinutes();
 
     }
 
