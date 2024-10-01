@@ -1,7 +1,9 @@
 <?php
 
 
+use App\Jobs\HaqoolLoopPages;
 use App\Models\PricesProducts;
+use App\Services\SallaWebhookService;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
@@ -360,3 +362,19 @@ function removeSpecialCharacters($string)
     $string = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string);
     return trim($string, '-');
 }
+
+
+
+
+function pullHaqoolOrders($pages)
+
+{
+    $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
+
+
+    foreach (array_chunk(range(1, $pages), 50) as $pages) {
+
+        dispatch(new HaqoolLoopPages($pages, $api_key));
+    }
+}
+

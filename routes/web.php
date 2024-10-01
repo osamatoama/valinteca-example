@@ -976,12 +976,13 @@ Route::any('/pull-haqool-products', function (Request $request) {
 });
 
 
-Route::any('/pull-haqool-orders', function (Request $request) {
-    $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
+Route::any('/pull-haqool-orders/{pages}', function ($pages) {
+    pullHaqoolOrders($pages);
+    sleep(2);
 
-    foreach (array_chunk(range(1, 25), 200) as $pages) {
-        dispatch(new HaqoolLoopPages($pages));
-    }
+    return redirect()->to('/view-haqool-orders');
+
+
 });
 
 

@@ -18,15 +18,18 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $orderId;
+    public $api_key;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($orderId)
+    public function __construct($orderId,$api_key)
     {
         $this->orderId = $orderId;
+        $this->api_key = $api_key;
+
     }
 
     /**
@@ -36,8 +39,7 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
      */
     public function handle()
     {
-        $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
-        $salla = new SallaWebhookService($api_key);
+         $salla = new SallaWebhookService($this->api_key);
         $invoices = $salla->getOrderInvoice($this->orderId);
         $invoiceNumber = '';
         foreach ($invoices['data'] as $invoice) {

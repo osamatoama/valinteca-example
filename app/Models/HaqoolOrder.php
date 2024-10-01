@@ -27,7 +27,6 @@ class HaqoolOrder extends Model
         'payment_method',
         'invoice_number',
         'salla_order_id',
-        'payload',
     ];
 
 

@@ -32,7 +32,6 @@ class CreateHaqoolOrdersTable extends Migration
             $table->string('client_phone', 400);
             $table->string('client_city', 400);
             $table->string('payment_method', 400);
-            $table->json('payload');
             $table->timestamps();
         });
     }

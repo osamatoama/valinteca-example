@@ -16,14 +16,17 @@ class HaqoolCheckPage implements ShouldQueue
 
     public $page;
 
+    public $api_key;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($page)
+    public function __construct($page, $api_key)
     {
         $this->page = $page;
+        $this->api_key = $api_key;
     }
 
     /**
@@ -33,12 +36,11 @@ class HaqoolCheckPage implements ShouldQueue
      */
     public function handle()
     {
-        $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
-        $salla = new SallaWebhookService($api_key);
+        $salla = new SallaWebhookService($this->api_key);
         $orders = $salla->getOrdersLatest($this->page);
 
-        foreach ($orders['data']  as $order) {
-            dispatch(new HaqoolPullOrderJob($order['id']))->onQueue('pull-order');
+        foreach ($orders['data'] as $order) {
+            dispatch(new HaqoolPullOrderJob($order,$this->api_key))->onQueue('pull-order');
         }
 
     }

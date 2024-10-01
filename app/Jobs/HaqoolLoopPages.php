@@ -15,14 +15,17 @@ class HaqoolLoopPages implements ShouldQueue
 
     public $pages;
 
+    public $api_key;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($pages)
+    public function __construct($pages, $api_key)
     {
         $this->pages = $pages;
+        $this->api_key = $api_key;
     }
 
     /**
@@ -33,7 +36,7 @@ class HaqoolLoopPages implements ShouldQueue
     public function handle()
     {
         foreach ($this->pages as $page) {
-            dispatch(new HaqoolCheckPage($page));
+            dispatch(new HaqoolCheckPage($page, $this->api_key));
         }
     }
 }
