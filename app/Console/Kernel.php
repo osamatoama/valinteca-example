@@ -34,6 +34,10 @@ class Kernel extends ConsoleKernel
             pullHaqoolOrders(10);
         })->everyTenMinutes();
 
+        $schedule->call(function () {
+          Log::error('123');
+        })->everyMinute();
+
     }
 
     /**
