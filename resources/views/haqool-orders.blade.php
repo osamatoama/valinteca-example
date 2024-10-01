@@ -17,9 +17,14 @@
         Empty Invoices: {{$emptyInvoices}} <br /> <hr />
         Default Jobs: {{$defaultJobs}} <br /> <hr />
         Pull Order Jobs: {{$pullOrderJobs}} <br /> <hr />
-        Failed Jobs: {{$failed_jobs}} <br /> <hr />
+        Failed Jobs: {{$failed_jobs->count()}} <br /> <hr />
 
     </h1>
+
+    @foreach($failed_jobs as $job)
+
+        {{$job->exception}}
+    @endforeach
 
     <script>
         setTimeout(function () {

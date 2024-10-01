@@ -1026,7 +1026,7 @@ Route::any('/view-haqool-orders', function (Request $request) {
     $emptyInvoices = HaqoolOrder::whereNull('invoice_number')->count();
     $defaultJobs = DB::table('jobs')->where('queue', '=', 'default')->count();
     $pullOrderJobs = DB::table('jobs')->where('queue', '=', 'pull-order')->count();
-    $failed_jobs = DB::table('failed_jobs')->count();
+    $failed_jobs = DB::table('failed_jobs')->get();
 
     return view('haqool-orders',
         compact('orders', 'orderItems', 'firstDate', 'lastDate', 'failed_jobs', 'defaultJobs', 'pullOrderJobs',
