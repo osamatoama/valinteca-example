@@ -23,7 +23,7 @@
 
     @foreach($failed_jobs as $job)
 
-        {{ substr($job->exception, 0, 100) }}
+        {{ substr($job->exception, 0, 200) }}
     @endforeach
 
     <script>
