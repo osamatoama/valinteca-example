@@ -985,6 +985,17 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 
 });
 
+Route::any('/retry-empty-haqool-invoices', function (Request $request) {
+    $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
+
+    $invoices = HaqoolOrder::whereNull('invoice_number')->get();
+
+    foreach ($invoices as $invoice) {
+        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id,$api_key))->onQueue('pull-order');
+    }
+});
+
+
 
 Route::any('/pull-best-shield-orders', function (Request $request) {
     $api_key = 'ory_at_udjzu3ce7VmRiWo6j92GxE5VjlQYFYKPI2RTdKalR-M.Xb-LGi1gYNoNSrC0nRluosRXUDnjVWEBvt8XNkl3C-0';
@@ -1022,14 +1033,6 @@ Route::any('/view-haqool-orders', function (Request $request) {
             'emptyInvoices'));
 });
 
-Route::any('/retry-empty-haqool-invoices', function (Request $request) {
 
-    $invoices = HaqoolOrder::whereNull('invoice_number')->get();
-
-    foreach ($invoices as $invoice) {
-        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id))->onQueue('pull-order');
-
-    }
-});
 
 
