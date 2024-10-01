@@ -34,7 +34,7 @@ class HaqoolPullProductsJob implements ShouldQueue
      */
     public function handle()
     {
-        $api_key = 'ory_at_ed7IeC2KzPPXrjzOJv3BjqzmnyACebzC7joHRma-Mx8.2C1P-evQord1wsWeOMDoWiQDiwQIcvZ4bm5774cMNUs';
+        $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
         $salla = new SallaWebhookService($api_key);
         $products = $salla->getProducts($this->page);
 
