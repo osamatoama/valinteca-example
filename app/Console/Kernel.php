@@ -35,10 +35,7 @@ class Kernel extends ConsoleKernel
             Artisan::call('queue:retry all');
             pullHaqoolOrders(10);
         })->everyTenMinutes();
-
-        $schedule->call(function () {
-          Log::error('hello from Log ');
-        })->everyMinute();
+        
 
     }
 
