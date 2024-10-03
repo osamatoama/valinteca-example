@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBestShieldOrdersTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -17,18 +18,7 @@ class CreateBestShieldOrdersTable extends Migration
             $table->id();
             $table->string('salla_order_id', 400);
             $table->string('order_number', 400);
-            $table->dateTime('order_date');
-            $table->string('order_status', 400);
-            $table->string('client_name', 400);
-            $table->string('client_phone', 400);
-            $table->string('client_city', 400);
-            $table->string('client_country', 400);
-            $table->string('shipping_country', 400);
-            $table->string('shipping_city', 400);
-            $table->string('payment_method', 400);
-            $table->string('order_total', 400);
-            $table->string('coupon', 400);
-            $table->string('total_discount', 400);
+            $table->json('payload');
             $table->timestamps();
         });
     }

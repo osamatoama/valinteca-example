@@ -1,82 +1,198 @@
 {
-    "name": "laravel/laravel",
-    "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": "^7.3|^8.0",
-        "ext-curl": "*",
-        "ext-json": "*",
-        "barryvdh/laravel-dompdf": "^2.2",
-        "darkaonline/l5-swagger": "^8.3",
-        "fideloper/proxy": "^4.4",
-        "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0",
-        "laravel/framework": "^8.12",
-        "laravel/passport": "^10.1",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.2",
-        "maatwebsite/excel": "^3.1",
-        "mpdf/mpdf": "^8.1",
-        "niklasravnsborg/laravel-pdf": "^4.1",
-        "robertogallea/laravel-python": "^0.1.1",
-        "salla/ouath2-merchant": "^1.1",
-        "simplesoftwareio/simple-qrcode": "^4.2",
-        "spatie/laravel-backup": "^6.16",
-        "spatie/laravel-medialibrary": "^8.7",
-        "spatie/laravel-permission": "^4.0",
-        "symfony/process": "^5.4",
-        "yajra/laravel-datatables-oracle": "~9.0"
-    },
-    "require-dev": {
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+    "success": true,
+    "data": [
+        {
+            "id": "66074e049279635d769e9537",
+            "title": "Harry Potter: Magic Awakened (Global)",
+            "overview": "",
+            "note": "",
+            "topup": true
+         },
+        {
+            "id": "6607505a9279635d769e9704",
+            "title": "Eggy Party (Global)",
+            "overview": "",
+            "note": "",
+            "topup": true
+
         },
-        "files": [
-            "app/helpers.php"
-        ]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
+        {
+            "id": "660756029279635d769e992d",
+            "title": "LifeAfter",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "66075a829279635d769e99c9",
+            "title": "FarLight84",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+
+
+        {
+            "id": "6607f5599279635d769ea046",
+            "title": "Puniching Gray Raven",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "6607fa069279635d769ea101",
+            "title": "EA Sports FC Mobile - KSA",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "662b0eb1bc51913e8490fa45",
+            "title": "Blood Strike",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "666590f429a3908935570d86",
+            "title": "Genshin impact - Global",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "666592e929a3908935570f62",
+            "title": "Mobile Legends - Global",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+        {
+            "id": "6665944129a3908935571148",
+            "title": "Honkai: Star Rail - Global",
+            "overview": "",
+            "note": "",
+            "topup": true
+
+        },
+
+
+
+        {
+            "id": "66eeab8d171ace1fd852b6b9",
+            "title": "PUBG Mobile Top up",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "Character ID",
+                    "label": "Character ID",
+                    "data": []
+                }
+            ]
+        },
+        {
+            "id": "66eeae32171ace1fd852bb3f",
+            "title": "Arena Breakout Top up",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "Player ID",
+                    "label": "Player ID",
+                    "data": []
+                }
+            ]
+        },
+        {
+            "id": "66eeb02c171ace1fd852bcb0",
+            "title": "Jawaker Top up",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "Player Number",
+                    "label": "Player Number",
+                    "data": []
+                }
+            ]
+        },
+        {
+            "id": "66eeb28f171ace1fd852be27",
+            "title": "Honor of Kings Top up",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "Player ID",
+                    "label": "Player ID",
+                    "data": []
+                }
+            ]
+        },
+        {
+            "id": "66eeb551171ace1fd852becd",
+            "title": "Zenless Zone Zero - Global",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "User ID",
+                    "label": "User ID",
+                    "data": []
+                },
+                {
+                    "type": "dropdown",
+                    "name": "Server",
+                    "label": "Server",
+                    "data": []
+                }
+            ]
+        },
+        {
+            "id": "66eeb735171ace1fd852bf0d",
+            "title": "Identity V - Global",
+            "overview": "",
+            "note": "",
+            "topup": true,
+            "fields": [
+                {
+                    "type": "text",
+                    "name": "Username",
+                    "label": "Username",
+                    "data": []
+                },
+                {
+                    "type": "text",
+                    "name": "User ID",
+                    "label": "User ID",
+                    "data": []
+                },
+                {
+                    "type": "dropdown",
+                    "name": "Server",
+                    "label": "Server",
+                    "data": []
+                }
+            ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ]
-    }
+
+    ]
 }

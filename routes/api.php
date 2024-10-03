@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Api\LoyaltyPointsAutomationController;
+use App\Models\BestShieldOrder;
 use App\Models\Code;
 use App\Models\Data;
 use App\Models\Email;
@@ -149,6 +150,12 @@ Route::any('salla-api-example', function (Request $request) {
             "links"       => [],
         ],
     ]);
+});
+Route::any('best-shield-api-example', function (Request $request) {
+    $orders = BestShieldOrder::all();
+
+
+    return response()->json($orders);
 });
 
 

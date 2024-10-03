@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\BestShieldOrder;
 use App\Services\SallaWebhookService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -35,10 +36,16 @@ class BestShieldCheckPage implements ShouldQueue
     {
         $api_key = 'ory_at_udjzu3ce7VmRiWo6j92GxE5VjlQYFYKPI2RTdKalR-M.Xb-LGi1gYNoNSrC0nRluosRXUDnjVWEBvt8XNkl3C-0';
         $salla = new SallaWebhookService($api_key);
-        $orders = $salla->getOrdersByCoupon($this->page, 'MN');
+        $orders = $salla->getOrdersLatest($this->page);
 
         foreach ($orders['data'] as $order) {
-            dispatch(new BestShieldPullOrderJob($order))->onQueue('pull-order');
+            BestShieldOrder::create([
+                'salla_order_id' => $order['id'],
+                'order_number'   => $order['reference_id'],
+                'payload'        => $order,
+            ]);
+
+            // dispatch(new BestShieldPullOrderJob($order))->onQueue('pull-order');
         }
 
     }
