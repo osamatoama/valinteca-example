@@ -6,7 +6,6 @@ use App\Models\BestShieldOrder;
 use App\Models\Code;
 use App\Models\Data;
 use App\Models\Email;
-use App\Models\Player;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -152,11 +151,7 @@ Route::any('salla-api-example', function (Request $request) {
     ]);
 });
 Route::any('best-shield-api-example', function (Request $request) {
-    $orders = BestShieldOrder::paginate(
-        perPage: $request->query(
-            key: 'perPage',
-            default: 10,
-    ));
+    $orders = BestShieldOrder::paginate($request->query('perPage', 10,));
 
 
     return response()->json($orders);
