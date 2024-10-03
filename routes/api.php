@@ -152,7 +152,11 @@ Route::any('salla-api-example', function (Request $request) {
     ]);
 });
 Route::any('best-shield-api-example', function (Request $request) {
-    $orders = BestShieldOrder::all();
+    $orders = BestShieldOrder::paginate(
+        perPage: $request->query(
+            key: 'perPage',
+            default: 10,
+    ));
 
 
     return response()->json($orders);
