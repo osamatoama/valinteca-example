@@ -21,7 +21,7 @@ class HaqoolInvoices implements FromCollection, ShouldAutoSize, WithHeadings, Wi
 
     public function collection()
     {
-        return \App\Models\HaqoolInvoices::all();
+        return \App\Models\HaqoolInvoices::orderBy('order_number', 'ASC')->get();
 
     }
 
