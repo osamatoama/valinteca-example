@@ -2,8 +2,6 @@
 
 namespace App\Console;
 
-use App\Models\Code;
-use App\Models\Email;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Artisan;

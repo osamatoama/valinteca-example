@@ -2,10 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Models\HaqoolInvoices;
 use App\Models\HaqoolOrder;
-use App\Models\HaqoolProduct;
 use App\Services\SallaWebhookService;
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -17,7 +16,8 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $orderId;
+    public $order;
+
     public $api_key;
 
     /**
@@ -25,9 +25,9 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($orderId,$api_key)
+    public function __construct($order, $api_key)
     {
-        $this->orderId = $orderId;
+        $this->order = $order;
         $this->api_key = $api_key;
 
     }
@@ -39,18 +39,34 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
      */
     public function handle()
     {
-         $salla = new SallaWebhookService($this->api_key);
-        $invoices = $salla->getOrderInvoice($this->orderId);
+        $order = $this->order;
+        $salla = new SallaWebhookService($this->api_key);
+        $invoices = $salla->getOrderInvoice($order['id']);
         $invoiceNumber = '';
         foreach ($invoices['data'] as $invoice) {
-            if($invoice['type'] == 'Tax Invoice') {
+
+            HaqoolInvoices::create([
+                'order_number'   => $order['reference_id'],
+                'customer_name'  => $order['customer']['first_name'] . ' ' . $order['customer']['last_name'],
+                'invoice_number' => $invoice['invoice_number'],
+                'invoice_type'   => $invoice['type'],
+                'invoice_date'   => $invoice['date'],
+                'sub_total'      => $invoice['sub_total']['amount'],
+                'discount'       => $invoice['discount']['amount'],
+                'shipping'       => $invoice['shipping_cost']['amount'],
+                'vat'            => $invoice['tax']['amount']['amount'],
+                'total'          => $invoice['total']['amount'],
+            ]);
+
+            if ($invoice['type'] == 'Tax Invoice') {
                 $invoiceNumber = $invoice['invoice_number'];
             }
         }
 
-        HaqoolOrder::where('salla_order_id', $this->orderId)->update([
-            'invoice_number' =>  $invoiceNumber
+        HaqoolOrder::where('salla_order_id', $order['id'])->update([
+            'invoice_number' => $invoiceNumber,
         ]);
+
 
     }
 }

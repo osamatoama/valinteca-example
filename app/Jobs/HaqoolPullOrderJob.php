@@ -71,6 +71,6 @@ class HaqoolPullOrderJob implements ShouldQueue
             ]);
         }
 
-        dispatch(new HaqoolPullOrderInvoiceJob($order['id'],$this->api_key))->onQueue('pull-order')->delay(now()->addSeconds(3));
+        dispatch(new HaqoolPullOrderInvoiceJob($order,$this->api_key))->onQueue('pull-order')->delay(now()->addSeconds(3));
     }
 }
