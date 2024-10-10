@@ -3,6 +3,7 @@
 use App\Exports\AbayaExport;
 use App\Exports\BestShieldOrders;
 use App\Exports\DataExport;
+use App\Exports\HaqoolInvoices;
 use App\Exports\HaqoolOrders;
 use App\Exports\OrdersExport;
 use App\Exports\RatingsExport;
@@ -1015,6 +1016,11 @@ Route::get('/best-shield-export-orders', function () {
 
 Route::get('/haqool-export-orders', function () {
     return Excel::download(new HaqoolOrders(), 'haqool.xlsx');
+});
+
+
+Route::get('/haqool-export-invoices', function () {
+    return Excel::download(new HaqoolInvoices(), 'haqool_invoices.xlsx');
 });
 
 
