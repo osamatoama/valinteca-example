@@ -15,6 +15,8 @@ class HaqoolPullProductsJob implements ShouldQueue
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $api_key;
+
     public $page;
 
     /**
@@ -22,9 +24,10 @@ class HaqoolPullProductsJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($page)
+    public function __construct($page, $api_key)
     {
         $this->page = $page;
+        $this->api_key = $api_key;
     }
 
     /**
@@ -34,8 +37,7 @@ class HaqoolPullProductsJob implements ShouldQueue
      */
     public function handle()
     {
-        $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
-        $salla = new SallaWebhookService($api_key);
+        $salla = new SallaWebhookService($this->api_key);
         $products = $salla->getProducts($this->page);
 
         foreach ($products['data'] as $product) {

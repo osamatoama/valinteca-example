@@ -14,8 +14,6 @@ use App\Jobs\AutoGoldMailJob;
 use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\BestShieldCheckPage;
 use App\Jobs\FirstLevel;
-use App\Jobs\HaqoolCheckPage;
-use App\Jobs\HaqoolLoopPages;
 use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
@@ -967,12 +965,12 @@ Route::any('/pull-aywa-cards', function (Request $request) {
 
 
 Route::any('/pull-haqool-products', function (Request $request) {
-    $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
+    $api_key = 'ory_at__0229vjtyW_VX1tUl4M1BwFsttu_yfteFJ99Y8wqRxs.tKKnhPGkTpGl8aIZY2DrHquiDKt8KDbCNEBBZZWuAlY';
     $salla = new SallaWebhookService($api_key);
 
 
     foreach (range(1, 214) as $page) {
-        dispatch(new HaqoolPullProductsJob($page));
+        dispatch(new HaqoolPullProductsJob($page, $api_key));
     }
 });
 
@@ -992,18 +990,17 @@ Route::any('/retry-empty-haqool-invoices', function (Request $request) {
     $invoices = HaqoolOrder::whereNull('invoice_number')->get();
 
     foreach ($invoices as $invoice) {
-        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id,$api_key))->onQueue('pull-order');
+        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id, $api_key))->onQueue('pull-order');
     }
 });
-
 
 
 Route::any('/pull-best-shield-orders', function (Request $request) {
     $api_key = 'ory_at_udjzu3ce7VmRiWo6j92GxE5VjlQYFYKPI2RTdKalR-M.Xb-LGi1gYNoNSrC0nRluosRXUDnjVWEBvt8XNkl3C-0';
 
 
-        foreach (range(1,50) as $page) {
-            dispatch(new BestShieldCheckPage($page));
+    foreach (range(1, 50) as $page) {
+        dispatch(new BestShieldCheckPage($page));
     }
 });
 
@@ -1011,7 +1008,6 @@ Route::any('/pull-best-shield-orders', function (Request $request) {
 Route::get('/best-shield-export-orders', function () {
     return Excel::download(new BestShieldOrders(), 'best-shield.xlsx');
 });
-
 
 
 Route::get('/haqool-export-orders', function () {
