@@ -1038,3 +1038,7 @@ Route::any('/view-haqool-orders', function (Request $request) {
 
 
 
+
+Route::get('/looker-embed', function () {
+    return view('embed');
+});
