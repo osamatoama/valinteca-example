@@ -1040,5 +1040,9 @@ Route::any('/view-haqool-orders', function (Request $request) {
 
 
 Route::get('/looker-embed', function () {
-    return view('embed');
+    return view('embed-looker');
+});
+
+Route::get('/superset-embed', function () {
+    return view('embed-superset');
 });
