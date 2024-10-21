@@ -16,7 +16,7 @@
 <body>
 
 <iframe width="100%" height="100%"
-        src="https://superset.valantica.com/superset/dashboard/9e306200-0793-431e-8e14-a77717456ee5/?permalink_key=gdprmwVDb8W"
+        src="https://superset.valantica.com/superset/dashboard/p/R8Vy4nvNJ7m/?standalone=true"
         frameborder="0" style="border:0" allowfullscreen
         sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
