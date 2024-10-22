@@ -985,12 +985,12 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 });
 
 Route::any('/retry-empty-haqool-invoices', function (Request $request) {
-    $api_key = 'ory_at_sfyIZg2otcS7e9nZL7TeOsFxScHCMAuKU5k2pLwKt6U.k7aZ4IN9AsQF6m8suBMjalusBkc_ZEjlK1ovqOHYMO8';
-
+    $api_key = 'ory_at_aGDXAr3TFDTYR7wgoDK2qswo9dYZ0dHxw77QgChx_Tg.h_HmxbfNSKwlnaV-HNkUGLT841RCMXa4ZymgkacSIgg';
     $invoices = HaqoolOrder::whereNull('invoice_number')->get();
-
     foreach ($invoices as $invoice) {
-        dispatch(new HaqoolPullOrderInvoiceJob($invoice->salla_order_id, $api_key))->onQueue('pull-order');
+        $order = [];
+        $order['id'] = $invoice->salla_order_id;
+        dispatch(new HaqoolPullOrderInvoiceJob($order, $api_key))->onQueue('pull-order');
     }
 });
 
@@ -1034,9 +1034,6 @@ Route::any('/view-haqool-orders', function (Request $request) {
         compact('orders', 'orderItems', 'firstDate', 'lastDate', 'failed_jobs', 'defaultJobs', 'pullOrderJobs',
             'emptyInvoices'));
 });
-
-
-
 
 
 Route::get('/looker-embed', function () {
