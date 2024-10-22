@@ -986,11 +986,13 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 
 Route::any('/retry-empty-haqool-invoices', function (Request $request) {
     $api_key = 'ory_at_aGDXAr3TFDTYR7wgoDK2qswo9dYZ0dHxw77QgChx_Tg.h_HmxbfNSKwlnaV-HNkUGLT841RCMXa4ZymgkacSIgg';
+    $salla = new SallaWebhookService($api_key);
     $invoices = HaqoolOrder::whereNull('invoice_number')->get();
     foreach ($invoices as $invoice) {
-        $order = [];
-        $order['id'] = $invoice->salla_order_id;
-        dispatch(new HaqoolPullOrderInvoiceJob($order, $api_key))->onQueue('pull-order');
+        $order = $salla->getOrder($invoice->salla_order_id);
+
+
+        dispatch(new HaqoolPullOrderInvoiceJob($order['data'], $api_key))->onQueue('pull-order');
     }
 });
 
