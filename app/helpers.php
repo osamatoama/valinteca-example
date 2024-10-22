@@ -2,6 +2,8 @@
 
 
 use App\Jobs\HaqoolLoopPages;
+use App\Jobs\HaqoolPullOrderInvoiceJob;
+use App\Models\HaqoolOrder;
 use App\Models\PricesProducts;
 use App\Services\SallaWebhookService;
 use GuzzleHttp\Client;
@@ -11,21 +13,21 @@ use Illuminate\Support\Str;
 function getArabicPdf()
 {
     return new \Mpdf\Mpdf([
-        'format'               => 'A4-L',
-        'fontDir'              => array_merge([
+        'format'   => 'A4-L',
+        'fontDir'  => array_merge([
             __DIR__ . '/../public/css',
         ]),
-        'fontdata'             => [
+        'fontdata' => [
             'tajawal' => [
-                'R' => "Tajawal-Regular.ttf",
-                'L' => "Tajawal-Light.ttf",
-                'B' => "Tajawal-Bold.ttf",
-                'useOTL' => 0xFF,
+                'R'          => "Tajawal-Regular.ttf",
+                'L'          => "Tajawal-Light.ttf",
+                'B'          => "Tajawal-Bold.ttf",
+                'useOTL'     => 0xFF,
                 'useKashida' => 75,
             ],
         ],
 
-        'autoScriptToLang' => true,
+        'autoScriptToLang'    => true,
         'ignore_invalid_utf8' => true,
 
         'default_font'         => 'Tajawal',
@@ -327,12 +329,10 @@ function get_brand($id)
     return $response;
 
 
-
 }
 
 
-
-if (!function_exists('get_salla_merchant_info')) {
+if ( ! function_exists('get_salla_merchant_info')) {
     function get_salla_merchant_info($token)
     {
         try {
@@ -354,20 +354,19 @@ if (!function_exists('get_salla_merchant_info')) {
 
 function removeSpecialCharacters($string)
 {
-    $string = str_replace(array('[\', \']'), '', $string);
+    $string = str_replace(['[\', \']'], '', $string);
     $string = preg_replace('/\[.*\]/U', '', $string);
     $string = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '-', $string);
-    $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
-    $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
+    $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1',
+        $string);
+    $string = preg_replace(['/[^a-z0-9]/i', '/[-]+/'], '-', $string);
     $string = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string);
+
     return trim($string, '-');
 }
 
 
-
-
 function pullHaqoolOrders($pages)
-
 {
     $api_key = 'ory_at_aGDXAr3TFDTYR7wgoDK2qswo9dYZ0dHxw77QgChx_Tg.h_HmxbfNSKwlnaV-HNkUGLT841RCMXa4ZymgkacSIgg';
 
@@ -376,5 +375,14 @@ function pullHaqoolOrders($pages)
 
         dispatch(new HaqoolLoopPages($pages, $api_key));
     }
+
+
+    $salla = new SallaWebhookService($api_key);
+    $invoices = HaqoolOrder::whereNull('invoice_number')->get();
+    foreach ($invoices as $invoice) {
+        $order = $salla->getOrder($invoice->salla_order_id);
+        dispatch(new HaqoolPullOrderInvoiceJob($order['data'], $api_key))->onQueue('pull-order');
+    }
+
 }
 
