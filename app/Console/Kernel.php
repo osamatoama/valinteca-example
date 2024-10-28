@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
-            Log::error('pull 10 haqool orders pages ');
+
             Artisan::call('queue:retry all');
             pullHaqoolOrders(10);
         })->everyTenMinutes();

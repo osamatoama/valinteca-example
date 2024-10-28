@@ -8,6 +8,7 @@ use App\Models\Data;
 use App\Models\Email;
 use App\Models\Rating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 Route::any('safwat-aljawf.com/rating/dashboard/clear', function (Request $request) {
@@ -160,8 +161,9 @@ Route::any('best-shield-api-example', function (Request $request) {
 
 
 Route::any('register-webhooks', function (Request $request) {
-    
-    \Log::error($request->all());
+    Log::error($request->all());
+
+
 
 });
 
