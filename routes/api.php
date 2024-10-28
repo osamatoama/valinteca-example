@@ -158,3 +158,10 @@ Route::any('best-shield-api-example', function (Request $request) {
 });
 
 
+
+Route::any('register-webhooks', function (Request $request) {
+    
+    \Log::error($request->all());
+
+});
+
