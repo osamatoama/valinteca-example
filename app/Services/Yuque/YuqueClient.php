@@ -101,7 +101,7 @@ class YuqueClient implements YuqueClientInterface
      * @param array $body
      * @return mixed
      */
-    public function postHttpRequest(string $url, array $body = []): mixed
+    public function postHttpRequest(string $url, array $body = [])
     {
         $body['timestamp'] = $this->getTimestamp();
 
