@@ -4,7 +4,7 @@ namespace App\Services\Yuque;
 
 use Illuminate\Support\Facades\Http;
 
-class YuqueClient implements YuqueClientInterface
+class YuqueClient
 {
 
     private string $secretId;
