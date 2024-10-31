@@ -14,7 +14,6 @@ use App\Jobs\AutoGoldMailJob;
 use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\BestShieldCheckPage;
 use App\Jobs\FirstLevel;
-use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
@@ -582,12 +581,23 @@ Route::get('yuque', function () {
 
 
     $yuqueClient = new YuqueClient;
+    $products = [];
+    foreach (range(1, 36) as $page) {
+        $items = $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
+            'page'     => request('page', 1),
+            'per_page' => request('per_page', 10),
+        ])['data'];
 
-    return $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
-        'page'     => request('page', 1),
-        'per_page' => request('per_page', 10),
-    ]);
+        foreach ($items['data'] as $item) {
+            $products[] = $item;
+        }
 
+
+    }
+
+    dd($products);
+
+    return view('yuque');
 });
 
 
