@@ -4,7 +4,7 @@ namespace App\Services\Yuque;
 
 use Illuminate\Support\Facades\Http;
 
-class YuqueClient implements YuqueClientInterface
+class YuqueTestClient implements YuqueClientInterface
 {
 
     private string $secretId;
@@ -27,7 +27,7 @@ class YuqueClient implements YuqueClientInterface
      */
     private function setSecretId(): void
     {
-        $this->secretId = config('yuque.secret_id');
+        $this->secretId = config('yuque.test_secret_id');
     }
 
     /**
@@ -35,7 +35,7 @@ class YuqueClient implements YuqueClientInterface
      */
     private function setSecretKey(): void
     {
-        $this->secretKey = config('yuque.secret_key');
+        $this->secretKey = config('yuque.test_secret_key');
     }
 
     /**
