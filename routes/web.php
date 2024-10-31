@@ -994,7 +994,7 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 
 });
 
-Route::any('/retry-haqool-invoices/{orderId}', function (Request $orderId) {
+Route::any('/retry-haqool-invoices/{orderId}', function (Request $request,$orderId) {
     $api_key = config('auth.haqool_access_token');
 
     $salla = new SallaWebhookService($api_key);
