@@ -7,7 +7,6 @@
 <body>
 
 <div class="container">
-    <h1>Yuque Products Count: {{ $products->count() }}</h1>
     <table border="1">
         <thead>
         <tr>
