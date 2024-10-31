@@ -1000,6 +1000,8 @@ Route::any('/retry-haqool-invoices/{orderId}', function (Request $orderId) {
     $salla = new SallaWebhookService($api_key);
     $order = $salla->getOrder($orderId);
     dispatch(new HaqoolPullOrderInvoiceJob($order['data'], $api_key))->onQueue('pull-order');
+
+    dd("DONE");
 });
 
 
