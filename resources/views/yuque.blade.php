@@ -11,25 +11,22 @@
     <table border="1">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>Remote ID</th>
-            <th>Name</th>
-            <th>value </th>
+            <th>name</th>
+            <th>face_value</th>
+            <th>product_id</th>
+            <th>product_type </th>
             <th>price</th>
-            <th>type</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach($products as $product)
             <tr>
-                <td>{{$product->id}}</td>
-                <td>{{$product->remote_id}}</td>
-                <td>{{$product->name}}</td>
-                <td>{{$product->face_value}}</td>
-                <td>{{$product->sales_price}}  {{$product->sales_currency}} </td>
-                <td>
-                    {{ ((int)$product->product_type) === 4 ? 'Top Up' : 'Gift Card'}}
-                </td>
+                <td>{{$product['name']}}</td>
+                <td>{{$product['face_value']}}</td>
+                <td>{{$product['product_id']}}</td>
+                <td>{{$product['product_type']}}</td>
+                <td>{{$product['sales_price']}} {{$product['sales_currency']}} </td>
             </tr>
 
         @endforeach

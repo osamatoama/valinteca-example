@@ -595,9 +595,9 @@ Route::get('yuque', function () {
 
     }
 
-    dd($products);
 
-    return view('yuque');
+
+    return view('yuque', compact('products'));
 });
 
 
