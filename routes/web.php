@@ -584,7 +584,7 @@ Route::get('yuque', function () {
     $products = [];
     foreach (range(1, 36) as $page) {
         $items = $yuqueClient->postHttpRequest(config('yuque.urls.user_products_list'), [
-            'page'     => request('page', 1),
+            'page'     => $page,
             'per_page' => request('per_page', 10),
         ])['data'];
 
