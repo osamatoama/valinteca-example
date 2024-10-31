@@ -12,9 +12,9 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
-    'defaults' => [
-        'guard' => 'web',
+    'haqool_access_token' => 'ory_at_-FGy1sHEsf9u_cpFWTv2Z8FlOEXD9AIsbu04bvvTLcI.xyB77c3hx5AiQiOJYqU1J-7TVmYM7kwRnpnVN36YGaU',
+    'defaults'            => [
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -37,14 +37,14 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
-            'hash' => false,
+            'hash'     => false,
         ],
     ],
 
@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model'  => App\Models\User::class,
         ],
 
         // 'users' => [
@@ -95,8 +95,8 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'table'    => 'password_resets',
+            'expire'   => 60,
             'throttle' => 60,
         ],
     ],

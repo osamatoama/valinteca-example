@@ -14,6 +14,7 @@ use App\Jobs\AutoGoldMailJob;
 use App\Jobs\AywaCardsLoopPages;
 use App\Jobs\BestShieldCheckPage;
 use App\Jobs\FirstLevel;
+use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
@@ -596,7 +597,6 @@ Route::get('yuque', function () {
     }
 
 
-
     return view('yuque', compact('products'));
 });
 
@@ -975,7 +975,7 @@ Route::any('/pull-aywa-cards', function (Request $request) {
 
 
 Route::any('/pull-haqool-products', function (Request $request) {
-    $api_key = 'ory_at__0229vjtyW_VX1tUl4M1BwFsttu_yfteFJ99Y8wqRxs.tKKnhPGkTpGl8aIZY2DrHquiDKt8KDbCNEBBZZWuAlY';
+    $api_key = config('auth.haqool_access_token');
     $salla = new SallaWebhookService($api_key);
 
 
@@ -994,8 +994,12 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 
 });
 
-Route::any('/retry-empty-haqool-invoices', function (Request $request) {
+Route::any('/retry-haqool-invoices/{orderId}', function (Request $orderId) {
+    $api_key = config('auth.haqool_access_token');
 
+    $salla = new SallaWebhookService($api_key);
+    $order = $salla->getOrder($orderId);
+    dispatch(new HaqoolPullOrderInvoiceJob($order['data'], $api_key))->onQueue('pull-order');
 });
 
 

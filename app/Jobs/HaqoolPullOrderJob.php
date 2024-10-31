@@ -41,6 +41,8 @@ class HaqoolPullOrderJob implements ShouldQueue
     {
         $order = $this->order;
         if (HaqoolOrder::where('order_number', $order['reference_id'])->exists()) {
+            dispatch(new HaqoolPullOrderInvoiceJob($order,$this->api_key))->onQueue('pull-order')->delay(now()->addSeconds(3));
+
             return;
         }
 

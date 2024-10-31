@@ -368,7 +368,7 @@ function removeSpecialCharacters($string)
 
 function pullHaqoolOrders($pages)
 {
-    $api_key = 'ory_at_-FGy1sHEsf9u_cpFWTv2Z8FlOEXD9AIsbu04bvvTLcI.xyB77c3hx5AiQiOJYqU1J-7TVmYM7kwRnpnVN36YGaU';
+    $api_key = config('auth.haqool_access_token');
 
 
     foreach (array_chunk(range(1, $pages), 50) as $pages) {
