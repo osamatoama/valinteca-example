@@ -1031,8 +1031,8 @@ Route::get('/haqool-export-invoices', function () {
 
 
 Route::any('/view-haqool-orders', function (Request $request) {
-    $firstDate = HaqoolOrder::orderBy('order_date', 'ASC')->first()->order_date;
-    $lastDate = HaqoolOrder::orderBy('order_date', 'DESC')->first()->order_date;
+    $firstDate = optional(HaqoolOrder::orderBy('order_date', 'ASC')->first())->order_date;
+    $lastDate = optional(HaqoolOrder::orderBy('order_date', 'DESC')->first())->order_date;
     $orderItems = HaqoolOrder::count();
     $orders = HaqoolOrder::distinct('order_number')->count();
     $emptyInvoices = HaqoolOrder::whereNull('invoice_number')->count();
