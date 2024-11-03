@@ -5,6 +5,8 @@ use App\Jobs\HaqoolLoopPages;
 use App\Jobs\HaqoolPullOrderInvoiceJob;
 use App\Models\HaqoolOrder;
 use App\Models\PricesProducts;
+use App\Services\Google\Sheets\GoogleSheetsException;
+use App\Services\Google\Sheets\GoogleSheetsService;
 use App\Services\SallaWebhookService;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -383,6 +385,50 @@ function pullHaqoolOrders($pages)
         $order = $salla->getOrder($invoice->salla_order_id);
         dispatch(new HaqoolPullOrderInvoiceJob($order['data'], $api_key))->onQueue('pull-order');
     }
+
+}
+
+
+function serdabAbayaGoogleSheet($data)
+{
+
+    $service = new GoogleSheetsService(spreadsheetId: config(key: 'google.spreadsheet_id',),
+        sheetName: config(key: 'google.sheet_name',), range: '');
+
+    try {
+        $response = $service->append(data: $data);
+    } catch (GoogleSheetsException $exception) {
+
+        dd($exception);
+
+        //        $this->handleException(
+        //            exception: GoogleSheetsException::fromException(
+        //                exception: $exception,
+        //                lines: [
+        //                    'Exception while appending to google sheets',
+        //                    "OrderId: {$this->order->id}",
+        //                    "OrderItemId: {$this->order->id}",
+        //                ],
+        //            ),
+        //        );
+
+        return;
+    }
+}
+
+
+function fillArray($array,$lastItem)
+{
+    $target = 27;
+    $count = count($array);
+    $remaining = $target - $count;
+
+    foreach (range(1, $remaining) as $i) {
+        $array[] = '';
+    }
+    $array[] = $lastItem;
+
+    return $array;
 
 }
 

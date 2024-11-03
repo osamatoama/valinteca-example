@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "industrial-silo-390411",
+  "private_key_id": "2fd1ce1f9dee608480fadfba9e8e8e96b0d15546",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCP4R+gR7sOOVF/\njVPVpfzbyJJAu2rdDgx7jvy8baaILwHmzMctQSaxaZLv8XMgjs0RSbpN1TBvfBwH\np3UXmxtIYP7TlvQdSeMCuO5CYHxENj+KJ4O+PS2sPCBDu+9LA174smIjLFEG6imY\nSzFE2QceYh5i6JsWstVDje8YZMf4HxIvXfRkW7el5WfL5faYkyMmBGjwpHYzX6tG\nuP0XPDbiGqQK5rGNs9QDph5GEPeq9gdfrhskooAFj4sFfxqLkm0CDDTBJbOJMW+w\ngrx/8/GDgZ9RKrLiOphlt47CiriPY+DLAQm1Jt1KM5mjifeBJAb4ezIw1huke34h\nsglbyx11AgMBAAECggEACjAyFd62dXekGIDouJaILQULLDfJRa1+v0odBffKxNZ1\nT0NdcEwugf4cmE6T7TCHf2ul3GiWBTL35ifawAjs+edabB/CmgdXIqR3RK6B5i+k\nOLN7Hf/Fie55B2rZs0liEoDJN73l3/Q5bU4Xx00J9sISbkUT5FvWA7JbhbHvQhfP\n9Mr0aqxYnheeGayBDf9v2Kj+i49v5hwvClqYNa8qB5tRlPNSBjnu5C5x2TklnG4D\ncaOBXqjCXTXLTttKjGy61TJsTTCIbgjQYIadB1xagQEuU4u5urf03Kk1BtYXP/b6\nSy4ghjjEsZwiMNtKb6+r6N70PoEiAIuIYJOUMxhg6QKBgQDIHudJNJYRqW2r05q/\n17S9u1sZ577g3tS5DDmmqpaHUs6st307kM/yhLA/vbPE8GDnWRTozUOXqsPMHpL8\n5dgu4WAKIPhcxizD0QrfIXBodOS7xJAv4v0T5Qogv7QQiCb1lLiMA61a0R13RQrM\nEVW4faQIZMK4ExqATnqtBOMwrQKBgQC4DfVhqQ/lbXiQm+45I5yi1foZH4ra/D/A\nA4wQJP8tP6Yl5YSTPFglLNvNiHX5yDb+3Tb9yfrFU9mv8cUwfNJ8k6WPjg0d6X7A\nyenieSaF/VKbU+SDHEYMuPC/FdJyBSgirxwBD0cfWdUCzWdrX1x4rXXjz47NmJp2\nXXVZZ/0Q6QKBgQCg5EerEX49wOwNo1jdOD119TWvRCSwgjagd/W5y5iuP6MuNW+X\n/jtRjeBtvsTTZzdhiLtI2A6p138HkuU2Mkx2lHg0bIGBhUrkPCLzddz7/k8Pr18F\nQQebgR99aOMKD4zTELi2yRYM1+dKxtWBb8ZtR4YjwW7Ts3gxA+eZRz6pGQKBgQCT\nf1wuL3X1vozoFo4KbGeSdzg9+fElHRFZp34PUhbNBDz6Ebz04V8iK5jaVYl16uVn\nyY/QQpUcnd3OCkqkWOO1wfzj1krctcpGZYlxXPVqW2Bf6hMunvHkMDF+cNZ9WXSY\nlwwyLTQqA6uY21MN0RYh/6CCOEuQp8LhKHRqedNsQQKBgQDDuqucXJkLpbpksH4w\ngwXC0o7ZkDv0iV0mkPZObSszuyhXzD9piWdGkZEfBg+zdh+le4ifqE/++QdZjWld\ne186sBldr6Rmt5ncZNkV0vbMLxpadWxC0WZiVZGWAivNlxjgQNOSFNK1OgTT1weP\naC0HTPJm879mizl0y1Ite9woUw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "serdababaya@industrial-silo-390411.iam.gserviceaccount.com",
+  "client_id": "109365353824792857090",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/serdababaya%40industrial-silo-390411.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

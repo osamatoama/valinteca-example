@@ -19,9 +19,11 @@ use App\Jobs\HaqoolPullProductsJob;
 use App\Jobs\PullNavaImagesJob;
 use App\Jobs\PythonCommand;
 use App\Jobs\QueueJob;
+use App\Jobs\SerdabLoopPages;
 use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
 use App\Jobs\SyncAbayaOrdersJob;
+use App\Jobs\SyncSerdabAbayaItemToGoogleSheet;
 use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
@@ -33,6 +35,7 @@ use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
+use App\Models\SerdabAbayaOrders;
 use App\Services\PdfExportService;
 use App\Services\SallaWebhookService;
 use App\Services\Yuque\YuqueClient;
@@ -994,7 +997,7 @@ Route::any('/pull-haqool-orders/{pages}', function ($pages) {
 
 });
 
-Route::any('/retry-haqool-invoices/{orderId}', function (Request $request,$orderId) {
+Route::any('/retry-haqool-invoices/{orderId}', function (Request $request, $orderId) {
     $api_key = config('auth.haqool_access_token');
 
     $salla = new SallaWebhookService($api_key);
@@ -1036,11 +1039,11 @@ Route::any('/view-haqool-orders', function (Request $request) {
 
     $firstOrder = HaqoolOrder::orderBy('order_date', 'ASC')->first();
     $lastOrder = HaqoolOrder::orderBy('order_date', 'DESC')->first();
-    if(filled($firstOrder)) {
+    if (filled($firstOrder)) {
         $firstDate = $firstOrder->order_date->format('Y-m-d H:i:s');
     }
 
-    if(filled($lastOrder)) {
+    if (filled($lastOrder)) {
         $lastDate = $lastOrder->order_date->format('Y-m-d H:i:s');
 
     }
@@ -1067,4 +1070,28 @@ Route::get('/looker-embed', function () {
 
 Route::get('/superset-embed', function () {
     return view('embed-superset');
+});
+
+
+Route::get('/serdab-abaya-pull-orders', function () {
+
+    $api_key = 'ory_at_l4iHJWLOww6Ta5xTetqY4KO_XH4fKMwYzv_seKTBC48.tHdguUGO92AjLhHuhK2JSxLmTKrG0SEGMQaeS5yIJs0';
+
+    foreach (array_chunk(range(1, 20), 50) as $pages) {
+        dispatch(new SerdabLoopPages($pages, $api_key));
+    }
+    //    serdabAbayaGoogleSheet();
+});
+
+Route::get('/serdab-abaya-google-sheet', function () {
+
+    $orders = SerdabAbayaOrders::with('items')->get();
+
+    foreach ($orders as $i => $order) {
+        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+
+
+    }
+
+
 });
