@@ -1046,9 +1046,7 @@ Route::any('/view-haqool-orders', function (Request $request) {
     }
     //$firstDate = HaqoolOrder::orderBy('order_date', 'ASC')->first()->order_date;
     // $lastDate = HaqoolOrder::orderBy('order_date', 'DESC')->first()->order_date;
-
-    ->format('Y-m-d H:i:s')
-        ->format('Y-m-d H:i:s')
+    
 
     $orderItems = HaqoolOrder::count();
     $orders = HaqoolOrder::distinct('order_number')->count();
