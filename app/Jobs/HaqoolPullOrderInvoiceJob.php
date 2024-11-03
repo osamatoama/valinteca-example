@@ -45,7 +45,9 @@ class HaqoolPullOrderInvoiceJob implements ShouldQueue
         $invoiceNumber = '';
         foreach ($invoices['data'] as $invoice) {
 
-            HaqoolInvoices::create([
+            HaqoolInvoices::updateOrCreate([
+                'invoice_number' => $invoice['invoice_number']
+            ], [
                 'order_number'   => $order['reference_id'],
                 'customer_name'  => $order['customer']['first_name'] . ' ' . $order['customer']['last_name'],
                 'invoice_number' => $invoice['invoice_number'],
