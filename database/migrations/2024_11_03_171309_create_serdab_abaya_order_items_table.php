@@ -17,7 +17,11 @@ class CreateSerdabAbayaOrderItemsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('salla_order_number');
-            $table->string('sku', 400);
+            $table->string('sku', 400)->nullable();
+            $table->string('status', 400);
+            $table->string('quantity', 400);
+            $table->string('size', 400)->nullable();
+            $table->string('order_date', 400);
             $table->timestamps();
         });
     }

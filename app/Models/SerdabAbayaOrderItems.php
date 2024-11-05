@@ -14,5 +14,9 @@ class SerdabAbayaOrderItems extends Model
         'order_id',
         'salla_order_number',
         'sku',
+        'status',
+        'quantity',
+        'size',
+        'order_date',
     ];
 }

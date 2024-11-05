@@ -23,6 +23,7 @@ use App\Jobs\SerdabLoopPages;
 use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
 use App\Jobs\SyncAbayaOrdersJob;
+use App\Jobs\SyncSerdabAbayaItemToGoogleSheet;
 use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
@@ -34,6 +35,8 @@ use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
+use App\Models\SerdabAbayaOrders;
+use App\Services\Google\Sheets\GoogleSheetsService;
 use App\Services\PdfExportService;
 use App\Services\SallaWebhookService;
 use App\Services\Yuque\YuqueClient;
@@ -1076,24 +1079,41 @@ Route::get('/serdab-abaya-pull-orders', function () {
 
     $api_key = 'ory_at_l4iHJWLOww6Ta5xTetqY4KO_XH4fKMwYzv_seKTBC48.tHdguUGO92AjLhHuhK2JSxLmTKrG0SEGMQaeS5yIJs0';
 
-    foreach (array_chunk(range(1, 20), 50) as $pages) {
+    foreach (array_chunk(range(1, 850), 50) as $pages) {
         dispatch(new SerdabLoopPages($pages, $api_key));
     }
-    //    serdabAbayaGoogleSheet();
 });
 
-Route::get('/serdab-abaya-google-sheet', function () {
-
-    Sheets::sheet('Sheet 1')->range('A4')->update([['3', 'name3', 'mail3']]);
-
-    dd(1);
-
-    //    $orders = SerdabAbayaOrders::with('items')->get();
-    //
-    //    foreach ($orders as $i => $order) {
-    //        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
-    //
-    //    }
-
-
+Route::get('/serdab-abaya-orders-google-sheet', function () {
+    $orders = SerdabAbayaOrders::with('items')->orderBy('order_date', 'DESC')->get();
+    foreach ($orders as $i => $order) {
+        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+    }
 });
+
+Route::get('/serdab-abaya-skus-google-sheet', function () {
+    $orders = SerdabAbayaOrders::with('items')->get();
+    foreach ($orders as $i => $order) {
+        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+    }
+});
+
+Route::get('/serdab-abaya-update-google-sheet', function () {
+    $service = new GoogleSheetsService(spreadsheetId: config(key: 'google.spreadsheet_id',),
+        sheetName: config(key: 'google.sheet_name',), range: 'A4');
+    $service->update(['Osama']);
+});
+
+
+Route::get('/jobs-speed-up', function () {
+    DB::table('jobs')->limit(500)->update([
+        'available_at' => 1
+    ]);
+
+    dd("DONE");
+});
+
+
+
+
+

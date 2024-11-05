@@ -402,7 +402,7 @@ function serdabAbayaGoogleSheet($data)
 
     } catch (GoogleSheetsException $exception) {
 
-        dd($exception);
+        // dd($exception);
 
         //        $this->handleException(
         //            exception: GoogleSheetsException::fromException(

@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -37,7 +38,7 @@ class SyncSerdabAbayaItemToGoogleSheet implements ShouldQueue
         $newArr = [];
         $newArr[] = $order->order_number;
         $newArr[] = $order->order_status;
-        $newArr[] = $order->order_date;
+        $newArr[] = Carbon::parse($order->order_date)->format('Y/m/d');
         foreach ($order->items as $item) {
             $skus .= $item->sku . ' ';
             $newArr[] = $item->sku;

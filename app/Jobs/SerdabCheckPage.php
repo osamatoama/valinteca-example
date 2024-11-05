@@ -42,17 +42,38 @@ class SerdabCheckPage implements ShouldQueue
         $orders = $salla->getOrdersLatest($this->page);
 
         foreach ($orders['data'] as $order) {
+            $order_status = $order['status']['name'];
+            if (isset($order['status']['customized'])) {
+                $order_status = $order['status']['customized']['name'];
+            }
             $serdabOrder = SerdabAbayaOrders::create([
                 'salla_order_id' => $order['id'],
                 'order_number'   => $order['reference_id'],
-                'order_status'   => $order['status']['name'],
+                'order_status'   => $order_status,
                 'order_date'     => Carbon::parse($order['date']['date'])->format('Y-m-d H:i:s'),
             ]);
 
             foreach ($order['items'] as $item) {
+                $size = null;
+                foreach ($item['options'] as $option) {
+                    if (isset($option['name'])) {
+
+                        if ($option['name'] == 'القياس' || $option['name'] == 'المقاس') {
+                            $size = $option
+                            ['value']
+                            ['name'];
+                        }
+                    }
+
+                }
+
                 $serdabOrder->items()->create([
                     'salla_order_number' => $order['id'],
-                    'sku'                => $item['sku'],
+                    'sku'                => blank($item['sku']) ? null : $item['sku'],
+                    'status'             => $order_status,
+                    'quantity'           => $item['quantity'],
+                    'size'               => $size,
+                    'order_date'         => Carbon::parse($order['date']['date'])->format('Y-m-d H:i:s'),
                 ]);
             }
         }

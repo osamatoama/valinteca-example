@@ -36,7 +36,7 @@ class SerdabLoopPages implements ShouldQueue
     public function handle()
     {
         foreach ($this->pages as $page) {
-            dispatch(new SerdabCheckPage($page, $this->api_key));
+            dispatch(new SerdabCheckPage($page, $this->api_key))->onQueue('pull-order');
         }
     }
 }
