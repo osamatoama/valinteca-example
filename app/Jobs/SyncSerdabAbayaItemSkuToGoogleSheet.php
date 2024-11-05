@@ -47,7 +47,7 @@ class SyncSerdabAbayaItemSkuToGoogleSheet implements ShouldQueue
         $newArr[] = $item->sku;
         $newArr[] = $order->order_status;
         $newArr[] = $item->quantity;
-        $newArr[] = blank($item->size) ?? '';
+        $newArr[] = blank($item->size) ? ' ' : $item->size;
         $newArr[] = Carbon::parse($order->order_date)->format('Y/m/d');
 
 
