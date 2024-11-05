@@ -56,8 +56,8 @@ class SerdabCheckPage implements ShouldQueue
             foreach ($order['items'] as $item) {
                 $size = null;
                 foreach ($item['options'] as $option) {
-                    \Log::error($option);
-                    
+
+
                     if (isset($option['name'])) {
 
                         if ($option['name'] == 'القياس' || $option['name'] == 'المقاس') {
