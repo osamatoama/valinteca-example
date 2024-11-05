@@ -397,11 +397,14 @@ function serdabAbayaGoogleSheet($data)
 
     try {
         $response = $service->append(data: $data);
-        \Log::error($response);
         return $response;
 
     } catch (GoogleSheetsException $exception) {
-        throw new Exception('failed');
+
+        \Log::error($data);
+        \Log::error($exception->getMessage());
+
+        throw new Exception($exception->getMessage());
         // dd($exception);
 
         //        $this->handleException(

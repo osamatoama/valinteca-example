@@ -19,4 +19,10 @@ class SerdabAbayaOrderItems extends Model
         'size',
         'order_date',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(SerdabAbayaOrders::class);
+
+    }
 }

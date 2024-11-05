@@ -98,10 +98,10 @@ return [
 
     'spreadsheet_id' => env(
         key: 'GOOGLE_SPREADSHEET_ID',
-        default: '1qpFgRlVL7IOo8WplvMKa_I8p9uMH01nukWegzKREjGE',
+        default: '1_XysVxvXhQ_Waofs2nxkaL5OYGfLRxrhYrpX5ENtTf0',
     ),
     'sheet_name' => env(
         key: 'GOOGLE_SHEET_NAME',
-        default: 'data salla2',
+        default: 'data',
     ),
 ];

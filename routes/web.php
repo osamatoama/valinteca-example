@@ -23,6 +23,7 @@ use App\Jobs\SerdabLoopPages;
 use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
 use App\Jobs\SyncAbayaOrdersJob;
+use App\Jobs\SyncSerdabAbayaItemSkuToGoogleSheet;
 use App\Jobs\SyncSerdabAbayaItemToGoogleSheet;
 use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
@@ -35,6 +36,7 @@ use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
+use App\Models\SerdabAbayaOrderItems;
 use App\Models\SerdabAbayaOrders;
 use App\Services\Google\Sheets\GoogleSheetsService;
 use App\Services\PdfExportService;
@@ -1086,15 +1088,16 @@ Route::get('/serdab-abaya-pull-orders', function () {
 
 Route::get('/serdab-abaya-orders-google-sheet', function () {
     $orders = SerdabAbayaOrders::with('items')->orderBy('order_date', 'DESC')->get();
+
     foreach ($orders as $i => $order) {
         dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
     }
 });
 
 Route::get('/serdab-abaya-skus-google-sheet', function () {
-    $orders = SerdabAbayaOrders::with('items')->get();
-    foreach ($orders as $i => $order) {
-        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+    $items = SerdabAbayaOrderItems::whereNotNull('size')->with('order')->orderBy('order_date', 'DESC')->get();
+    foreach ($items as $i => $item) {
+        dispatch(new SyncSerdabAbayaItemSkuToGoogleSheet($item))->delay(now()->addSeconds($i * 3));
     }
 });
 
