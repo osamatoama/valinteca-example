@@ -98,7 +98,7 @@ return [
 
     'spreadsheet_id' => env(
         key: 'GOOGLE_SPREADSHEET_ID',
-        default: '1SKvybp_8xjA2bCz0jl6CUBZ9vJ6VP2dqu-II-ZkHiF0',
+        default: '1Sum1L6VJNXRroX11Iyqg8SSIqLmFK7BgMKmWBZApkAA',
     ),
     'sheet_name' => env(
         key: 'GOOGLE_SHEET_NAME',

@@ -43,8 +43,8 @@ class SyncSerdabAbayaItemToGoogleSheet implements ShouldQueue
             $newArr[] = $item->sku;
         }
 
-        $newArr[] = $skus;
+       // $newArr[] = ;
 
-        serdabAbayaGoogleSheet($newArr);
+        serdabAbayaGoogleSheet(fillArray($newArr,$skus));
     }
 }

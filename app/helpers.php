@@ -397,6 +397,9 @@ function serdabAbayaGoogleSheet($data)
 
     try {
         $response = $service->append(data: $data);
+        \Log::error($response);
+        return $response;
+
     } catch (GoogleSheetsException $exception) {
 
         dd($exception);
@@ -419,12 +422,12 @@ function serdabAbayaGoogleSheet($data)
 
 function fillArray($array,$lastItem)
 {
-    $target = 27;
+    $target = 26;
     $count = count($array);
     $remaining = $target - $count;
 
     foreach (range(1, $remaining) as $i) {
-        $array[] = '';
+        $array[] = '.';
     }
     $array[] = $lastItem;
 

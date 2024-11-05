@@ -23,7 +23,6 @@ use App\Jobs\SerdabLoopPages;
 use App\Jobs\SlimShCientsJob;
 use App\Jobs\SlimShMenController;
 use App\Jobs\SyncAbayaOrdersJob;
-use App\Jobs\SyncSerdabAbayaItemToGoogleSheet;
 use App\Jobs\ZadlyOrders;
 use App\Mail\CerMail;
 use App\Models\AbayaProducts;
@@ -35,7 +34,6 @@ use App\Models\Player;
 use App\Models\PricesGroups;
 use App\Models\PricesProducts;
 use App\Models\Rating;
-use App\Models\SerdabAbayaOrders;
 use App\Services\PdfExportService;
 use App\Services\SallaWebhookService;
 use App\Services\Yuque\YuqueClient;
@@ -47,6 +45,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
+use Revolution\Google\Sheets\Facades\Sheets;
 use robertogallea\LaravelPython\Services\LaravelPython;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -1085,13 +1084,16 @@ Route::get('/serdab-abaya-pull-orders', function () {
 
 Route::get('/serdab-abaya-google-sheet', function () {
 
-    $orders = SerdabAbayaOrders::with('items')->get();
+    Sheets::sheet('Sheet 1')->range('A4')->update([['3', 'name3', 'mail3']]);
 
-    foreach ($orders as $i => $order) {
-        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+    dd(1);
 
-
-    }
+    //    $orders = SerdabAbayaOrders::with('items')->get();
+    //
+    //    foreach ($orders as $i => $order) {
+    //        dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
+    //
+    //    }
 
 
 });
