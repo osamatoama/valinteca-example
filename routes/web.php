@@ -1085,7 +1085,7 @@ Route::get('/serdab-abaya-pull-orders', function () {
 });
 
 Route::get('/serdab-abaya-orders-google-sheet', function () {
-    $orders = SerdabAbayaOrders::with('items')->orderBy('order_date', 'DESC')->limit(3)->get();
+    $orders = SerdabAbayaOrders::with('items')->orderBy('order_date', 'DESC')->get();
     foreach ($orders as $i => $order) {
         dispatch(new SyncSerdabAbayaItemToGoogleSheet($order))->delay(now()->addSeconds($i * 3));
     }
