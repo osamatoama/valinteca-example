@@ -17,6 +17,7 @@ class SerdabAbayaOrderItems extends Model
         'status',
         'quantity',
         'size',
+        'notes',
         'order_date',
     ];
 

@@ -73,6 +73,7 @@ class SerdabCheckPage implements ShouldQueue
                     'status'             => $order_status,
                     'quantity'           => $item['quantity'],
                     'size'               => $size,
+                    'notes'              => $item['notes'],
                     'order_date'         => Carbon::parse($order['date']['date'])->format('Y-m-d H:i:s'),
                 ]);
             }

@@ -1081,7 +1081,9 @@ Route::get('/serdab-abaya-pull-orders', function () {
 
     $api_key = 'ory_at_l4iHJWLOww6Ta5xTetqY4KO_XH4fKMwYzv_seKTBC48.tHdguUGO92AjLhHuhK2JSxLmTKrG0SEGMQaeS5yIJs0';
 
-    foreach (array_chunk(range(1, 850), 50) as $pages) {
+    $salla = new SallaWebhookService($api_key);
+
+    foreach (array_chunk(range(1, 900), 50) as $pages) {
         dispatch(new SerdabLoopPages($pages, $api_key));
     }
 });

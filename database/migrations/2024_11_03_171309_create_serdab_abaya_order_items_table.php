@@ -21,6 +21,8 @@ class CreateSerdabAbayaOrderItemsTable extends Migration
             $table->string('status', 400);
             $table->string('quantity', 400);
             $table->string('size', 400)->nullable();
+            $table->longText('notes')->nullable();
+
             $table->string('order_date', 400);
             $table->timestamps();
         });
