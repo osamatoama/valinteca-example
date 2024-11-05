@@ -401,7 +401,7 @@ function serdabAbayaGoogleSheet($data)
         return $response;
 
     } catch (GoogleSheetsException $exception) {
-
+        throw new Exception('failed');
         // dd($exception);
 
         //        $this->handleException(
