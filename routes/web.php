@@ -1083,7 +1083,7 @@ Route::get('/serdab-abaya-pull-orders', function () {
 
     $salla = new SallaWebhookService($api_key);
 
-    foreach (array_chunk(range(1, 900), 50) as $pages) {
+    foreach (array_chunk(range(1, 850), 50) as $pages) {
         dispatch(new SerdabLoopPages($pages, $api_key));
     }
 });
