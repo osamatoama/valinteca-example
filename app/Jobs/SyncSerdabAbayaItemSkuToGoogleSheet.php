@@ -16,8 +16,6 @@ class SyncSerdabAbayaItemSkuToGoogleSheet implements ShouldQueue
 
     public $item;
 
-    public $tries = 5;
-
     /**
      * Create a new job instance.
      *
