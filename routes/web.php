@@ -1079,7 +1079,7 @@ Route::get('/superset-embed', function () {
 
 Route::get('/serdab-abaya-pull-orders', function () {
 
-    $api_key = 'ory_at_l4iHJWLOww6Ta5xTetqY4KO_XH4fKMwYzv_seKTBC48.tHdguUGO92AjLhHuhK2JSxLmTKrG0SEGMQaeS5yIJs0';
+    $api_key = 'ory_at_fHAT0XzpQloP5TSO5e3dk4unOFSZG4vdK5cUPeo7V30.t0xHPxCsfCUlYIz4C-fQyyH720qDMLnsxvKqq9koKsM';
 
     $salla = new SallaWebhookService($api_key);
 
