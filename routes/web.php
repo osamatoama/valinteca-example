@@ -1097,7 +1097,7 @@ Route::get('/serdab-abaya-orders-google-sheet', function () {
 });
 
 Route::get('/serdab-abaya-skus-google-sheet', function () {
-    $items = SerdabAbayaOrderItems::whereNotNull('size')->whereNull('notes')->with('order')->orderBy('order_date', 'DESC')->get();
+    $items = SerdabAbayaOrderItems::whereNotNull('size')->whereNull('notes')->with('order')->limit(4000)->orderBy('order_date', 'DESC')->get();
     foreach ($items as $i => $item) {
         dispatch(new SyncSerdabAbayaItemSkuToGoogleSheet($item))->delay(now()->addSeconds($i * 3));
     }
