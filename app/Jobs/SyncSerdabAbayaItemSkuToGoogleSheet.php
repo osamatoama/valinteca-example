@@ -34,23 +34,20 @@ class SyncSerdabAbayaItemSkuToGoogleSheet implements ShouldQueue
     public function handle()
     {
         // order number	SKU	Status	Quantity	Size	Order Date
-
-
         $item = $this->item;
         $order = $item->order;
+        if ($order->order_status == 'قيد التنفيذ' || $order->order_status == 'جاري التنفيذ') {
+            $newArr = [];
+            $newArr[] = $order->order_number;
+            $newArr[] = $item->sku;
+            $newArr[] = $order->order_status;
+            $newArr[] = $item->quantity;
+            $newArr[] = $item->size;
+            $newArr[] = Carbon::parse($order->order_date)->format('Y/m/d');
+            
+            serdabAbayaGoogleSheet($newArr);
+        }
 
 
-        $newArr = [];
-        $newArr[] = $order->order_number;
-        $newArr[] = $item->sku;
-        $newArr[] = $order->order_status;
-        $newArr[] = $item->quantity;
-        $newArr[] = $item->size;
-        $newArr[] = Carbon::parse($order->order_date)->format('Y/m/d');
-
-
-        // $newArr[] = ;
-
-        serdabAbayaGoogleSheet($newArr);
     }
 }
