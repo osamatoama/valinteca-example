@@ -56,7 +56,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
-    return bcrypt('passwordHaq999');
+    return bcrypt('Lilas2024HHH');
 });
 
 

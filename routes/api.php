@@ -159,11 +159,36 @@ Route::any('best-shield-api-example', function (Request $request) {
 });
 
 
-
 Route::any('register-webhooks', function (Request $request) {
     Log::error($request->all());
 
 
-
 });
 
+
+Route::any('pubg-requests', function (Request $request) {
+    return response()->json([
+        [
+            "id"   => '5223531492',
+            "code" => 'kRKu2pMm2c244434yf',
+        ],
+        [
+            "id"   => '5204473671',
+            "code" => 'rcDvcxxi2m2430Ydcc',
+        ],
+        [
+            "id"   => '5284901776',
+            "code" => 'rcDvcFxs2T2f32Y2e3',
+        ],
+        [
+            "id"   => '5120395982',
+            "code" => 'K8ve8dFv2q2e44s0G2',
+        ],
+        [
+            "id"   => '5922790568',
+            "code" => 'rcDvcxxi2m2430Ydcc',
+        ],
+    ]);
+
+
+});
