@@ -56,9 +56,23 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
-    return bcrypt('admin');
+    return bcrypt('passwordHaq999');
 });
 
+
+Route::get('/test-salla', function () {
+
+    $api_key = 'ory_at_KMxKajkRTIsTRP_a9LhFOJI2QxkpwoYr16Kn6lfSc8o.TDMNatJGnpMJRXIxj9qAXGxyEillns_J4PqFrDaWNNs';
+    $salla = new SallaWebhookService($api_key);
+
+    dd($salla->getOrdersLatest());
+
+//    $service = new GoogleSheetsService(spreadsheetId: config(key: 'google.spreadsheet_id',),
+//        sheetName: config(key: 'google.sheet_name',), range: '');
+//
+//    return $service->get();
+
+});
 
 Route::get('test-an', function () {
     dump(get_salla_merchant_info('ory_at_sffvweKGQe1wttLG2X_iZbS7mOhMNEKgmNytaXmCrLQ.woiRhqGHq-tQ5INmugKyKIgGbQ-ClCAsbgj_Mx1QNcU'));
@@ -1098,6 +1112,8 @@ Route::get('/serdab-abaya-orders-google-sheet', function () {
 
 Route::get('/serdab-abaya-skus-google-sheet', function () {
     $items = SerdabAbayaOrderItems::whereNotNull('size')->whereNull('notes')->with('order')->orderBy('order_date', 'DESC')->limit(4000)->get();
+
+#
     foreach ($items as $i => $item) {
         dispatch(new SyncSerdabAbayaItemSkuToGoogleSheet($item))->delay(now()->addSeconds($i * 3));
     }

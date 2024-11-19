@@ -51,21 +51,6 @@ function nextPage() {
 storeRatings();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Define the URL for the API request
 const url = "https://example.valinteca.com/api/any";
 
@@ -81,7 +66,6 @@ const body = {
 };
 
 // Make a POST request to the API with the defined URL, headers, and body
-
 
 
 document.querySelectorAll('custom-salla-product-card').forEach(function (item) {
@@ -100,6 +84,28 @@ document.querySelectorAll('custom-salla-product-card').forEach(function (item) {
             })
         });
 });
+
+
+    function clickSwitchButton() {
+        document.querySelector('.UserTabBox_switch_btn__428iM').click();
+        setTimeout(function () {
+            putPlayerId(5195573216);
+
+        }, 5000);
+    }
+
+
+    function putPlayerId(playerId) {
+        document.querySelector('.Input_input__s4ezt input').value = playerId;
+        document.querySelector('.Button_btn__P0ibl div').click();
+        setTimeout(function () {
+            document.querySelector('.ZoneNavBar_item__XriLM[href*="redeem"]').click();
+
+        }, 2000);
+    }
+
+
+    clickSwitchButton();
 
 
 
