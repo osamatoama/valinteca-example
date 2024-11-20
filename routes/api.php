@@ -196,7 +196,12 @@ Route::any('pubg-requests', function (Request $request) {
             "id"   => '87124124125',
             "code" => 'rcDvMNAPdsf2m2430Ydcc',
         ],
-        
+        [
+            "id"   => '533038203',
+            "code" => 'qYNuUEZt2e2454e5a2',
+        ],
+
+
     ]);
 
 
