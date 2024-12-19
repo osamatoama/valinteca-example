@@ -56,21 +56,14 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
 
-    return bcrypt('Lilas2024HHH');
+    return bcrypt('Reef2024HHH');
 });
 
 
 Route::get('/test-salla', function () {
 
-    $api_key = 'ory_at_KMxKajkRTIsTRP_a9LhFOJI2QxkpwoYr16Kn6lfSc8o.TDMNatJGnpMJRXIxj9qAXGxyEillns_J4PqFrDaWNNs';
-    $salla = new SallaWebhookService($api_key);
-
-    dd($salla->getOrdersLatest());
-
-//    $service = new GoogleSheetsService(spreadsheetId: config(key: 'google.spreadsheet_id',),
-//        sheetName: config(key: 'google.sheet_name',), range: '');
-//
-//    return $service->get();
+    asfasfasfasfafs;
+    
 
 });
 
